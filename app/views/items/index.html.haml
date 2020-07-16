@@ -2,15 +2,26 @@
 = render partial: "template/sellbtn"
 
 .main
-人生を変えるフリマアプリ！
+  %section.firstView
+    .firstView__content
+      %h2.firstView__content__copy
+        %br 人生を変えるフリマアプリ
+      %p.firstView__content__text 
+        FURIMAはだれでもかんたんに出品・購入できる
+        %br フリマアプリです
+      .firstView__content__btn
+        .applebtn
+          = image_tag 'app-store.svg'
+        .googlebtn
+          = image_tag 'google-play.svg'
 
 ここにメインコンテンツとなるFURIMAが選ばれる理由のコンテンツや商品紹介のコンテンツが入ります
 
 .banner
-  .banner__inner
-    %h2.banner__inner__title だれでもかんたん、人生を変えるフリマアプリ
-    %p.banner__inner__text 今すぐ無料ダウンロード！
-    .banner__inner__icon
+  .banner__content
+    %h2.banner__content__title だれでもかんたん、人生を変えるフリマアプリ
+    %p.banner__content__text 今すぐ無料ダウンロード！
+    .banner__content__btn
       = image_tag 'app-store.svg'
       = image_tag 'google-play.svg'
 
