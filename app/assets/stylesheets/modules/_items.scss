@@ -66,6 +66,99 @@ body {
   
 }
 
+.introduction {
+  padding: 60px 20px;
+
+  &__title {
+    text-align: center;
+    font-size: 26px;
+    line-height: 1.4;
+    font-weight: bold;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    position: relative;
+
+    ::after {
+      content: "";
+      width: 70px;
+      height: 4px;
+      background-color: #3CCACE;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+  }
+
+  
+
+  .lists {
+    display: flex;
+    max-width: 1020px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    list-style: none;
+  }
+
+  .list {
+    width: calc( 100% / 3 );
+    margin: 16px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      width: 100%;
+      vertical-align: bottom;
+    }
+
+    &__img {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    &__sub {
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 50px;
+      margin: 0 0 0 2px;
+    }
+
+    &__explanation {
+      font-size: 18px;
+      line-height: 1.5;
+      margin: 16px 0 0;
+    }
+  }
+
+  .number {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 4%;
+    font-size: 30px;
+    text-align: center;
+    margin: 0 5px 0 0;
+    padding: 10px 20px;
+    background-color: #3CCACE;
+    color: #fff;
+  }
+  h3 {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 50px;
+    margin: 0 0 0 2px;
+    span {
+      color: #3CCACE;
+    }
+  }
+}
+
+
 .banner {
   background-image: image-url('bg-appBanner-pict.jpg');
   padding: 100px 40px;
