@@ -43,6 +43,18 @@
           手数料
           %span 業界最安
         %p.list__explanation 最大3%でお得に出品&購入！
+  %section.middleBanner
+    .middleBanner__content
+      %h2.middleBanner__content__title 会員数日本一位
+      %p.middleBanner__content__text
+        FURIMAは、フリマアプリで最も人気。
+        %br 出品・購入回数も業界最多です！
+        %br ほしかったあの商品に出会えるかもしれません。
+      .middleBanner__content__btn
+        .applebtn
+          = image_tag "app-store.svg"
+        .googlebtn
+          = image_tag "google-play.svg"
 
 
 .banner
@@ -50,7 +62,9 @@
     %h2.banner__content__title だれでもかんたん、人生を変えるフリマアプリ
     %p.banner__content__text 今すぐ無料ダウンロード！
     .banner__content__btn
-      = image_tag 'app-store.svg'
-      = image_tag 'google-play.svg'
+      .applebtn
+        = image_tag 'app-store.svg'
+      .googlebtn
+        = image_tag 'google-play.svg'
 
 = render partial: "template/footer"

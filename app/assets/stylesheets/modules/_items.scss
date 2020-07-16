@@ -158,6 +158,47 @@ body {
   }
 }
 
+.middleBanner {
+  background-image: image-url('bg-topMiddleDl-pict.jpg');
+  background-position: bottom right;
+  height: 400px;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+
+  &__content {
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    text-align: left;
+    max-width: 1040px;
+    width: 100%;
+    margin: 0 auto;
+
+    &__title {
+      font-size: 27px;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+  
+    &__text {
+      font-size: 18px;
+      margin: 20px 0 30px;
+      line-height: 1.5;
+    }
+  
+    &__btn {
+      display: flex;
+      
+      .applebtn {
+        margin-right: 10px;
+      }
+
+      img {
+        width: 180px;
+      }
+    }
+  }
+}
 
 .banner {
   background-image: image-url('bg-appBanner-pict.jpg');
