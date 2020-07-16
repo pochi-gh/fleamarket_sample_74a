@@ -31,12 +31,11 @@
 |------|----|-------|
 |name|string|null: false|
 |explain|text|null: false|
-|state_id|references|null: false|
+|state_id|references|null: false, foreign_key: true|
 |price|integer|null: false|
 |seller_id|references|null: false, foreign_key: true|
 |buyer_id|references|
-|resarvavation_email|references|null: false, foreign_key: true|
-|image_id|references|null: false, foreign_key: true|
+|resarvavation_email|references|null: false|
 |image_id|references|null: false, foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
 |shipping_burden_id|references|null: false, foreign_key: true|
@@ -74,8 +73,8 @@
 |prefecture_id|references|null: false, foreign_key: true|
 |city|string|null: false|
 |block|string|null: false|
-|building|string|null: false|
-|phone-numeber|string|
+|building|string|
+|phone_numeber|string|
 
 ### Association
 - belongs_to: user
@@ -114,7 +113,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |image_id|text|null: false|
-|items_id|references|null: false, foreing_key: true|
+|items|references|null: false, foreing_key: true|
 
 ### Association
 - belongs_to: item
