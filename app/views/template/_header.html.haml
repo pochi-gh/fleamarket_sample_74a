@@ -1,7 +1,7 @@
 .header
   .header__inner
     .header__inner__top
-      %h1.picture
+      %h1.logo
         = link_to root_path do
           = image_tag 'furima.svg'
       .searchbox
@@ -11,14 +11,14 @@
           %button{type: "submit", value: ""}
             .searchbox__icon
               = image_tag "icon-search.png"
-    .topheader__inner__bottom
+    .header__inner__bottom
       %ul.list__left
         %li.list__left__category
           = link_to "#" do
-            %span カテゴリーから探す
+            %span カテゴリー
         %li.left__list__brand
           = link_to "#" do
-            %span ブランドから探す
+            %span ブランド
       %ul.list__right
         %li.list__right__login
           = link_to "#" do
