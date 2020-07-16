@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box;
 }
+body {
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+}
 
 .banner {
   background-image: image-url('bg-appBanner-pict.jpg');
@@ -13,7 +16,6 @@
     color: #fff;
     text-align: center;
 
-    // ここの書き方は見本サイトと同じです
     &__title {
       text-shadow: 0 0 5px rgba(0,0,0,0.4);
       font-size: 24px;
@@ -36,6 +38,8 @@
 
       img {
         width: 180px;
+        height: 53.33px;
+        padding: 0 10px;
       }
     }
 
