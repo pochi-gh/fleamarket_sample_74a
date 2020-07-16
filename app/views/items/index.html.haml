@@ -1,1 +1,14 @@
 = render partial: "template/header"
+= render partial: "template/sellbtn"
+
+.main
+
+.banner
+  .banner__inner
+    %h2.banner__inner__title だれでもかんたん、人生を変えるフリマアプリ
+    %p.banner__inner__text 今すぐ無料ダウンロード！
+    .banner__inner__icon
+      = image_tag 'app-store.svg'
+      = image_tag 'google-play.svg'
+
+= render partial: "template/footer"
