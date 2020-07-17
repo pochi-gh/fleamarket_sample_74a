@@ -96,13 +96,14 @@
 
 
 ## credit_card
-|Column|Type|Options|
-|------|----|-------|
+|column|type|options|
+|:-:|:-:|:-:|
+|user|reference|null: false, foreign_key: true|
+|customer_token|string|null: false|
 |user_id|references|null: false, foreing_key: true|
 |card_namber|integer|null: false|
 |card_month|integer|null: false|
 |card_year|integer|null: false|
-|security_code|integer|null: false|
 
 ### Association
 - belongs_to: user
@@ -112,7 +113,7 @@
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image_id|text|null: false|
+|photo|text|null: false|
 |items|references|null: false, foreing_key: true|
 
 ### Association
