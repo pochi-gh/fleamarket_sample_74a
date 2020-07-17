@@ -51,7 +51,7 @@
 - belongs_to: seller, class_name: 'user', :foreign_key => 'seller_id'
 - belongs_to: buyer, class_name: 'user', :foreign_key => 'buyer_id'
 - belongs_to: category
-- belongs_to: bland
+- belongs_to: brand
 - belongs_to_active_hash: state
 - belongs_to_active_hash: shipping_burden
 - belongs_to_active_hash: shipping_day
@@ -115,22 +115,25 @@
 
 
 
-## shipping_daysテーブル
+
+## shipping_burdensテーブル
 |Column|Type|Options|
 |------|----|-------|
-|shipping_day|string|null: false|
+|shipping_burden|string|null: false|
 
 ### Association
 - has_many: items
 
 
-## sizeテーブル
+
+## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|size_id|string|null:false|
+|brand_name|string|
 
 ### Association
 - has_many: items
+ 
 
 
 ### commentsテーブル
@@ -146,6 +149,7 @@
 
 
 
+
 ## likesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -158,6 +162,7 @@
 
 
 
+
 ## favoritesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -167,7 +172,6 @@
 ### Association
 - belongs_to: item
 - belongs_to: user
-
 
 
 ## sns_authentcationsテーブル
