@@ -115,17 +115,6 @@
 
 
 
-
-## shipping_burdensテーブル
-|Column|Type|Options|
-|------|----|-------|
-|shipping_burden|string|null: false|
-
-### Association
-- has_many: items
-
-
-
 ## shipping_daysテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -133,17 +122,6 @@
 
 ### Association
 - has_many: items
-
-
-
-## brandsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|
-
-### Association
-- has_many: items
- 
 
 
 ## sizeテーブル
@@ -168,7 +146,6 @@
 
 
 
-
 ## likesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -181,7 +158,6 @@
 
 
 
-
 ## favoritesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -191,6 +167,7 @@
 ### Association
 - belongs_to: item
 - belongs_to: user
+
 
 
 ## sns_authentcationsテーブル
