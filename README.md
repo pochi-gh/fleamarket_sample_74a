@@ -36,7 +36,6 @@
 |seller_id|references|null: false, foreign_key: true|
 |buyer_id|references|
 |resarvavation_email|references|null: false|
-|image_id|references|null: false, foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
 |shipping_burden_id|references|null: false, foreign_key: true|
 |shipping_day_id|references|null: false, foreign_key: true|
