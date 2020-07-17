@@ -97,12 +97,8 @@
 ## credit_card
 |column|type|options|
 |:-:|:-:|:-:|
-|user|reference|null: false, foreign_key: true|
-|customer_token|string|null: false|
-|user_id|references|null: false, foreing_key: true|
-|card_namber|integer|null: false|
-|card_month|integer|null: false|
-|card_year|integer|null: false|
+|token|string|null:false
+|user|references|null: false, foreign_key: true
 
 ### Association
 - belongs_to: user
