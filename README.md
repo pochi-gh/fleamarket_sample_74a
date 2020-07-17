@@ -41,7 +41,6 @@
 |shipping_day_id|references|null: false, foreign_key: true|
 |prefecture_id|references|null: false, foreign_key: true|
 |brand_id|references|null: false, foreign_key: true|
-|size_id|references|null: false, foreign_key: true|
 
 ### Association
 - has_many: images, dependent: :destroy
@@ -54,9 +53,6 @@
 - belongs_to: brand
 - belongs_to_active_hash: state
 - belongs_to_active_hash: shipping_burden
-- belongs_to_active_hash: shipping_day
-- belongs_to_active_hash: size
-- belongs_to_active_hash: prefecture
 
 
 
@@ -77,7 +73,6 @@
 
 ### Association
 - belongs_to: user
-- belongs_to_active_hash: prefecture
 
 
 
