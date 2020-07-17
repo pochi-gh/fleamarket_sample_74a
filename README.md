@@ -82,18 +82,6 @@
 
 
 
-## prefecturesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|prefecture_name|string|null: false|
-
-### Association
-- belongs_to: item
-- belongs_to: address
-
-
-
-
 ## credit_card
 |column|type|options|
 |:-:|:-:|:-:|
@@ -151,7 +139,7 @@
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|brand_name|string|
+|name|string|
 
 ### Association
 - has_many: items
