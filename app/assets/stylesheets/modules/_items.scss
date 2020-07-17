@@ -66,7 +66,7 @@ body {
   
 }
 
-.introduction {
+@mixin threelists() {
   padding: 60px 20px;
 
   &__title {
@@ -90,8 +90,6 @@ body {
     }
 
   }
-
-  
 
   .lists {
     display: flex;
@@ -133,6 +131,10 @@ body {
       margin: 16px 0 0;
     }
   }
+}
+
+.introduction {
+  @include threelists();
 
   .number {
     display: inline-block;
@@ -151,7 +153,7 @@ body {
     font-weight: bold;
     font-size: 24px;
     line-height: 50px;
-    margin: 0 0 0 2px;
+    margin-left: 2px;
     span {
       color: #3CCACE;
     }
@@ -188,7 +190,7 @@ body {
   
     &__btn {
       display: flex;
-      
+
       .applebtn {
         margin-right: 10px;
       }
@@ -197,6 +199,17 @@ body {
         width: 180px;
       }
     }
+  }
+}
+
+.features {
+  @include threelists();
+
+  h3 {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 50px;
+    margin-left: 2px;
   }
 }
 
