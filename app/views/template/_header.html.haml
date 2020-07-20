@@ -1,0 +1,28 @@
+.header
+  .header__inner
+    .header__inner__top
+      %h1.logo
+        = link_to root_path do
+          = image_tag 'furima.svg'
+      .searchbox
+        %form{action: '#', method: 'get'}
+          %input{name: "utf8", type: "hidden", value: "✔︎"}
+          %input{class: "searchbox--input", name: "key", placeholder: "お探しの商品は何ですか？"}
+          %button{type: "submit", value: ""}
+            .searchbox__icon
+              = image_tag "icon-search.png"
+    %nav.header__inner__nav
+      %ul.list__left
+        %li.list__left__category
+          = link_to "#" do
+            %span カテゴリー
+        %li.list__left__brand
+          = link_to "#" do
+            %span ブランド
+      %ul.list__right
+        %li.list__right__login
+          = link_to "#" do
+            %span ログイン
+        %li.list__right__new
+          = link_to "#" do
+            %span 新規会員登録
