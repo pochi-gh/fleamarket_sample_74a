@@ -1,0 +1,56 @@
+= render partial: "items/template/header"
+= render partial: "items/template/sellbtn"
+
+.mypage
+  .mypage__side_bar
+    = render "side_bar"
+  .mypage__personal-info
+    %h1.title
+      本人情報の入力
+    %p.suggestion
+      お客さまの本人情報をご登録ください。
+    %span
+      お名前
+    %p.name
+      = @user.first_name
+      = @user.last_name
+    %span
+      お名前カナ
+    %p.name__kana
+      = @user.first_name_kana
+      = @user.last_name_kana
+    %span
+      生年月日
+    %p.birthday
+      = @user.birthday
+    %span
+      郵便番号
+    .postal_code
+      = form_with model: @address do |form|
+        = form.text_field :postal_code
+    %span
+      都道府県
+    .prefecture
+      = f.select 
+    %span
+      市区町村
+    .city
+      = form_with model: @address do |form|
+        = form.text_field :city
+    %span
+      番地
+    .block
+      = form_with model: @address do |form|
+        = form.text_field :block
+    %span
+      建物名
+    .building
+      = form_with model: @address do |form|
+        = form.text_field :building
+
+    %button{type: "submit", class:'btn'} 
+      .submitbtn
+        登録する
+
+= render partial: "items/template/banner"
+= render partial: "items/template/footer"

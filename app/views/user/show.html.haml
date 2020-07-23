@@ -1,5 +1,16 @@
+= render partial: "items/template/header"
+= render partial: "items/template/sellbtn"
+
 .mypage
   .mypage__side_bar
     = render "side_bar"
-  .mypage__main
-  contents
+  .mypage__profile
+    = form_with model: @user do |form|
+      = form.text_field :profile
+      %button{type: "submit", class:'btn'} 
+        -# %i.fas.fa-paper-plane
+        .submitbtn
+          送信
+
+= render partial: "items/template/banner"
+= render partial: "items/template/footer"
