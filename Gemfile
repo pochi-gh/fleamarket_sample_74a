@@ -77,3 +77,6 @@ gem 'mini_magick'
 gem 'fog-aws'
 
 gem 'devise'
+
+gem 'haml-rails'
+gem 'erb2haml'
