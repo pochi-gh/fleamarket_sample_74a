@@ -5,12 +5,18 @@
   .mypage__side_bar
     = render "side_bar"
   .mypage__profile
-    = form_with model: @user do |form|
-      = form.text_field :profile
-      %button{type: "submit", class:'btn'} 
-        -# %i.fas.fa-paper-plane
-        .submitbtn
-          送信
+    .nickname__form
+      ここにニックネームの変更ができるフォームを置く
+      = form_with model: @user do |form|
+        = form.text_field :nickname
+    %p.profile__text
+      プロフィール文の修正ができます
+    .mypage__profile__form
+      = form_with model: @user do |form|
+        = form.text_field :profile
+        %button{type: "submit", class:'btn'} 
+          .submitbtn
+            送信
 
 = render partial: "items/template/banner"
 = render partial: "items/template/footer"
