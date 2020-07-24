@@ -9,44 +9,54 @@
       本人情報の入力
     %p.suggestion
       お客さまの本人情報をご登録ください。
-    %span
-      お名前
-    %p.name
-      = @user.first_name
-      = @user.last_name
-    %span
-      お名前カナ
-    %p.name__kana
-      = @user.first_name_kana
-      = @user.last_name_kana
-    %span
-      生年月日
-    %p.birthday
-      = @user.birthday
-    %span
-      郵便番号
+    .name
+      %span
+        お名前
+      %p.first_name
+        = @user.first_name
+      %p.last_name
+        = @user.last_name
+    .name__kana
+      %span
+        お名前カナ
+      %p.first_name__kana
+        = @user.first_name_kana
+      %p.last_name__kana
+        = @user.last_name_kana
+    .birthday
+      %span
+        生年月日
+      %p.birthday
+        = @user.birthday
     .postal_code
-      = form_with model: @address do |form|
-        = form.text_field :postal_code
-    %span
-      都道府県
+      %span
+        郵便番号
+      .postal_code__form
+        = form_with model: @address do |form|
+          = form.text_field :postal_code
     .prefecture
-      = f.select 
-    %span
-      市区町村
-    .city
-      = form_with model: @address do |form|
-        = form.text_field :city
-    %span
-      番地
+      %span
+        都道府県
+      .prefecture__form
+        = f.select
+    .city 
+      %span
+        市区町村
+      .city__form
+        = form_with model: @address do |form|
+          = form.text_field :city
     .block
-      = form_with model: @address do |form|
-        = form.text_field :block
-    %span
-      建物名
+      %span
+        番地
+      .block__form
+        = form_with model: @address do |form|
+          = form.text_field :block
     .building
-      = form_with model: @address do |form|
-        = form.text_field :building
+      %span
+        建物名
+      .building__form
+        = form_with model: @address do |form|
+          = form.text_field :building
 
     %button{type: "submit", class:'btn'} 
       .submitbtn
