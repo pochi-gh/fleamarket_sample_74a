@@ -1,0 +1,176 @@
+= render 'template/header'
+.pankuzu
+.item_show-wrapper
+  = render 'template/sellbtn'
+  .item_show-wrapper__main
+    .item_show-wrapper__main__img
+      %h2.item_show-wrapper__main__img-title
+        今日の晩ご飯
+      .item_show-wrapper__main__img-main
+        = image_tag src="IMG_main.jpeg", alt: 'メイン画像', height: '350px', width: '560px'
+      %ul.item_show-wrapper__main__img-sub 
+        %li
+          = image_tag src="IMG_main.jpeg", alt: 'サブ画像', height: '90px', width: '140px'
+        %li 
+          = image_tag src="IMG_sub2.jpeg", alt: 'サブ画像', height: '90px', width: '140px'
+
+      %p.item_show-wrapper__main__img-price
+        ¥1000
+        %p.item_show-wrapper__main__img-price-detail
+          (税込) 送料込み
+        %p.item_show-wrapper__main__img-price-text
+          今日の晩ご飯はどれにしようかな。お腹が減っては戦ができぬと言うけれど、おなかを膨らませるのだって
+          一苦労なんだからねっ！ぷんぷん！
+    .item_show-wrapper__main__teble
+      %table.item_show-wrapper__main__teble__date
+        %tr  
+          %th  
+            出品者
+          %td
+            = link_to "ss", '#' 
+        %tr  
+          %th 
+            カテゴリー
+          %td
+            = link_to "ベビー・キッズ", '#'
+            = link_to "ベビー服(男の子用) ~95cm",'#'
+            = link_to "アウター",'#'
+        %tr  
+          %th 
+            ブランド
+          %td
+        %tr  
+          %th 
+            商品のサイズ
+          %td
+        %tr  
+          %th 
+            商品の状態
+          %td
+            新品/未使用
+        %tr  
+          %th 
+            配送料の負担
+          %td
+            送料込み（出品者負担）
+        %tr  
+          %th  
+            発送元の地域
+          %td
+            北海道
+        %tr  
+          %th
+            発送日の目安
+          %td
+            送料込み
+    .item_show-wrapper__main__optionalArea
+      .item_show-wrapper__main__optionalArea_like
+        = icon('fas', 'star')
+        お気に入り 1
+      .item_show-wrapper__main__optionalArea_report
+        = icon('fa', 'flag')
+        = link_to "不適切な商品の通報","#"
+    .item_show-wrapper__main__buy
+      = link_to "購入画面に進む","#",class:"item_show-wrapper__main__buy--btn"
+  .item_show-wrapper__comment
+    .item_show-wrapper__comment_area
+      .item_show-wrapper__comment_area--data
+        %p.item_show-wrapper__comment_area--data__user_name
+          通りすがりのチンゲンサイ
+          .item_show-wrapper__comment_area--data_box
+            %p.item_show-wrapper__comment_area--data_box__text
+              晩ご飯はやっぱり中華がいいと思います。
+            .item_show-wrapper__comment_area--data_box__time
+              投稿日時:　2020−07−07 17:00
+      .item_show-wrapper__comment_area--data
+        %p.item_show-wrapper__comment_area--data__user_name
+          ss (出品者)
+          .item_show-wrapper__comment_area--data_box
+            %p.item_show-wrapper__comment_area--data_box__text
+              申し訳ありませんが、中華はやっておりません。
+            .item_show-wrapper__comment_area--data_box__time
+              投稿日時:　2020−07−07 19:31
+      .item_show-wrapper__comment_area--data
+        %p.item_show-wrapper__comment_area--data__user_name
+          通りすがりのチンゲンサイ
+          .item_show-wrapper__comment_area--data_box
+            %p.item_show-wrapper__comment_area--data_box__text
+              致し方ないのでチャーハンと餃子で手を打ちます。
+            .item_show-wrapper__comment_area--data_box__time
+              投稿日時:　2020−07−07 19:46
+      .item_show-wrapper__comment_area--data
+        %p.item_show-wrapper__comment_area--data__user_name
+          食いしん坊たろう
+          .item_show-wrapper__comment_area--data_box
+            %p.item_show-wrapper__comment_area--data_box__text
+              だったら、ラーメンもつけるべきですね。餃子は5個は最低ライン。個人的には麻婆茄子をつまみにいっぱいやりたいです。
+
+            .item_show-wrapper__comment_area--data_box__time
+              投稿日時:　2020−07−07 19:46
+
+    .item_show-wrapper__comment_box
+      = form_with url:'#' do |form|
+        = form.text_area :comment, rows: 5, class:'comment_box'
+        %p.item_show-wrapper__comment_box_announce
+          相手のことを考え丁寧なコメントを心がけましょう。<br>
+          不快な言葉遣いなどは利用制限や退会処分となることがあります
+        = button_tag type: 'submit', class: "submit_btn" do
+          = icon('fa', 'comment')
+          コメントする
+
+  .item_show-wrapper__itemLinks
+    .item_show-wrapper__itemLinks__before
+      = link_to icon('fa','angle-left'),"#"
+      = link_to "前の商品", "#"
+    .item_show-wrapper__itemLinks__affter
+      = link_to "後ろの商品","#"
+      = link_to icon('fa','angle-right'),"#"
+  .item_show-wrapper__relatedItems
+    .item_show-wrapper__relatedItems__category_name
+      = link_to "ベビー・キッズをもっと見る","#"
+    .item_show-wrapper__relatedItems__list
+      .item_show-wrapper__relatedItems__list__box
+        =link_to "" ,"#"
+        .item_show-wrapper__relatedItems__list__box_img
+          = image_tag src="IMG_link.png", alt: 'image', height: '150px', width: '220px'
+        .item_show-wrapper__relatedItems__list__box_main
+          .item_show-wrapper__relatedItems__list__box_main--title
+            products3
+            %ul.item_show-wrapper__relatedItems__list__box_main--data
+              %li
+                30000円
+              %li
+                = icon('fas', 'star')
+                0
+            %p
+              （税込）
+      .item_show-wrapper__relatedItems__list__box
+        =link_to "" ,"#"
+        .item_show-wrapper__relatedItems__list__box_img
+          = image_tag src="IMG_link.png", alt: 'image', height: '150px', width: '220px'
+        .item_show-wrapper__relatedItems__list__box_main
+          .item_show-wrapper__relatedItems__list__box_main--title
+            products3
+            %ul.item_show-wrapper__relatedItems__list__box_main--data
+              %li
+                30000円
+              %li
+                = icon('fas', 'star')
+                0
+            %p（税込）
+      .item_show-wrapper__relatedItems__list__box
+        =link_to "" ,"#"
+        .item_show-wrapper__relatedItems__list__box_img
+          = image_tag src="IMG_link.png", alt: 'image', height: '150px', width: '220px'
+        .item_show-wrapper__relatedItems__list__box_main
+          .item_show-wrapper__relatedItems__list__box_main--title
+            products3
+            %ul.item_show-wrapper__relatedItems__list__box_main--data
+              %li
+                30000円
+              %li
+                = icon('fas', 'star')
+                0
+            %p（税込）
+= render 'template/banner'
+= render 'template/footer'
