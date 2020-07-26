@@ -10,6 +10,9 @@
 -#   %input{ type: "hidden", name: "credit-card_id", value: "" }
 -#   %button 削除する
 
+= render partial: "template/header"
+= render partial: "template/sellbtn"
+
 .creditCard-wrapper
   .creditCard-wrapper__inner
     .creditCard-wrapper__inner__title
@@ -25,3 +28,6 @@
         = form_tag(delete_credit_cards_path, method: :post) do
           %input{ type: "hidden", name: "credit-card_id", value: "" }
           %button 削除する
+
+= render partial: "template/banner"
+= render partial: "template/footer"
