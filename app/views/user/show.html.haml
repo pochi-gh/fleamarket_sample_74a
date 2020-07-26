@@ -1,22 +1,24 @@
-= render partial: "items/template/header"
-= render partial: "items/template/sellbtn"
+= render partial: "template/header"
+= render partial: "template/sellbtn"
 
-.mypage
-  .mypage__side_bar
-    = render "side_bar"
-  .mypage__profile
-    .nickname__form
-      ここにニックネームの変更ができるフォームを置く
-      = form_with model: @user do |form|
-        = form.text_field :nickname
-    %p.profile__text
-      プロフィール文の修正ができます
-    .mypage__profile__form
-      = form_with model: @user do |form|
-        = form.text_field :profile
-        %button{type: "submit", class:'btn'} 
-          .submitbtn
-            送信
 
-= render partial: "items/template/banner"
-= render partial: "items/template/footer"
+
+-# = render partial: "template/banner"
+= render partial: "template/footer"
+
+-# .mypage
+-#   .mypage__side_bar
+-#     = render "side_bar"
+-#   .mypage__profile
+-#     .nickname__form
+-#       ここにニックネームの変更ができるフォームを置く
+-#       = form_with model: @user do |form|
+-#         = form.text_field :nickname
+-#     %p.profile__text
+-#       プロフィール文の修正ができます
+-#     .mypage__profile__form
+-#       = form_with model: @user do |form|
+-#         = form.text_field :profile
+-#         %button{type: "submit", class:'btn'} 
+-#           .submitbtn
+-#             送信
