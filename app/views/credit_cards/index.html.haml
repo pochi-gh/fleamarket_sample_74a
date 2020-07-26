@@ -2,7 +2,7 @@
 = render partial: "template/sellbtn"
 
 .main-information
-- if current_page?(credit_cards_path)
+- if current_page?(controller: 'credit_cards', action: 'index')
   .main-information__payTop
     %h2 支払い方法
   .main-information__payMiddle
