@@ -1,3 +1,52 @@
+  @mixin main-information__payTop {
+  height: 70px;
+  h2 {
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 50px;
+  text-align: center;
+  border-bottom: ridge;
+  }
+}
+
+.main-information {
+  // 支払い方法
+  &__payTop {
+    @include main-information__payTop;
+  }
+
+  &__payMiddle {
+    height: 150px;
+    margin-top: 10px;
+    p {
+      font-weight: bold;
+      text-align: center;      
+    }
+    &__credit-AdditionBtn {
+      width: 300px;
+      height: 50px;
+      background-color: red;
+      margin: 0 auto;
+      margin-top: 30px;
+      border-radius: 10px;
+      &__contents {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        padding: 13px;
+        i {
+          padding-right: 10px;
+        }
+        a {
+          text-decoration: none;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
 @mixin creditCard-wrapper {
   height: 100vh;
   padding-top: 50px;
@@ -19,7 +68,7 @@
   }
 }
 
-// 必須
+// クレジットカード必須ボックス
 @mixin essential-redBox {
   background-color: red;
   color: #fff;
