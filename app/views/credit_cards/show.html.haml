@@ -13,21 +13,25 @@
 = render partial: "template/header"
 = render partial: "template/sellbtn"
 
-.creditCard-wrapper
-  .creditCard-wrapper__inner
-    .creditCard-wrapper__inner__title
-      %h1 クレジットカード一覧
+.user-showPage
+  .user-showPage__main
+    = render "user/side_bar"
 
-    .creditCard-wrapper__inner__contents
-      .creditCard-wrapper__inner__contents__creditCard-information
-        .creditCard-wrapper__inner__contents__creditCard-information__number
-          %p **** **** **** 1111
-        .creditCard-wrapper__inner__contents__creditCard-information__date
-          %p 07/25
-      .creditCard-wrapper__inner__contents__deleteBtn
-        = form_tag(delete_credit_cards_path, method: :post) do
-          %input{ type: "hidden", name: "credit-card_id", value: "" }
-          %button 削除する
+    .main-information
+      .main-information__cardsIndex-inner
+        .main-information__cardsIndex-inner__title
+          %h1 クレジットカード一覧
+
+        .main-information__cardsIndex-inner__contents
+          .main-information__cardsIndex-inner__contents__creditCard-information
+            .main-information__cardsIndex-inner__contents__creditCard-information__number
+              %p **** **** **** 1111
+            .main-information__cardsIndex-inner__contents__creditCard-information__date
+              %p 07/25
+          .main-information__cardsIndex-inner__contents__deleteBtn
+            = form_tag(delete_credit_cards_path, method: :post) do
+              %input{ type: "hidden", name: "credit-card_id", value: "" }
+              %button 削除する
 
 = render partial: "template/banner"
 = render partial: "template/footer"
