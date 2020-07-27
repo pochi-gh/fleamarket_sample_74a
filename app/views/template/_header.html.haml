@@ -20,9 +20,17 @@
           = link_to "#" do
             %span ブランド
       %ul.list__right
-        %li.list__right__login
-          = link_to "#" do
-            %span ログイン
-        %li.list__right__new
-          = link_to "#" do
-            %span 新規会員登録
+        - if user_signed_in?
+          %li.list__right__login
+            = link_to user_path do
+              %span マイページ
+          %li.list__right__new
+            = link_to destroy_user_session_path do
+              %span ログアウト
+        - else
+          %li.list__right__login
+            = link_to new_user_session_path do
+              %span ログイン 
+          %li.list__right__new
+            = link_to new_user_registration_path do
+              %span 新規会員登録
