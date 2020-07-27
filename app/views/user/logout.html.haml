@@ -5,10 +5,10 @@
   .user-showPage__main
     = render "side_bar"
     
-  .main-information
-    -if current_page?(logout_user_index_path)
-      .main-information__logout-btn
-        = link_to "ログアウト", root_path
+    .main-information
+      -if current_page?(logout_user_index_path)
+        .main-information__logout-btn
+          = link_to "ログアウト", root_path
 
 = render partial: "template/banner"
 = render partial: "template/footer"
