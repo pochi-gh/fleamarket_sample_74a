@@ -5,7 +5,7 @@
   .user-showPage__main
     = render "side_bar"
     
-    .main-information
+  .main-information
     -if current_page?(logout_user_index_path)
       .main-information__logout-btn
         = link_to "ログアウト", root_path
