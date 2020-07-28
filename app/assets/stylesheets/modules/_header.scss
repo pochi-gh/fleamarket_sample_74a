@@ -4,7 +4,7 @@
 .header {
   padding: 0 60px;
   width: 100%;
-  background-color: #fff;
+  background-color: $white;
   
   &__inner {
     max-width: 1040px;
@@ -84,7 +84,7 @@
     width: 36px;
     border: 0;
     cursor: pointer;
-    background-color: #3CCACE;
+    background-color: $main_color;
     padding: 8px;
   }
 

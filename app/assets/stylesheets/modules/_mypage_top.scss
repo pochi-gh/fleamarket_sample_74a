@@ -1,6 +1,6 @@
 // マイページ全体
 .user-showPage {
-  background-color: #f5f5f5;
+  background-color: $background;
   &__main {
     padding: 50px 120px;
     display: flex;
@@ -9,13 +9,13 @@
 // サイドバー上部
 .sideBar-Top {
   width: 400px;
-  background-color: #ffffff;
+  background-color: $white;
 }
 .sideBar-contents li {
   position: relative;
   height: 50px;
   border-bottom: groove 1px;
-  background-color: #ffffff;
+  background-color: $white;
   a {
   text-decoration: none;
   font-size: 18px;
@@ -34,7 +34,7 @@
   a:hover {
     opacity: 0.6;
     background: #333;
-    color: #fff;
+    color: $white;
   }
 }
 
@@ -51,7 +51,7 @@
 .main-information {
   width: 100%;
   height: 100%;
-  background-color: #ffffff;
+  background-color: $white;
   margin-left: 100px;
 }
 
