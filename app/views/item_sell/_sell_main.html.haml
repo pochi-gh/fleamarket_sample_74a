@@ -1,0 +1,47 @@
+.main
+  .box
+    .phots 
+      .phots_names
+        .phots_names_name
+          出品画像
+        .phots_names_important
+          必須
+      .phots_explan
+        最大10枚までアップロードできます
+      .phots_sqeare
+        .icon
+          %i.fa.fa-camera
+        .phots_sqeare_character
+          %p 
+            ドラッグアンドドロップ
+          %p 
+            またはクリックしてファイルをアップロード画像がありません
+    .items
+      .items_names
+        .items_names_name
+          商品名
+        .items_names_important
+          必須
+      %input.text_field{:autocomplete => "off", :name => "name", :placeholder => "40文字まで", :type => "text", :value => ""}/
+      .items_explans
+        .items_explans_explan
+          .items_explans_explan_name
+            商品の説明
+          .items_explans_explan_importamt
+            必須
+        %textarea{:rows => "7", :class => "items_explan_text-box", :autocomplete => "off", :name => "name", :placeholder => "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", :type => "text", :value => ""}
+      .items_count
+        0/1000
+
+
+           
+
+    .category
+      カテゴリー
+    .shipping
+      配送について
+    .price
+      価格（¥300〜9,999,999）
+    .gains
+      販売利益禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+
