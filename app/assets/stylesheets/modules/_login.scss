@@ -2,18 +2,20 @@
   height: 100vh;
   width: 100%;
   
+
   header {
     display: flex;
     justify-content: center;
     width: 100%;
     height:128px;
 
-    .logo-block{
-      margin: 40px 0 0;
-
-      img {
-        width: 185px;
-        height:49px;
+    a{
+      margin: 40px 0 40px;
+      .header-logo {
+        img {
+          width: 185px;
+          height:49px;
+        }
       }
     }
   }
@@ -108,6 +110,47 @@
 
         }
       }
+    }
+  }
+  footer {
+    position: relative;
+    right: 0;
+    left: 0;
+
+    width: 456px;
+    height: 220px;
+   
+    text-align: center;
+    margin: 0 auto;
+    padding: 40px 0;
+
+    ul {
+      display: flex;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      a {
+          text-decoration: none;
+          color:grey;
+      }
+    }
+
+    a {
+      
+      .footer-logo {
+        margin:40px 0;
+        img {
+          width: 185px;
+          height:49px;
+        }
+      }
+    }
+    p {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+
     }
   }
 }

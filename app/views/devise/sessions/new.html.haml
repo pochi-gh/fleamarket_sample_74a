@@ -1,9 +1,8 @@
 .main
   %header.login-page-header
-    %h1
-      =link_to "items" do
-        .logo-block
-          = image_tag 'logo.png'
+    =link_to root_path do
+      .header-logo
+        = image_tag 'logo.png'
   .login-page
     .login-page__register
       .login-page__register__text
@@ -29,3 +28,16 @@
               = f.submit "ログイン", class: 'btn'
 
   %footer.login-page-footer
+    %ul.footer-links
+      %li
+        =link_to "プライバシーポリシー", root_path
+      %li
+        =link_to "利用契約", root_path
+      %li
+        =link_to "特定取引に関する表記"
+    
+    =link_to root_path do
+      .footer-logo
+        =image_tag 'logo-white.png'
+    %p
+      ©a班  
