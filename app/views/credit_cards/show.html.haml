@@ -1,0 +1,39 @@
+-# まだcredit_cardコントローラーに変数がないため、以下のコードではエラーが出てしまう。
+-# そのため、ビューは一旦仮置きにしているが、変数等が記述されれば、コメントアウト部分を適用する予定
+-# %label 登録クレジットカード情報
+-# %br
+-# = "**** **** ****" + @default_card_information.last4
+
+-# %br
+-# - exp_month = @default_card_information.exp_month.to_s
+-# - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+-# = exp_month + "/" + exp_year
+-# = form_tag(delete_credit_cards_path, method: :post) do
+-#   %input{ type: "hidden", name: "credit-card_id", value: "" }
+-#   %button 削除する
+
+= render partial: "template/header"
+= render partial: "template/sellbtn"
+
+.user-showPage
+  .user-showPage__main
+    = render "user/side_bar"
+
+    .main-information
+      .main-information__cardsIndex-inner
+        .main-information__cardsIndex-inner__title
+          %h1 クレジットカード一覧
+
+        .main-information__cardsIndex-inner__contents
+          .main-information__cardsIndex-inner__contents__creditCard-information
+            .main-information__cardsIndex-inner__contents__creditCard-information__number
+              %p **** **** **** 1111
+            .main-information__cardsIndex-inner__contents__creditCard-information__date
+              %p 07/25
+          .main-information__cardsIndex-inner__contents__deleteBtn
+            = form_tag(delete_credit_cards_path, method: :post) do
+              %input{ type: "hidden", name: "credit-card_id", value: "" }
+              %button 削除する
+
+= render partial: "template/banner"
+= render partial: "template/footer"

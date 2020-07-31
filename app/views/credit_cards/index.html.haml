@@ -1,0 +1,20 @@
+= render partial: "template/header"
+= render partial: "template/sellbtn"
+
+.user-showPage
+  .user-showPage__main
+    = render "user/side_bar"
+
+    .main-information
+      - if current_page?(controller: 'credit_cards', action: 'index')
+        .main-information__payTop
+          %h2 支払い方法
+        .main-information__payMiddle
+          %p クレジットカード一覧
+          .main-information__payMiddle__credit-AdditionBtn
+            .main-information__payMiddle__credit-AdditionBtn__contents
+              = icon("far", "credit-card")
+              = link_to "クレジットカードを追加する", new_credit_card_path, method: :get
+
+= render partial: "template/banner"
+= render partial: "template/footer"

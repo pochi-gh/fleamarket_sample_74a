@@ -1,6 +1,6 @@
 .footer {
   padding: 60px 0;
-  color: #fff;
+  color: $white;
   background-color: #202020;
   text-align: center;
   
@@ -22,7 +22,7 @@
         font-weight: bold;
       }
       .footer-link {
-        color: #fff;
+        color: $white;
         text-decoration: none;
         font-size: 12px;
         line-height: 32px;

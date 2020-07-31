@@ -1,0 +1,19 @@
+.main-information
+  -if current_page?(user_path)
+    .main-information__showMypage-contents1
+      .main-information__showMypage-contents1__left
+        .main-information__showMypage-contents1__left__profile-image
+          = image_tag('no-image.png')
+
+      .main-information__showMypage-contents1__right
+        .main-information__showMypage-contents1__right__upper
+          %h2 nickname
+        .main-information__showMypage-contents1__right__lower
+          .main-information__showMypage-contents1__right__lower__review
+            %ul.showMypage-review-itemsBox
+              %li 評価
+              %li 4.0
+          .main-information__showMypage-contents1__right__lower__items
+            %ul.showMypage-review-itemsBox
+              %li 出品数
+              %li 0
