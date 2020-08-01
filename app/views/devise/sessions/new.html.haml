@@ -1,0 +1,43 @@
+.main
+  %header.login-page-header
+    =link_to root_path do
+      .header-logo
+        = image_tag 'logo.png'
+  .login-page
+    .login-page__register
+      .login-page__register__text
+        アカウントをお持ちでない方はこちら
+      .login-page__register__btn
+        = link_to "新規会員登録", root_path 
+         
+    .login-page__login
+      .login-page__form.user-form
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .field-email
+            .field-email__label
+              = f.label :email
+            .field-email__input
+              = f.email_field :email, autofocus: true, placeholder: 'メールアドレス'
+            .field-password
+              .field-password__label
+                = f.label :password
+                %i 
+              .field-password__input
+                = f.password_field :password, autocomplete: "off", placeholder: 'パスワード'
+            .actions
+              = f.submit "ログイン", class: 'btn'
+
+  %footer.login-page-footer
+    %ul.footer-links
+      %li
+        =link_to "プライバシーポリシー", root_path
+      %li
+        =link_to "利用契約", root_path
+      %li
+        =link_to "特定取引に関する表記"
+    
+    =link_to root_path do
+      .footer-logo
+        =image_tag 'logo-white.png'
+    %p
+      ©a班  

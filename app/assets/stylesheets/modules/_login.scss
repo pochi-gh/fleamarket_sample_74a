@@ -1,0 +1,155 @@
+.main {
+  height: 100vh;
+  width: 100%;
+  
+
+  header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height:128px;
+
+    a{
+      margin: 40px 0 40px;
+      .header-logo {
+        img {
+          width: 185px;
+          height:49px;
+        }
+      }
+    }
+  }
+
+  .login-page{
+    width: 100%;
+    height: 812px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+
+    &__register {
+      margin-bottom: 1px;
+      width: 456px;
+      height: 144px;
+      padding:32px 64px 40px 64px;
+      background-color: white;
+      
+      &__text{
+        font-size: 14px;
+        margin: 0;
+      }
+      &__btn {
+        background-color: #0099e8;
+        margin: 8px 0 0;
+        border-radius: 4px;
+        border: 1px solid #0099e8;
+        line-height: 40px;
+
+        a {
+          font-size: 14px;
+          text-decoration: none;
+          color: white;
+          
+        }
+      }
+    }
+
+    &__login {
+      width: 456px;
+      height: 406px;
+      background-color: white;
+      border-top: 1px solid #eee;
+      padding: 24px 64px 32px;
+
+      .field-email {
+        &__label {
+          label {
+            color: white;
+          }
+        }
+        &__input {
+          input {
+            width: 328px;
+            height: 48px;
+            padding : 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            margin: 8px 0 0;
+          }
+        }
+      }
+      .field-password {
+        &__label {
+          label {
+            color: white;
+          }
+        }
+        &__input {
+          input {
+            width: 328px;
+            height: 48px;
+            padding : 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            margin: 8px 0 0;
+            color: black;
+          }
+       }
+      }
+      .actions {
+        margin: 24px 0 0;
+
+        input {
+          width: 328px;
+          height: 50px;
+          background-color: #2bccd1;
+          border: 1px solid #2bccd1;
+          border-radius: 4px;
+          color: #fff;
+
+        }
+      }
+    }
+  }
+  footer {
+    position: relative;
+    right: 0;
+    left: 0;
+
+    width: 456px;
+    height: 220px;
+   
+    text-align: center;
+    margin: 0 auto;
+    padding: 40px 0;
+
+    ul {
+      display: flex;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      a {
+          text-decoration: none;
+          color:grey;
+      }
+    }
+
+    a {
+      
+      .footer-logo {
+        margin:40px 0;
+        img {
+          width: 185px;
+          height:49px;
+        }
+      }
+    }
+    p {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+  }
+}
