@@ -1,3 +1,59 @@
+
+@mixin label {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4em;
+}
+
+@mixin important {
+  background-color: #ff0211;
+  color: #fff;
+  font-size: 12px;
+  padding: 0 4px;
+  border-radius: 2px;
+  display: inline-block;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.4em;
+  margin: 0;
+  margin-left: 8px;
+}
+
+@mixin arrow-sell  {
+  position: relative;
+  display: inline-block;
+  color: #333;
+  text-decoration: none;
+}
+
+@mixin arrow-sells {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border: 0;
+  border-bottom: solid 2px #333;
+  border-right: solid 2px #333;
+  position: absolute;
+  top: 50%;
+  right:20px;
+  transform: rotate(45deg); 
+}
+
+@mixin question_mark {
+  color: rgb(0, 149, 238);
+  height: 16px;
+  margin-left: 4px;
+  vertical-align: -3px;
+  width: 16px;
+  border: 1px solid rgb(0, 149, 238);
+  border-radius: 50%;
+  text-align: center;
+  font-size: 8px;
+  height: 16px;
+  width: 16px;
+}
+
+
 .main { 
   background-color: rgb(245, 245, 245);
   .box {
@@ -16,27 +72,15 @@
       &_names {
         width: 620px;
         height: 19px;
-        align-items: center;
         display: flex;
-        &_name {
-          margin: 0 !important;
-          font-size: 14px;
-          font-weight: 600;
-          line-height: 1.4em;
+        align-items: center;
+        &_label {
+          @include label();
+          margin: 0 !important;         
           padding-right: 5px;
         }
         &_important {
-          background-color: #ff0211;
-          color: #fff;
-          font-size: 12px;
-          padding: 0 4px;
-          border-radius: 2px;
-          display: inline-block;
-          font-style: normal;
-          font-weight: 600;
-          line-height: 1.4em;
-          margin: 0;
-          margin-left: 8px;    
+          @include important();
         }
       }
       &_explan {
@@ -91,7 +135,10 @@
           }
         }
       }
-    }       
+    }     
+    
+    
+
     .items {
       width: 700px;
       height: 416px;
@@ -106,28 +153,16 @@
         margin: 0 !important;
         font-size: 14px;
         font-weight: 600;
-        line-height: 1.4em;
-        padding-right: 5px;
+        line-height: 1.4em;       
         display: flex;
+        padding-right: 5px;
          
-        &_name {
-          font-size: 14px;
-          font-weight: 600;
-          line-height: 1.4em;
+        &_label{
+          @include label();
         }
         &_important {
-          background-color: #ff0211;
-          color: #fff;
-          font-size: 12px;
-          padding: 0 4px;
-          border-radius: 2px;
-          display: inline-block;
-          font-style: normal;
-          font-weight: 600;
-          line-height: 1.4em;
-          margin: 0;
-          margin-left: 8px;
-          height: 20px;
+          @include important();
+          height: 16px;
         }
       }  
       
@@ -152,23 +187,15 @@
         &_explan {
           display: flex;
           &_name {
+            font-size: 14px;
             font-weight: bold;
             margin-top: 40px;
           }
           &_importamt {
-            background-color: #ff0211;
-            color: #fff;
-            font-size: 12px;
-            padding: 0 4px;
-            border-radius: 2px;
-            display: inline-block;
-            font-style: normal;
-            font-weight: 600;
-            line-height: 1.4em;
-            margin: 0;
-            margin-left: 8px;
-            height: 20px;
-            margin-top: 41px;
+            @include important();
+            height: 16px;
+            margin-top: 43px;
+            margin-bottom: 3px;
           }
         }
         .items_explan_text-box{
@@ -196,37 +223,426 @@
         line-height: 1.4em;
       }
     }
+  
 
 
-
-    .category{
+    .category {
       width: 700px;
       height: 444px;
       background-color: rgb(255, 255, 255);
       border-top: solid 1px #efefef;
+      padding: 40px;
+      p {
+        color: rgb(136, 136, 136);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.4em;
+        margin-bottom: 24px;
+      }
+      &_names{
+        margin: 0 !important;
+        padding-right: 5px;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.4em;
+        display: flex;
+        &_label {
+          @include label();   
+        }
+        &_important {
+          @include important();
+          margin-bottom: 3px !important;
+        }       
+      }
+      .style_select {
+        height: 48px;
+        width: 620px;
+        margin-top: 16px;
+        margin-bottom: 32px;
+        .style_selectarea{
+          display: inline-block;
+          position: relative;
+          width: inherit;
+          height: 48px;       
+          .form_category{
+            appearance: none;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            color: #222;
+            font-size: 16px;
+            height: 48px;
+            line-height: 1;
+            margin: 0;
+            outline: none;
+            padding: 0 56px 0 16px;
+            width: 100%;
+            option {
+              font-weight: normal;
+              display: block;
+              white-space: pre;
+              min-height: 1.2em;
+              padding: 0px 2px 1px;
+            }        
+          }
+        }
+        .arrow-sell {
+          @include arrow-sell();
+        }
+        .arrow-sell::after {
+          @include arrow-sells();
+          margin-top: 20px;
+        }
+      }
+
+    .brand_names{
+      margin: 0 !important;
+      padding-right: 5px;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.4em;
+      display: flex;    
+      &_label {
+        @include label();  
+      }
+      &_optional {
+        margin-left: 8px;
+        font-size: 12px;
+        padding: 0 4px;
+        background-color: #bfbfbf;
+        color: #fff;
+        border-radius: 2px;
+        display: inline-block;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 1.4em;
+      }
     }
-
-
-
+    .brand_textfields {
+      margin-top: 16px;
+      .brand_textfield {
+        align-items: center;
+        display: inline-flex;
+        width: 100%;
+        font-size: 16px;
+        display: inline-block;
+        position: relative;
+        width: inherit;
+        margin-bottom: 32px;
+        .brand_text {
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          font-family: inherit;
+          font-size: inherit;
+          height: 48px;
+          margin: 0;
+          outline: none;
+          padding: 0 16px;
+          width: 620px;
+        }
+      }
+    }
+      .brand_status_names{
+        margin: 0 !important;
+        padding-right: 5px;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.4em;
+        display: flex;
+        &_label{
+          @include label();
+        }
+        &_important {
+          @include important();
+        }
+      }
+      .status_select {
+        margin-top: 16px;      
+        align-items: center;
+        display: inline-flex;
+        width: 100%;  
+      }
+      .status_selectarea {
+        display: inline-block;
+        position: relative;
+        width: 620px;
+        .form_brand {
+          appearance: none;
+          background-color: #fff;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          color: #222;
+          font-size: 16px;
+          height: 48px;
+          line-height: 1;
+          margin: 0;
+          outline: none;
+          padding: 0 56px 0 16px;
+          width: 620px;
+          margin-bottom: 32px;
+        }
+      }
+      .arrow-sell {
+        @include arrow-sell();
+      }
+      .arrow-sell::after {
+        @include arrow-sells();
+        margin-top: -20px;     
+      }     
+    }
+    }
+      
+  
+  
     .shipping {
       width: 700px;
       height: 444px;
       background-color: rgb(255, 255, 255);
       border-top: solid 1px #efefef;
-    }  
+      padding: 40px;
+      .shipping_words {
+        height: 19px;
+        width: 620px;
+        display: flex;
+        &_word {
+          @include label();
+          color: rgb(136, 136, 136);
+          line-height: 1.4em;
+          margin-bottom: 24px;  
+        }
+          &_question_mark{
+            @include question_mark();
+          }
+      }
+      .shipping_payer {
+        width: 620px;
+        height: 19px;
+        align-items: center;
+        display: flex;
+        margin-top: 32px;
+        &_label {
+          @include label();
+          margin-right: 8px;
+        }
+        &_important {
+          @include important();                
+        }
+      }
+      .payer_select {
+        width: 100%;
+        height: 48px;
+        margin-top: 16px;
+        align-items: center;
+        display: inline-flex;
+        .payer_selectarea{
+          display: inline-block;
+          position: relative;
+          width: inherit;
+        }
+          .payer_seller {
+            appearance: none;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            color: #222;
+            font-size: 16px;
+            height: 48px;
+            line-height: 1;
+            margin: 0;
+            outline: none;
+            padding: 0 56px 0 16px;
+            width: 100%;   
+          }      
+        .arrow-sell {
+          @include arrow-sell();
+        }
+        .arrow-sell::after {
+          @include arrow-sells();
+          margin-top: -8px;        
+        }     
+      }
+      .shipping_from_area {
+        align-items: center;
+        display: flex;
+        height: 19px;
+        width: 620px;
+        margin-top: 32px;
+        &_label {
+          @include label();
+        }
+        &_important {
+          @include important();
+        }
+        }
+      .from_area_select {
+        margin-top: 16px;
+        align-items: center;
+        display: inline-flex;
+        width: 100%;
+        .from_area_selectarea{
+          display: inline-block;
+          position: relative;
+          width: inherit;
+          .from_area{
+            height: 48px;
+            appearance: none;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            color: #222;
+            font-size: 16px;
+            height: 48px;
+            line-height: 1;
+            margin: 0;
+            outline: none;
+            padding: 0 56px 0 16px;
+            width: 100%;
+          }
+        }
+        .arrow-sell {
+          @include arrow-sell();
+        }
+        .arrow-sell::after {
+          @include arrow-sells();
+          margin-top: -8px;        
+        }    
+      }
+      .shipping_day {
+        width: 620px;
+        height: 19px;
+        margin-top: 32px;
+        align-items: center;
+        display: flex;
+        &_label {
+          @include label();
+          margin-right: 8px;
+        }
+        &_important {
+          @include important();
+        }
+        }
+      .days {
+        margin-top: 16px;
+        align-items: center;
+        display: inline-flex;
+        width: 620px;
+        height: 48px;
+        .days_form {
+          display: inline-block;
+          position: relative;
+          width: 620px;
+          height: 48px;
+          appearance: none;
+          background-color: #fff;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          color: #222;
+          font-size: 16px;
+          height: 48px;
+          line-height: 1;
+          margin: 0;
+          outline: none;
+          padding: 0 56px 0 16px;
+        }
+      } 
+      .arrow-sell {
+        @include arrow-sell();
+      }
+      .arrow-sell::after {
+        @include arrow-sells();
+        margin-top: -8px;        
+      }    
+      }
+    }
+      
 
     .price {
       width: 700px;
       height: 270px;
       background-color: rgb(255, 255, 255);
       border-top: solid 1px #efefef;
-    }
+      padding: 40px 40px 0px;
+      .price_scorps {
+        width: 620px;
+        height: 19px;
+        display: flex;
+        margin-bottom: 24px;
+        &_scorp {
+          color: rgb(136, 136, 136);
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 1.4em;
+        }
+        &_question_mark {
+          @include question_mark();
+        }       　　　
+      .prices {
+        width: 620px;
+        height: 58px;
+        align-items: center;
+        box-sizing: content-box;
+        display: flex;
+        .prices_names {
+          margin-right: auto;
+          white-space: nowrap;
+          align-items: center;
+          display: flex;
+          &_label {
+            @include label();
+          }
+          &_important {
+            @include important();
+          }
+          .yen_mark {
+            font-size: 14px;
+            margin-right: 8px;
+            margin-left: 30px;
+          }
+        .form_prices {
+          align-items: center;
+          display: inline-flex;
+          width: 285px;
+          height: 48px;
+          .form_inputarea {
+            display: inline-block;
+            position: relative;
+            width: 285px;
+            text-align: right;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: inherit;
+            height: 48px;
+            margin: 0;
+            outline: none;
+            padding: 0 16px;
+            width: 285px;
 
-    .gains {
-      width: 700px;
-      height: 400px;
-      background-color: rgb(255, 255, 255);
-      border-top: solid 1px #efefef;
+            // .form_price{
+            // }
+          }
     }
   }
-}
+        .gains {
+          width: 700px;
+          height: 400px;
+          background-color: rgb(255, 255, 255);
+          border-top: solid 1px #efefef;
+        }
+
+        }
+    } 
+        
+        
+      
+    }
+      
+
+        
