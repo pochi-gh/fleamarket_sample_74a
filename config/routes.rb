@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
-  resources :items
+  resources :items do
+    member do
+      get 'confirm'
+    end
+  end
   resources :user, only: [:show] do
     collection do
       get 'logout', to: 'user#logout'
