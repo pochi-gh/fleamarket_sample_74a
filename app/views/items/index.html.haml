@@ -221,20 +221,21 @@
                 %p (税込)
                 
         .pickup__lists
-          .pickup__list
-            = link_to '#' do
-              .pickup__list__img
-                = image_tag "a001.png"
-              .pickup__list__body
-                = @item.name
-                .details
-                  %ul
-                    %li
-                    = item.price
-                    %li.likeicon
-                      %i.fa.fa-star
-                        1
-                  %p (税込)
+          - @items.each do |item|
+            .pickup__list
+              = link_to '#' do
+                .pickup__list__img
+                  = image_tag "a001.png"
+                .pickup__list__body
+                  = item.name
+                  .details
+                    %ul
+                      %li
+                      = item.price
+                      %li.likeicon
+                        %i.fa.fa-star
+                          1
+                    %p (税込)
 
 = render partial: "template/banner"
 = render partial: "template/footer"
