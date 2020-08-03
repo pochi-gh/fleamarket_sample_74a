@@ -1,4 +1,4 @@
-class Sipping_burden < ActiveHash::Base
+class Shipping_burden < ActiveHash::Base
   self.date = [
     {id: 1, name: '送料込み(出品者負担)'}
     {id: 2, name: '着払い(購入者負担)'}

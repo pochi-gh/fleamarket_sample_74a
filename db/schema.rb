@@ -13,18 +13,18 @@
 ActiveRecord::Schema.define(version: 2020_08_01_150246) do
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.text "explain", null: false
-    t.bigint "state_id", null: false
-    t.integer "price", null: false
-    t.bigint "seller_id", null: false
+    t.string "name"
+    t.text "explain"
+    t.bigint "state_id"
+    t.integer "price"
+    t.bigint "seller_id"
     t.bigint "buyer_id"
-    t.bigint "reservation_email_id", null: false
-    t.bigint "category_id", null: false
-    t.bigint "shipping_burden_id", null: false
-    t.bigint "shipping_day_id", null: false
-    t.bigint "prefecture_id", null: false
-    t.bigint "brand_id", null: false
+    t.bigint "reservation_email_id"
+    t.bigint "category_id"
+    t.bigint "shipping_burden_id"
+    t.bigint "shipping_day_id"
+    t.bigint "prefecture_id"
+    t.bigint "brand_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["brand_id"], name: "index_items_on_brand_id"
