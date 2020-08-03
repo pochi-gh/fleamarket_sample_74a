@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2020_08_01_150246) do
     t.integer "price", null: false
     t.bigint "seller_id", null: false
     t.bigint "buyer_id"
-    t.bigint "resarvavation_email_id", null: false
+    t.bigint "reservation_email_id", null: false
     t.bigint "category_id", null: false
     t.bigint "shipping_burden_id", null: false
     t.bigint "shipping_day_id", null: false
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2020_08_01_150246) do
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["prefecture_id"], name: "index_items_on_prefecture_id"
-    t.index ["resarvavation_email_id"], name: "index_items_on_resarvavation_email_id"
+    t.index ["reservation_email_id"], name: "index_items_on_reservation_email_id"
     t.index ["seller_id"], name: "index_items_on_seller_id"
     t.index ["shipping_burden_id"], name: "index_items_on_shipping_burden_id"
     t.index ["shipping_day_id"], name: "index_items_on_shipping_day_id"

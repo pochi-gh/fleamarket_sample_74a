@@ -7,7 +7,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :price, null:false
       t.references :seller, null:false
       t.references :buyer
-      t.references :resarvavation_email, null:false
+      t.references :reservation_email, null:false
       t.references :category, null:false
       t.references :shipping_burden, null:false
       t.references :shipping_day, null:false
