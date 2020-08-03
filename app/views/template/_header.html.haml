@@ -22,10 +22,10 @@
       %ul.list__right
         - if user_signed_in?
           %li.list__right__login
-            = link_to user_path do
+            = link_to "/users/#{current_user.id}" do
               %span マイページ
           %li.list__right__new
-            = link_to destroy_user_session_path do
+            = link_to destroy_user_session_path, method: :delete do
               %span ログアウト
         - else
           %li.list__right__login
