@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   end
   root 'items#index'
   resources :items
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    collection do
+      get 'logout', to: 'users#logout'
+    end
+  end
   resources :credit_cards, only: [:index, :new, :show] do
     collection do
       post 'pay', to: 'credit_cards#pay'
