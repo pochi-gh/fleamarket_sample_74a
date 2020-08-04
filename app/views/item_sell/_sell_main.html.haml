@@ -28,7 +28,7 @@
       %input.text_field{:autocomplete => "off", :name => "name", :placeholder => "40文字まで", :type => "text", :value => ""}/
       .items_explans
         .items_explans_explan
-          .items_explans_explan_name
+          .items_explans_explan_label
             商品の説明
           .items_explans_explan_importamt
             必須
@@ -186,18 +186,43 @@
           価格（¥300〜9,999,999）
         .price_scorps_question_mark
           ?
+      
       .prices
         .prices_names
           .prices_names_label
             販売価格
           .prices_names_important
             必須
-          .yen_mark 
-            ¥
         .form_price
-          .style_inputarea__1mtsA
+          .price_input_area
+            .yen_mark 
+              ¥
             %input.form_price{:autocomplete => "off", :name => "price", :class => "form_price", :placeholder => "0", :type => "number", :value => ""}/
-            
-    
-        
+      .sales_commission
+        .fees
+          .fees_fee
+            .fees_fee_label
+              販売手数料（10%）
+          .fees_mark
+            —
+      .sales_profit
+        .gains
+          .gains_gain
+            .gains_gain_label
+              販売利益
+          .gains_gain_mark
+            —
+      .sales_bottons
+        %button.sales_btn{:tabindex => "0", :type => "submit"} 
+          出品する
+        %button.save_btn{:tabindex => "0", :type => "button"} 
+          下書きに保存
+        %a.back{:href => "#"} 
+          もどる
+      .matter
+        禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
 
+
+
+
+          
