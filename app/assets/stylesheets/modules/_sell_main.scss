@@ -83,6 +83,20 @@
   text-align: center;
 }
 
+@mixin form {
+  appearance: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #222;
+  font-size: 16px;
+  height: 48px;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  padding: 0 56px 0 16px;
+}
 
 .main { 
   background-color: rgb(245, 245, 245);
@@ -205,6 +219,7 @@
           display: flex;
           &_label {
             @include label();
+            margin-top: auto;
           }
           &_importamt {
             @include important();
@@ -273,18 +288,7 @@
           width: inherit;
           height: 48px;       
           .form_category{
-            appearance: none;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            color: #222;
-            font-size: 16px;
-            height: 48px;
-            line-height: 1;
-            margin: 0;
-            outline: none;
-            padding: 0 56px 0 16px;
+            @include form();
             width: 100%;
             option {
               font-weight: normal;
@@ -369,20 +373,10 @@
         position: relative;
         width: 620px;
         .form_brand {
-          appearance: none;
-          background-color: #fff;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-          box-sizing: border-box;
-          color: #222;
-          font-size: 16px;
-          height: 48px;
-          line-height: 1;
-          margin: 0;
-          outline: none;
-          padding: 0 56px 0 16px;
+          @include form();
           width: 620px;
           margin-bottom: 32px;
+          width: 100%;
         }
       }
       .arrow-sell {
@@ -485,20 +479,8 @@
           position: relative;
           width: inherit;
           .from_area{
-            height: 48px;
-            appearance: none;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            color: #222;
-            font-size: 16px;
-            height: 48px;
-            line-height: 1;
-            margin: 0;
-            outline: none;
-            padding: 0 56px 0 16px;
-            width: 100%;
+            @include form();
+            width: 100%;          
           }
         }
         .arrow-sell {
@@ -530,22 +512,11 @@
         width: 620px;
         height: 48px;
         .days_form {
+          @include form();
           display: inline-block;
           position: relative;
           width: 620px;
-          height: 48px;
-          appearance: none;
-          background-color: #fff;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-          box-sizing: border-box;
-          color: #222;
-          font-size: 16px;
-          height: 48px;
-          line-height: 1;
-          margin: 0;
-          outline: none;
-          padding: 0 56px 0 16px;
+          height: 48px;       
         }
       } 
       .arrow-sell {
