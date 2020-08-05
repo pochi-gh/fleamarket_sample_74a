@@ -32,17 +32,17 @@
       width: 456px;
       height: 144px;
       padding:32px 64px 40px 64px;
-      background-color: white;
+      background-color: $white;
       
       &__text{
         font-size: 14px;
         margin: 0;
       }
-      
+
       a {
         font-size: 14px;
         text-decoration: none;
-        color: white;
+        color: $white;
       }
 
       &__btn {
@@ -57,14 +57,15 @@
     &__login {
       width: 456px;
       height: 406px;
-      background-color: white;
+      background-color: $white;
       border-top: 1px solid #eee;
       padding: 24px 64px 32px;
+      color: $main_color;
 
       .field-email {
         &__label {
           label {
-            color: white;
+            color: $white;
           }
         }
         &__input {
@@ -81,7 +82,7 @@
       .field-password {
         &__label {
           label {
-            color: white;
+            color: $white;
           }
         }
         &__input {
@@ -105,7 +106,7 @@
           background-color: $main_color;
           border: 1px solid $main_color;
           border-radius: 4px;
-          color: #fff;
+          color: $white;
           cursor: pointer;
         }
       }
