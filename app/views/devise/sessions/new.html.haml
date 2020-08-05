@@ -7,8 +7,9 @@
     .login-page__register
       .login-page__register__text
         アカウントをお持ちでない方はこちら
-      .login-page__register__btn
-        = link_to "新規会員登録", new_user_registration_path 
+      =link_to new_user_registration_path do
+        .login-page__register__btn
+          新規会員登録
          
     .login-page__login
       .login-page__form.user-form
@@ -21,7 +22,6 @@
             .field-password
               .field-password__label
                 = f.label :password
-                %i 
               .field-password__input
                 = f.password_field :password, autocomplete: "off", placeholder: 'パスワード'
             .actions
@@ -34,7 +34,7 @@
       %li
         =link_to "利用契約", root_path
       %li
-        =link_to "特定取引に関する表記"
+        =link_to "特定取引に関する表記", root_path
     
     =link_to root_path do
       .footer-logo
