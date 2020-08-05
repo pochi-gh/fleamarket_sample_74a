@@ -1,17 +1,17 @@
-.main
+.sell_main
   .box
     .phots 
-      .phots_names
-        .phots_names_label
+      .phots__names
+        .phots__names--label
           出品画像
-        .phots_names_important
+        .phots__name--important
           必須
-      .phots_explan
+      .phots__explan
         最大10枚までアップロードできます
-      .phots_sqeare
+      .phots__sqeare
         .icon
           %i.fa.fa-camera
-        .phots_sqeare_character
+        .phots__sqeare--character
           %p 
             ドラッグアンドドロップ
           %p 
@@ -20,34 +20,34 @@
 
 
     .items
-      .items_names
-        .items_names_label
+      .items__names
+        .items__names--label
           商品名
-        .items_names_important
+        .items__names--important
           必須
       %input.text_field{:autocomplete => "off", :name => "name", :placeholder => "40文字まで", :type => "text", :value => ""}/
-      .items_explans
-        .items_explans_explan
-          .items_explans_explan_label
+      .items__explans
+        .items__explans__explan
+          .items__explans__explan--label
             商品の説明
-          .items_explans_explan_importamt
+          .items__explans__explan--importamt
             必須
         %textarea{:rows => "7", :"class" => "items_explan_text-box", :autocomplete => "off", :name => "name", :placeholder => "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）&#13;&#10;&#13;&#10;例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。".html_safe , :type => "text", :value => ""}
-      .items_count
+      .items--count
         0/1000
 
 
 
     .category
       %p 商品の詳細
-      .category_names
-        .category_names_label 
+      .category__names
+        .category__names--label 
           カテゴリー
-        .category_names_important
+        .category__names--important
           必須
-      .style_select
-        .style_selectarea.arrow-sell
-          %select.form_category{:name => "categoryId", :class => "form_category"}
+      .style__select
+        .style__selectarea.arrow-sell
+          %select.form_category{:name => "categoryId", :class => "form__category"}
             %option{"aria-selected" => "true", :label => "選択してください", :selected => "selected", :value => ""} 選択してください
             %option{"aria-selected" => "false", :label => "レディース", :value => "1"} レディース
             %option{"aria-selected" => "false", :label => "メンズ", :value => "2"} メンズ
@@ -61,25 +61,23 @@
             %option{"aria-selected" => "false", :label => "ハンドメイド", :value => "9"} ハンドメイド
             %option{"aria-selected" => "false", :label => "チケット", :value => "1027"} チケット
             %option{"aria-selected" => "false", :label => "自動車・オートバイ", :value => "1318"} 自動車・オートバイ
-            %option{"aria-selected" => "false", :label => "その他", :value => "10"} その他
-  
-      .brand_names
-        .brand_names_label
+            %option{"aria-selected" => "false", :label => "その他", :value => "10"} その他 
+      .brand__names
+        .brand__names--label
           ブランド
-        .brand_names_optional
+        .brand__names--optional
           任意
-      .brand_textfields
-        .brand_textfield
-          %input.brand_text{:autocomplete => "off", :name => "brandName", :placeholder => "例）シャネル", :type => "text", :value => ""}/
-      
-        .brand_status_names
-          .brand_status_names_label 
-            商品の状態
-          .brand_status_names_important
-            必須
-        .status_select
-        .status_selectarea.arrow-sell
-          %select.form_brand{:name => "itemCondition", :class => "form_brand"}
+      .brand__textfields
+        .brand__textfield
+          %input.brand__text{:autocomplete => "off", :name => "brandName", :placeholder => "例）シャネル", :type => "text", :value => ""}/      
+      .brand__status__names
+        .brand__status__names--label 
+          商品の状態
+        .brand__status__names--important
+          必須
+      .status__select
+        .status__selectarea.arrow-sell
+          %select.form__brand{:name => "itemCondition", :class => "form__brand"}
             %option{"aria-selected" => "true", :label => "選択してください", :selected => "selected", :value => ""} 選択してください
             %option{"aria-selected" => "false", :label => "新品、未使用", :value => "1"} 新品、未使用
             %option{"aria-selected" => "false", :label => "未使用に近い", :value => "2"} 未使用に近い
@@ -92,29 +90,29 @@
 
   
     .shipping
-      .shipping_words
-        .shipping_words_word
+      .shipping__words
+        .shipping__words--word
           配送について
-        .shipping_words_question_mark{"aria-hidden" => "true", :class => "question_mark", :fill => "#222222", "fill-rule" => "evenodd", :viewbox => "0 0 24 24"}
+        .shipping__words--question__mark{"aria-hidden" => "true", :class => "question__mark", :fill => "#222222", "fill-rule" => "evenodd", :viewbox => "0 0 24 24"}
           ?
-      .shipping_payer 
-        .shipping_payer_label
+      .shipping__payer 
+        .shipping__payer--label
           配送料の負担
-        .shipping_payer_important
+        .shipping__payer--important
           必須
-      .payer_select
-        .payer_selectarea.arrow-sell
-          %select.payer_seller{:name => "shippingPayer", :class => "payer_seller"}
+      .payer__select
+        .payer__selectarea.arrow-sell
+          %select.form__shippingfee{:name => "shippingPayer", :class => "form__shippingfee"}
             %option{"aria-selected" => "true", :label => "選択してください", :selected => "selected", :value => ""} 選択してください
             %option{"aria-selected" => "false", :label => "送料込み(出品者負担)", :value => "2"} 送料込み(出品者負担)
-            %option{"aria-selected" => "false", :label => "着払い(購入者負担)", :value => "1"} 着払い(購入者負担)
-      .shipping_from_area
-        .shipping_from_area_label
+            %option{"aria-selected" => "false", :label => "着払い(購入者負担)", :value => "1"} 着払い(購入者負担)      
+      .shipping__from__area
+        .shipping__from__area--label
           発送元の地域
-        .shipping_from_area_important
+        .shipping__from__area--important
           必須
-      .from_area_select
-        .from_area_selectarea.arrow-sell
+      .from__area__select
+        .from__area_select--area.arrow-sell
           %select.from_area{:name => "shippingFromArea", :class => "from_area"}
             %option{"aria-selected" => "true", :label => "選択してください", :selected => "selected", :value => ""} 選択してください
             %option{"aria-selected" => "false", :label => "北海道", :value => "1"} 北海道
@@ -165,10 +163,10 @@
             %option{"aria-selected" => "false", :label => "鹿児島県", :value => "46"} 鹿児島県
             %option{"aria-selected" => "false", :label => "沖縄県", :value => "47"} 沖縄県
             %option{"aria-selected" => "false", :label => "未定", :value => "99"} 未定
-      .shipping_day
-        .shipping_day_label 
+      .shipping__day
+        .shipping__day--label 
           発送までの日数
-        .shipping_day_important 
+        .shipping__day--important 
           必須
       .days  
         .days_selectarea.arrow-sell
@@ -181,45 +179,45 @@
     
 
     .price
-      .price_scorps   
-        .price_scorps_scorp
+      .price__scorps   
+        .price__scorps--scorp
           価格（¥300〜9,999,999）
-        .price_scorps_question_mark
+        .price__scorps--question_mark
           ?
       
-      .prices
-        .prices_names
-          .prices_names_label
+      .price__prices
+        .price__prices__names
+          .price__prices__names--label
             販売価格
-          .prices_names_important
+          .price__prices__names--important
             必須
-        .form_price
-          .price_input_area
-            .yen_mark 
+        .price__prices__form__price
+          .price__prices__form__price__input_area
+            .price__prices__form__price__input_area--yen_mark 
               ¥
             %input.form_price{:autocomplete => "off", :name => "price", :class => "form_price", :placeholder => "0", :type => "number", :value => ""}/
-      .sales_commission
-        .fees
-          .fees_fee
-            .fees_fee_label
+      .price__sales_commission
+        .price__sales_commission__fees
+          .price__sales_commission__fees__fee
+            .price__sales_commission__fees__fee--label
               販売手数料（10%）
-          .fees_mark
+          .price__sales_commission--fees_mark
             —
-      .sales_profit
-        .gains
-          .gains_gain
-            .gains_gain_label
+      .price__sales_profit
+        .price__sales_profit__gains
+          .price__sales_profit__gains__gain
+            .price__sales_profit__gains__gain--label
               販売利益
-          .gains_gain_mark
+          .price__sales_profit__gains__gain--mark
             —
-      .sales_bottons
+      .price__sales_bottons
         %button.sales_btn{:tabindex => "0", :type => "submit"} 
           出品する
         %button.save_btn{:tabindex => "0", :type => "button"} 
           下書きに保存
         %a.back{:href => "#"} 
           もどる
-      .matter
+      .price__matter
         禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
 
 
