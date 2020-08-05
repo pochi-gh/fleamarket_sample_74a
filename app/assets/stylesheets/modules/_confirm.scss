@@ -120,23 +120,11 @@
       &__head{
         display: flex;
         justify-content: space-between;
-        &--left{
-        }
-        &--right{
-        }
       }
       &--card_info{
         padding-top: 30px;
         p{
           padding: 5px 0 ;
-        }
-        &__type{
-
-        }
-        &__num{
-
-        }
-        &__date{
         }
       }
     }
@@ -151,10 +139,6 @@
       &__hedder{
         display: flex;
         justify-content: space-between;
-        &__left{
-        }
-        &__right{
-        }
       }
       ul{
         padding-top: 30px;
