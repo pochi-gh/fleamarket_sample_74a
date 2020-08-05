@@ -1,0 +1,64 @@
+%header.login-page-header
+  =link_to root_path do
+    .header-logo
+      = image_tag 'logo.png'
+.comfirm_wrapper
+  .comfirm_main 
+    %h2.comfirm_main--head
+      購入内容の確認
+    .comfirm_main__item
+      .comfirm_main__item__left
+        = image_tag src="IMG_main.jpeg", alt: 'img画像',  height: '100px', width: '100px', class: 'comfirm_main__item__left--img'
+      .comfirm_main__item__right
+        %h6.comfirm_main__item__right__title
+          今日の晩ご飯
+        .comfirm_main__item__right__lower
+          %p.comfirm_main__item__right__lower--detail
+            送料込み
+          %p.comfirm_main__item__right__lower--price
+            ¥1000
+    .comfirm_main__price
+      %h3.comfirm_main__price__left
+        支払い金額
+      %p.comfirm_main__price__right
+        ¥1000
+    .comfirm_main__payment
+      .comfirm_main__payment__head
+        %h3.comfirm_main__payment__head--left
+          支払い方法
+        =link_to "変更する >", "#", class:"comfirm_main__payment__head--right"
+      .comfirm_main__payment--card_info
+        %p.comfirm_main__payment--card_info__type
+          クレジットカード
+        %p.comfirm_main__payment--card_info__num
+          ***********1234
+        %p.comfirm_main__payment--card_info__date
+          有効期限 02 / 23
+    .comfirm_main__address
+      .comfirm_main__address__hedder
+        %h3.comfirm_main__address__hedder__left
+          配送先
+        = link_to "変更する >" ,"#", class:"comfirm_main__address__hedder__right"
+      %ul.comfirm_main__address__area
+        %li.comfirm_main__address__area--number
+          〒120-0006
+        %li.comfirm_main__address__area--main
+          東京都港区その辺にあるにコンビニの横
+        %li.comfirm_main__address__area--name
+          山田ゴンザレス
+    .comfirm_main__buy
+      = link_to "購入する" ,"#", class:"comfirm_main__buy--btn"
+      = link_to "戻る" , "#", class:"comfirm_main__buy--back_btn"
+%footer.login-page-footer
+  %ul.footer-links
+    %li
+      =link_to "プライバシーポリシー", root_path
+    %li
+      =link_to "利用契約", root_path
+    %li
+      =link_to "特定取引に関する表記"
+  =link_to root_path do
+    .footer-logo
+      =image_tag 'logo-white.png'
+  %p
+    ©a班 
