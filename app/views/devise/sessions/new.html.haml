@@ -1,4 +1,4 @@
-.main
+.login-main
   %header.login-page-header
     =link_to root_path do
       .header-logo
@@ -25,7 +25,7 @@
               .field-password__input
                 = f.password_field :password, autocomplete: "off", placeholder: 'パスワード'
             .actions
-              = f.submit "ログイン", class: 'btn'
+              = f.submit "ログイン", class: 'login-btn'
 
   %footer.login-page-footer
     %ul.footer-links
