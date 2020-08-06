@@ -219,12 +219,17 @@
                     %i.fa.fa-star
                       9
                 %p (税込)
-                
+        -# 商品一覧表示実装
         .pickup__lists
           - @items.each do |item|
             .pickup__list
               = link_to '#' do
                 .pickup__list__img
+                  -# 商品出品機能が実装できて初めてurlメソッドで画像データを取り出せる。
+                  -# 理由は、carrieawaveで画像を表示させる際にcarrieawave独特の文字列になるため、直打ちだと画像データを取り出せないから。
+                  -# そのため、画像データは出品機能が実装できて以下の部分を再度実装するため、現在はコメントアウト。
+                  -# - images = item.images do
+                  -#   = image_tag item.images.first.photo.urlメソッドを使う if item.images.present?
                   = image_tag "a001.png"
                 .pickup__list__body
                   = item.name
@@ -236,6 +241,40 @@
                         %i.fa.fa-star
                           1
                     %p (税込)
+
+        .pickup__lists
+          - @items.each do |item|
+            .pickup__list
+              = link_to '#' do
+                - if item.buyer_id.present?
+                  .pickup__list__img
+                    = image_tag "a001.png"
+                    .pickup__list__img__soldBox
+                      .pickup__list__img__soldBox__soldOut
+                        SOLD
+                  .pickup__list__body
+                    = item.name
+                    .details
+                      %ul
+                        %li
+                        = item.price
+                        %li.likeicon
+                          %i.fa.fa-star
+                            1
+                      %p (税込)
+                - else
+                  .pickup__list__img
+                    = image_tag "a001.png"
+                  .pickup__list__body
+                    = item.name
+                    .details
+                      %ul
+                        %li
+                        = item.price
+                        %li.likeicon
+                          %i.fa.fa-star
+                            1
+                      %p (税込)
 
 = render partial: "template/banner"
 = render partial: "template/footer"
