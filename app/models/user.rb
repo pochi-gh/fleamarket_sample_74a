@@ -6,19 +6,19 @@ class User < ApplicationRecord
   validates :nickname,
     presence: true
   validates :email,
-    format: { with: /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/},
+    format: { with: /\A[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\z/},
     presence: true
   validates :first_name,
-    format: { with: /^[ぁ-んァ-ン一-龥]/},
+    format: { with: /\A[ぁ-んァ-ン一-龥]\z/},
     presence: true
   validates :last_name,
-    format: { with: /^[ぁ-んァ-ン一-龥]/},
+    format: { with: /\A[ぁ-んァ-ン一-龥]\z/},
     presence: true
   validates :first_name_kana,
-    format: { with: /^([ァ-ン]|ー)+$/},
+    format: { with: /\A([ァ-ン]|ー)+\z/},
     presence: true
   validates :last_name_kana,
-    format: { with: /^([ァ-ン]|ー)+$/},
+    format: { with: /\A([ァ-ン]|ー)+\z/},
     presence: true
   validates :birthday,
     presence: true
