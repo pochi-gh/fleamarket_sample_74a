@@ -246,35 +246,21 @@
           - @items.each do |item|
             .pickup__list
               = link_to '#' do
-                - if item.buyer_id.present?
-                  .pickup__list__img
-                    = image_tag "a001.png"
-                    .pickup__list__img__soldBox
-                      .pickup__list__img__soldBox__soldOut
-                        SOLD
-                  .pickup__list__body
-                    = item.name
-                    .details
-                      %ul
-                        %li
-                        = item.price
-                        %li.likeicon
-                          %i.fa.fa-star
-                            1
-                      %p (税込)
-                - else
-                  .pickup__list__img
-                    = image_tag "a001.png"
-                  .pickup__list__body
-                    = item.name
-                    .details
-                      %ul
-                        %li
-                        = item.price
-                        %li.likeicon
-                          %i.fa.fa-star
-                            1
-                      %p (税込)
+                .pickup__list__img
+                  = image_tag "a001.png"
+                  .pickup__list__img__soldBox
+                    .pickup__list__img__soldBox--soldOut
+                      SOLD
+                .pickup__list__body
+                  = item.name
+                  .details
+                    %ul
+                      %li
+                      = item.price
+                      %li.likeicon
+                        %i.fa.fa-star
+                          1
+                    %p (税込)
 
 = render partial: "template/banner"
 = render partial: "template/footer"
