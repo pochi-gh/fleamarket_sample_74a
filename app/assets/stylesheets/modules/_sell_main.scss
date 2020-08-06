@@ -1,6 +1,3 @@
-
-
-
 .sell_main { 
   background-color: rgb(245, 245, 245);
   .box {
@@ -462,20 +459,7 @@
                 line-height: 48px;
               }
               .form_price{
-                height: 48px;
-                width: 285px;
-                text-align: right;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                box-sizing: border-box;
-                font-family: inherit;
-                font-size: inherit;
-                height: 48px;
-                margin: 0;
-                outline: none;
-                padding: 0 16px;
- 
-                
+                @include mini_form();
               }
             }
           }
@@ -497,7 +481,7 @@
             height: 14px;
             margin-right: auto;
             line-height: 14px;
-            &--labrl {
+            &--labal {
               line-height: 1.4em;
             }
           }
