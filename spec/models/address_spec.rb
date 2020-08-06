@@ -59,5 +59,10 @@ describe Address do
       expect(address.errors[:block]).to include("can't be blank")
     end
 
+    it "destination_first_name、destination_last_name、destination_first_name_kana、destination_last_name_kana、postal_code、prefecture_id、city、block全てが存在すれば登録できること" do
+      address = build(:address)
+      expect(address).to be_valid
+    end
+
   end
 end
