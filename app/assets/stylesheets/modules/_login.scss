@@ -62,6 +62,10 @@
       padding: 24px 64px 32px;
       color: $main_color;
 
+      .alert {
+        color: red;
+      }
+
       .field-email {
         &__label {
           label {

@@ -14,6 +14,8 @@
     .login-page__login
       .login-page__form.user-form
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          %p.alert
+            = alert
           .field-email
             .field-email__label
               = f.label :email
