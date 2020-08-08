@@ -95,8 +95,7 @@
           @include important();
           height: 16px;
         }
-      }  
-      
+      }        
       .text_field {
         width: 100%;
         border: 1px solid #ccc;
@@ -119,6 +118,7 @@
           display: flex;
           &--label {
             @include label();
+            margin-top: auto;
           }
           &--importamt {
             @include important();
@@ -187,18 +187,7 @@
           width: inherit;
           height: 48px;       
           .form_category{
-            appearance: none;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            color: #222;
-            font-size: 16px;
-            height: 48px;
-            line-height: 1;
-            margin: 0;
-            outline: none;
-            padding: 0 56px 0 16px;
+            @include form();
             width: 100%;
             option {
               font-weight: normal;
@@ -219,7 +208,6 @@
       }
       .brand__names{
         @include names();
-
         &--label {
           @include label();  
         }
@@ -261,35 +249,9 @@
           }
         }
       }
-      .status_select {
-        margin-top: 16px;      
-        align-items: center;
-        display: inline-flex;
-        width: 100%;  
-      }
-      .status_selectarea {
-        display: inline-block;
-        position: relative;
-        width: 620px;
-        .form_brand {
-          appearance: none;
-          background-color: #fff;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-          box-sizing: border-box;
-          color: #222;
-          font-size: 16px;
-          height: 48px;
-          line-height: 1;
-          margin: 0;
-          outline: none;
-          padding: 0 56px 0 16px;
-          width: 620px;
-          margin-bottom: 32px;
         .brand__status__names{
           @include names();
           margin: 0 !important;
-
           &--label{
             @include label();
             padding-right: 8px;
@@ -297,7 +259,22 @@
           &--important {
             @include important();
           }
-        
+        }
+        .status__selectarea {
+          display: inline-block;
+          position: relative;
+          width: 620px;
+          margin-top: 16px;      
+          align-items: center;
+          display: inline-flex;
+          width: 100%;
+          .form__brand {
+            @include form();
+            width: 620px;
+            margin-bottom: 32px;
+            width: 100%;
+          }
+        }
         .arrow-sell {
           @include arrow-sell();
         }
@@ -306,7 +283,7 @@
           margin-top: -20px;     
         }     
       }
-      }
+ }
         
     
   
@@ -323,9 +300,9 @@
           line-height: 1.4em;
           margin-bottom: 24px;  
         }
-          &--question_mark{
-            @include question_mark();
-          }
+        &--question_mark{
+          @include question_mark();
+        }
       }
       .shipping__payer {
         width: 620px;
@@ -361,8 +338,7 @@
         }
         .arrow-sell::after {
           @include arrow-sells();
-          margin-top: -8px;   
-               
+          margin-top: -8px;                 
         }     
       }
       .shipping__from__area {
@@ -373,12 +349,11 @@
         margin-top: 32px;
         &--label {
           @include label();
-          // margin-right: 8px;
         }
         &--important {
           @include important();
         }
-        }
+      }
       .from__area__select{
         &--area {
           margin-top: 16px;
@@ -388,23 +363,9 @@
           display: inline-block;
           position: relative;
           width: inherit;
-          .from_area{
-            height: 48px;
-            appearance: none;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            color: #222;
-            font-size: 16px;
-            height: 48px;
-            line-height: 1;
-            margin: 0;
-            outline: none;
-            padding: 0 56px 0 16px;
-            width: 100%;
           select{
             @include form();
+            width: 620px;
           }
         }
           .arrow-sell {
@@ -414,7 +375,7 @@
             @include arrow-sells();
             margin-top: -8px;        
           }    
-        }
+      }
         .shipping__day {
           width: 620px;
           height: 19px;
@@ -436,22 +397,11 @@
         width: 620px;
         height: 48px;
         .days_form {
+          @include form();
           display: inline-block;
           position: relative;
           width: 620px;
-          height: 48px;
-          appearance: none;
-          background-color: #fff;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-          box-sizing: border-box;
-          color: #222;
-          font-size: 16px;
-          height: 48px;
-          line-height: 1;
-          margin: 0;
-          outline: none;
-          padding: 0 56px 0 16px;
+          height: 48px;       
         }
       } 
       .arrow-sell {
@@ -461,8 +411,7 @@
         @include arrow-sells();
         margin-top: -8px;        
       }    
-      }
-    
+    }
       
 
     .price {
@@ -480,152 +429,162 @@
           @include question_mark();
         }
       }
-    }
-        .price__prices {
-          width: 620px;
-          height: 80px;
+    
+      .price__prices {
+        width: 620px;
+        height: 80px;
+        align-items: center;
+        box-sizing: content-box;
+        display: flex;
+        padding-bottom: 12px;
+        &__names {
+          margin-right: auto;
+          white-space: nowrap;
           align-items: center;
-          box-sizing: content-box;
           display: flex;
-          padding-bottom: 12px;
-          &_names {
-            margin-right: auto;
-            white-space: nowrap;
-            align-items: center;
-            display: flex;
-            &--label {
-              @include label();
-            }
-            &--important {
-              @include important();
-            }
-          } 
-          .price___input_area{
-            display: flex;        
-            .yen_mark{
-              font-size: 14px;
-              margin-right: 5px;
-              line-height: 48px;
-            }
-            .form_price{
-              height: 48px;
-              width: 285px;
-              text-align: right;
-              border: 1px solid #ccc;
-              border-radius: 4px;
-              box-sizing: border-box;
-              font-family: inherit;
-              font-size: inherit;
-              height: 48px;
-              margin: 0;
-              outline: none;
-              padding: 0 16px;
-              
-            }
+          &--label {
+            @include label();
+          }
+          &--important {
+            @include important();
           }
         } 
-        .sales_commission {
-          width: 620px;
-          height: 45px;
-          padding-top: 12px;
-          box-sizing: content-box;
-          .fees {
-            margin-right: auto;
-            white-space: nowrap;
-            display: flex;
-            font-size: 14px;
-            .fees_fee {
-              align-items: center;
-              width: 126px;
-              height: 14px;
-              margin-right: auto;
-              line-height: 14px;
-              &_labrl {
-                line-height: 1.4em;
+        &__form{
+          &__price{
+            &__input_area{
+              display: flex;
+              &--yen_mark{
+                font-size: 14px;
+                margin-right: 5px;
+                line-height: 48px;
+              }
+              .form_price{
+                @include mini_form();
               }
             }
-            &_mark {
-              line-height: 1.4em;
-            }
-          } 
-        }       
-        .sales_profit {
-          width: 620px;
-          height: 80px;
-          border-top-width: 1px;
-          border-top-color: #efefef;
-          border-left: 0 solid #efefef;
-          border-bottom: 0 solid #efefef;
-          border-right: 0 solid #efefef;
-          border-top-style: solid;
-          margin: 0; 
-          padding: 0px;
-          padding-top: 30px;
-          .gains {
+          }
+        }    
+      } 
+      .price__sales_commission {
+        width: 620px;
+        height: 45px;
+        padding-top: 12px;
+        box-sizing: content-box;
+        &__fees {
+          margin-right: auto;
+          white-space: nowrap;
+          display: flex;
+          font-size: 14px;
+          &__fee {
+            align-items: center;
+            width: 126px;
+            height: 14px;
             margin-right: auto;
-            white-space: nowrap;
-            display: flex;
-            font-size: 14px;
-            .gains_gain {
-              align-items: center;
-              width: 126px;
-              height: 14px;
-              margin-right: auto;
-              line-height: 14px;
-              &_labrl {
-                line-height: 1.4em;
-              }
-            }
-            &_mark {
+            line-height: 14px;
+            &--labal {
               line-height: 1.4em;
             }
-          } 
+          }
         }
-        .sales_bottons{
+        &--fees_mark {
+          line-height: 1.4em;
+        }
+      }       
+      .price__sales_profit {
+        @include border-line();
+        width: 620px;
+        height: 80px;
+        padding-top: 30px;
+        &__gains {
+          margin-right: auto;
+          white-space: nowrap;
+          display: flex;
+          font-size: 14px;
+          &__gain {
+            align-items: center;
+            width: 126px;
+            height: 14px;
+            margin-right: auto;
+            line-height: 14px;
+            &--label{
+              line-height: 1.4em;
+            }
+          }
+        }
+        &--mark {
+          line-height: 1.4em;
+        } 
+      }
+      .price__sales_bottons{
+        width: 360px;
+        margin: 0px auto 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 30px;     
+        .sales_btn{
+          @include btn();
           width: 360px;
-          margin: 0px auto 32px;
+          height: 48px;
+          font-size: 17px;
+          min-height: 48px;
+          padding: 0 24px;
+          border-radius: 4px;
+          border: 1px solid transparent;
+          box-sizing: border-box;
+          display: inline-block;
+          font-weight: 600;
+          line-height: 48px;
+          overflow: hidden;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;    
+          background-color: #ea352d;
+          color: #fff;
+          text-decoration: none;  
+        }          
+        .save_btn {
+          width: 360px;
+          height: 48px;
+          font-size: 17px;
+          min-height: 48px;
+          padding: 0 24px;
+          border-radius: 4px;
+          border: 1px solid transparent;
+          box-sizing: border-box;
+          display: inline-block;
+          font-weight: 600;
+          line-height: 48px;
+          overflow: hidden;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;    
+          margin-top: 24px;
+          background-color: #ccc;
+          border-color: transparent;
+          color: #222;
+        }         
+        .back {
+          margin-top: 24px;
+          color: #0095ee;
+          width: 100%;
           display: flex;
           flex-direction: column;
           align-items: center;
-        
-          .sales_btn{
-            @include btn();
-            background-color: #ea352d;
-            color: #fff;
-            text-decoration: none;  
+          a {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-          }          
-          .save_btn {
-            @include btn();
-            margin-top: 24px;
-            background-color: #ccc;
-            border-color: transparent;
-            color: #222;
-            display: flex;
-            flex-direction: column;
-            align-items: center;    
-          }         
-          .back {
-            margin-top: 24px;
-            color: #0095ee;
             width: 100%;
-            display: flex;
-            flex-direction: column;
+            height: 20px;
+            -webkit-box-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
             align-items: center;
-            a {
-              display: flex;
-              width: 100%;
-              height: 20px;
-              -webkit-box-pack: center;
-              justify-content: center;
-              -webkit-box-align: center;
-              align-items: center;
-            }
-          }          
-        }
-      .matter {
+          }
+        }          
+      }
+      .price__matter {
         width: 620px;
         font-size: 12px;
         line-height: 1.4em;
@@ -633,16 +592,6 @@
         display: block;
         margin-bottom: 50px;
         margin-right: 40px;       
-        }
-      
-      
-                
-      
-    }       
-  }
-}             
-  
-}
-      
-
+      }
+    }
 }
