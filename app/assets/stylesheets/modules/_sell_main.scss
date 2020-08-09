@@ -300,7 +300,7 @@
           line-height: 1.4em;
           margin-bottom: 24px;  
         }
-        &--question_mark{
+        &--question__mark{
           @include question_mark();
         }
       }
