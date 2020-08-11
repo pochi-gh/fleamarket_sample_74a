@@ -60,10 +60,10 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references||
-|destination_first_name|string|null: false|
-|destination_last_name|string|null: false|
-|destination_first_name_kana|string|null: false|
-|destination_last_name_kana|string|null: false|
+|first_name|string|null: false|
+|last_name|string|null: false|
+|first_name_kana|string|null: false|
+|last_name_kana|string|null: false|
 |postal_code|integer|null: false|
 |prefecture_id|references|null: false|
 |city|string|null: false|
