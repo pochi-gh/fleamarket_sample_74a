@@ -29,9 +29,14 @@
       }
     }
   }
-  .footer-logo {
-    width: 160px;
-    height: 46px;
+  &__logo {
+    .footer-logo {
+      width: 160px;
+      height: 46px;
+    }
+    p {
+      color: $white;
+    }
   }
 }
 
