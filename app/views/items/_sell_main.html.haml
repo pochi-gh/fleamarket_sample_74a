@@ -1,0 +1,226 @@
+.sell_main
+  .box
+    .phots 
+      .phots__names
+        .phots__names--label
+          出品画像
+        .phots__names--important
+          必須
+      .phots__explan
+        最大10枚までアップロードできます
+      .phots__sqeare
+        .icon
+          %i.fa.fa-camera
+        .phots__sqeare--character
+          %p 
+            ドラッグアンドドロップ
+          %p 
+            またはクリックしてファイルをアップロード画像がありません
+    
+
+
+    .items
+      .items__names
+        .items__names--label
+          商品名
+        .items__names--important
+          必須
+      %input.text_field{:autocomplete => "off", :name => "name", :placeholder => "40文字まで", :type => "text", :value => ""}/
+      .items__explans
+        .items__explans__explan
+          .items__explans__explan--label
+            商品の説明
+          .items__explans__explan--importamt
+            必須
+        %textarea{:rows => "7", :"class" => "items_explan_text-box", :autocomplete => "off", :name => "name", :placeholder => "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）&#13;&#10;&#13;&#10;例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。".html_safe , :type => "text", :value => ""}
+      .items--count
+        0/1000
+
+
+
+    .category
+      %p 商品の詳細
+      .category__names
+        .category__names--label 
+          カテゴリー
+        .category__names--important
+          必須
+      .style__select
+        .style__selectarea.arrow-sell
+          %select.form_category{:name => "categoryId", :class => "form__category"}
+            %option{"aria-selected" => "true", :label => "選択してください", :selected => "selected", :value => ""} 選択してください
+            %option{"aria-selected" => "false", :label => "レディース", :value => "1"} レディース
+            %option{"aria-selected" => "false", :label => "メンズ", :value => "2"} メンズ
+            %option{"aria-selected" => "false", :label => "ベビー・キッズ", :value => "3"} ベビー・キッズ
+            %option{"aria-selected" => "false", :label => "インテリア・住まい・小物", :value => "4"} インテリア・住まい・小物
+            %option{"aria-selected" => "false", :label => "本・音楽・ゲーム", :value => "5"} 本・音楽・ゲーム
+            %option{"aria-selected" => "false", :label => "おもちゃ・ホビー・グッズ", :value => "1328"} おもちゃ・ホビー・グッズ
+            %option{"aria-selected" => "false", :label => "コスメ・香水・美容", :value => "6"} コスメ・香水・美容
+            %option{"aria-selected" => "false", :label => "家電・スマホ・カメラ", :value => "7"} 家電・スマホ・カメラ
+            %option{"aria-selected" => "false", :label => "スポーツ・レジャー", :value => "8"} スポーツ・レジャー
+            %option{"aria-selected" => "false", :label => "ハンドメイド", :value => "9"} ハンドメイド
+            %option{"aria-selected" => "false", :label => "チケット", :value => "1027"} チケット
+            %option{"aria-selected" => "false", :label => "自動車・オートバイ", :value => "1318"} 自動車・オートバイ
+            %option{"aria-selected" => "false", :label => "その他", :value => "10"} その他 
+      .brand__names
+        .brand__names--label
+          ブランド
+        .brand__names--optional
+          任意
+      .brand__textfields
+        .brand__textfield
+          %input.brand__text{:autocomplete => "off", :name => "brandName", :placeholder => "例）シャネル", :type => "text", :value => ""}/      
+      .brand__status__names
+        .brand__status__names--label 
+          商品の状態
+        .brand__status__names--important
+          必須
+      .status__select
+        .status__selectarea.arrow-sell
+          %select.form__brand{:name => "itemCondition", :class => "form__brand"}
+            %option{"aria-selected" => "true", :label => "選択してください", :selected => "selected", :value => ""} 選択してください
+            %option{"aria-selected" => "false", :label => "新品、未使用", :value => "1"} 新品、未使用
+            %option{"aria-selected" => "false", :label => "未使用に近い", :value => "2"} 未使用に近い
+            %option{"aria-selected" => "false", :label => "目立った傷や汚れなし", :value => "3"} 目立った傷や汚れなし
+            %option{"aria-selected" => "false", :label => "やや傷や汚れあり", :value => "4"} やや傷や汚れあり
+            %option{"aria-selected" => "false", :label => "傷や汚れあり", :value => "5"} 傷や汚れあり
+            %option{"aria-selected" => "false", :label => "全体的に状態が悪い", :value => "6"} 全体的に状態が悪い
+        
+  
+
+  
+    .shipping
+      .shipping__words
+        .shipping__words--word
+          配送について
+        .shipping__words--question__mark{"aria-hidden" => "true", :class => "question__mark", :fill => "#222222", "fill-rule" => "evenodd", :viewbox => "0 0 24 24"}
+          ?
+      .shipping__payer 
+        .shipping__payer--label
+          配送料の負担
+        .shipping__payer--important
+          必須
+      .payer__select
+        .payer__selectarea.arrow-sell
+          %select.form__shippingfee{:name => "shippingPayer", :class => "form__shippingfee"}
+            %option{"aria-selected" => "true", :label => "選択してください", :selected => "selected", :value => ""} 選択してください
+            %option{"aria-selected" => "false", :label => "送料込み(出品者負担)", :value => "2"} 送料込み(出品者負担)
+            %option{"aria-selected" => "false", :label => "着払い(購入者負担)", :value => "1"} 着払い(購入者負担)      
+      .shipping__from__area
+        .shipping__from__area--label
+          発送元の地域
+        .shipping__from__area--important
+          必須
+      .from__area__select
+        .from__area__select--area.arrow-sell
+          %select.from_area{:name => "shippingFromArea", :class => "from_area"}
+            %option{"aria-selected" => "true", :label => "選択してください", :selected => "selected", :value => ""} 選択してください
+            %option{"aria-selected" => "false", :label => "北海道", :value => "1"} 北海道
+            %option{"aria-selected" => "false", :label => "青森県", :value => "2"} 青森県
+            %option{"aria-selected" => "false", :label => "岩手県", :value => "3"} 岩手県
+            %option{"aria-selected" => "false", :label => "宮城県", :value => "4"} 宮城県
+            %option{"aria-selected" => "false", :label => "秋田県", :value => "5"} 秋田県
+            %option{"aria-selected" => "false", :label => "山形県", :value => "6"} 山形県
+            %option{"aria-selected" => "false", :label => "福島県", :value => "7"} 福島県
+            %option{"aria-selected" => "false", :label => "茨城県", :value => "8"} 茨城県
+            %option{"aria-selected" => "false", :label => "栃木県", :value => "9"} 栃木県
+            %option{"aria-selected" => "false", :label => "群馬県", :value => "10"} 群馬県
+            %option{"aria-selected" => "false", :label => "埼玉県", :value => "11"} 埼玉県
+            %option{"aria-selected" => "false", :label => "千葉県", :value => "12"} 千葉県
+            %option{"aria-selected" => "false", :label => "東京都", :value => "13"} 東京都
+            %option{"aria-selected" => "false", :label => "神奈川県", :value => "14"} 神奈川県
+            %option{"aria-selected" => "false", :label => "新潟県", :value => "15"} 新潟県
+            %option{"aria-selected" => "false", :label => "富山県", :value => "16"} 富山県
+            %option{"aria-selected" => "false", :label => "石川県", :value => "17"} 石川県
+            %option{"aria-selected" => "false", :label => "福井県", :value => "18"} 福井県
+            %option{"aria-selected" => "false", :label => "山梨県", :value => "19"} 山梨県
+            %option{"aria-selected" => "false", :label => "長野県", :value => "20"} 長野県
+            %option{"aria-selected" => "false", :label => "岐阜県", :value => "21"} 岐阜県
+            %option{"aria-selected" => "false", :label => "静岡県", :value => "22"} 静岡県
+            %option{"aria-selected" => "false", :label => "愛知県", :value => "23"} 愛知県
+            %option{"aria-selected" => "false", :label => "三重県", :value => "24"} 三重県
+            %option{"aria-selected" => "false", :label => "滋賀県", :value => "25"} 滋賀県
+            %option{"aria-selected" => "false", :label => "京都府", :value => "26"} 京都府
+            %option{"aria-selected" => "false", :label => "大阪府", :value => "27"} 大阪府
+            %option{"aria-selected" => "false", :label => "兵庫県", :value => "28"} 兵庫県
+            %option{"aria-selected" => "false", :label => "奈良県", :value => "29"} 奈良県
+            %option{"aria-selected" => "false", :label => "和歌山県", :value => "30"} 和歌山県
+            %option{"aria-selected" => "false", :label => "鳥取県", :value => "31"} 鳥取県
+            %option{"aria-selected" => "false", :label => "島根県", :value => "32"} 島根県
+            %option{"aria-selected" => "false", :label => "岡山県", :value => "33"} 岡山県
+            %option{"aria-selected" => "false", :label => "広島県", :value => "34"} 広島県
+            %option{"aria-selected" => "false", :label => "山口県", :value => "35"} 山口県
+            %option{"aria-selected" => "false", :label => "徳島県", :value => "36"} 徳島県
+            %option{"aria-selected" => "false", :label => "香川県", :value => "37"} 香川県
+            %option{"aria-selected" => "false", :label => "愛媛県", :value => "38"} 愛媛県
+            %option{"aria-selected" => "false", :label => "高知県", :value => "39"} 高知県
+            %option{"aria-selected" => "false", :label => "福岡県", :value => "40"} 福岡県
+            %option{"aria-selected" => "false", :label => "佐賀県", :value => "41"} 佐賀県
+            %option{"aria-selected" => "false", :label => "長崎県", :value => "42"} 長崎県
+            %option{"aria-selected" => "false", :label => "熊本県", :value => "43"} 熊本県
+            %option{"aria-selected" => "false", :label => "大分県", :value => "44"} 大分県
+            %option{"aria-selected" => "false", :label => "宮崎県", :value => "45"} 宮崎県
+            %option{"aria-selected" => "false", :label => "鹿児島県", :value => "46"} 鹿児島県
+            %option{"aria-selected" => "false", :label => "沖縄県", :value => "47"} 沖縄県
+            %option{"aria-selected" => "false", :label => "未定", :value => "99"} 未定
+      .shipping__day
+        .shipping__day--label 
+          発送までの日数
+        .shipping__day--important 
+          必須
+      .days  
+        .days_selectarea.arrow-sell
+          %select.days_form{:name => "shippingDuration", :class => "days_form"}
+            %option{"aria-selected" => "true", :label => "選択してください", :selected => "selected", :value => ""} 選択してください
+            %option{"aria-selected" => "false", :label => "1~2日で発送", :value => "1"} 1~2日で発送
+            %option{"aria-selected" => "false", :label => "2~3日で発送", :value => "2"} 2~3日で発送
+            %option{"aria-selected" => "false", :label => "4~7日で発送", :value => "3"} 4~7日で発送
+      
+    
+
+    .price
+      .price__scorps   
+        .price__scorps--scorp
+          価格（¥300〜9,999,999）
+        .price__scorps--question_mark
+          ?
+      
+      .price__prices
+        .price__prices__names
+          .price__prices__names--label
+            販売価格
+          .price__prices__names--important
+            必須
+        .price__prices__form__price
+          .price__prices__form__price__input_area
+            .price__prices__form__price__input_area--yen_mark 
+              ¥
+            %input.form_price{:autocomplete => "off", :name => "price", :class => "form_price", :placeholder => "0", :type => "number", :value => ""}/
+      .price__sales_commission
+        .price__sales_commission__fees
+          .price__sales_commission__fees__fee
+            .price__sales_commission__fees__fee--label
+              販売手数料（10%）
+          .price__sales_commission--fees_mark
+            —
+      .price__sales_profit
+        .price__sales_profit__gains
+          .price__sales_profit__gains__gain
+            .price__sales_profit__gains__gain--label
+              販売利益
+          .price__sales_profit__gains__gain--mark
+            —
+      .price__sales_bottons
+        %button.sales_btn{:tabindex => "0", :type => "submit"} 
+          出品する
+        %button.save_btn{:tabindex => "0", :type => "button"} 
+          下書きに保存
+        %a.back{:href => "#"} 
+          もどる
+      .price__matter
+        禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+
+
+
+
+          

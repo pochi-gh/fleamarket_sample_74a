@@ -2,6 +2,7 @@
 @import "config/colors.scss";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "mixins/mixin";
 @import "modules/items";
 @import "modules/header";
 @import "modules/footer";
@@ -12,3 +13,6 @@
 @import "modules/credit_card";
 @import "modules/items_show";
 @import "modules/confirm";
+@import "modules/sell_header";
+@import "modules/sell_main";
+@import "modules/sell_footer";

@@ -1,0 +1,559 @@
+.sell_main { 
+  background-color: rgb(245, 245, 245);
+  .box {
+    width: 700px;
+    margin: 0 auto;
+    position: relative;
+    .phots {
+      background-color: rgb(255, 255, 255);
+      width: 700px;
+      height: 300px;
+      padding: 40px;
+      margin: 0!important;
+      &__names {
+        width: 620px;
+        height: 19px;
+        display: flex;
+        align-items: center;
+        &--label {
+          @include label();
+          margin: 0 !important;         
+          padding-right: 5px;
+        }
+        &--important {
+          @include important();
+        }
+      }
+      &__explan {
+        font-size: 14px;
+        line-height: 1.4em;
+        margin-top: 16px;
+        margin-bottom: 16px;
+      }
+      &__sqeare {
+        height: 150px;
+        width: 620px;
+        background-color: whitesmoke;
+        border: 2px dotted #463e3e;
+        padding-bottom: 30px;
+        align-content: center;
+        align-items: center;
+        cursor: pointer;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        position: relative;
+        border-width: 1px;
+        border-style: dashed;
+        border-color: #cccccc;
+        transition: all 0.5s ease-out 0s;
+        .icon {
+          fill: #222222;
+          height: 30px;
+          margin-bottom: 8px;
+          width: 30px;
+          i.fa.fa-camera {
+            height: 25px;
+            font-size: 22px;
+          }
+        }
+        &--character {
+          color: #222222;
+          font-size: 5px;
+          height: 24px;
+          line-height: 1.4em;
+          text-align: center;
+          width: 100%;
+          p {
+            line-height: 1.4em;
+            text-align: center;
+            width: 100%;
+          }
+          p {
+            line-height: 1.4em;
+            text-align: center;
+            margin-top: 5px;
+          }
+        }
+      }
+    }     
+    
+    
+
+    .items {
+      @include outline();
+      height: 416px;
+      margin: 0 auto;
+      &__names {
+        @include names();
+        margin: 0 !important;
+         
+        &--label{
+          @include label();
+        }
+        &--important {
+          @include important();
+          height: 16px;
+        }
+      }        
+      .text_field {
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        color: #222;
+        font-size: 16px;
+        margin: 0;
+        outline: none;
+        padding: 13px 16px;
+        resize: vertical;
+        vertical-align: middle;
+        margin-top: 16px;
+      }
+      &__explans {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        &__explan {
+          display: flex;
+          &--label {
+            @include label();
+            margin-top: auto;
+          }
+          &--importamt {
+            @include important();
+            height: 16px;
+            margin-top: 43px;
+            margin-bottom: 3px;
+          }
+        }
+        .items_explan_text-box{
+          width: 100%;
+          height: 154px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          color: #222;
+          font-size: 16px;
+          outline: none;
+          padding: 13px 16px;
+          resize: vertical;
+          vertical-align: middle;
+          margin-top: 16px;
+        }
+      }
+      &--count {
+        margin: 0;
+        margin-top: 16px;
+        padding: 0;
+        text-align: right;
+        color: #888;
+        font-size: 12px;
+        line-height: 1.4em;
+      }
+    }
+  
+
+
+    .category {
+      @include outline();
+      height: 444px;
+      p {
+        color: rgb(136, 136, 136);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.4em;
+        margin-bottom: 24px;
+      }
+      &__names{
+        @include names();
+        margin: 0 !important;
+        &--label {
+          @include label();   
+        }
+        &--important {
+          @include important();
+          margin-bottom: 3px !important;
+        }       
+      }
+      .style__select {
+        height: 48px;
+        width: 620px;
+        margin-top: 16px;
+        margin-bottom: 32px;
+        .style__selectarea{
+          display: inline-block;
+          position: relative;
+          width: inherit;
+          height: 48px;       
+          .form_category{
+            @include form();
+            width: 100%;
+            option {
+              font-weight: normal;
+              display: block;
+              white-space: pre;
+              min-height: 1.2em;
+              padding: 0px 2px 1px;
+            }        
+          }
+        }
+        .arrow-sell {
+          @include arrow-sell();
+        }
+        .arrow-sell::after {
+          @include arrow-sells();
+          margin-top: 0;
+        }
+      }
+      .brand__names{
+        @include names();
+        &--label {
+          @include label();  
+        }
+        &--optional {
+          margin-left: 8px;
+          font-size: 12px;
+          padding: 0 4px;
+          background-color: #bfbfbf;
+          color: #fff;
+          border-radius: 2px;
+          display: inline-block;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 1.4em;
+        }
+      }
+      .brand__textfields {
+        margin-top: 16px;
+        .brand__textfield {
+          align-items: center;
+          display: inline-flex;
+          width: 100%;
+          font-size: 16px;
+          display: inline-block;
+          position: relative;
+          width: inherit;
+          margin-bottom: 32px;
+          .brand__text {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: inherit;
+            height: 48px;
+            margin: 0;
+            outline: none;
+            padding: 0 16px;
+            width: 620px;
+          }
+        }
+      }
+        .brand__status__names{
+          @include names();
+          margin: 0 !important;
+          &--label{
+            @include label();
+            padding-right: 8px;
+          }
+          &--important {
+            @include important();
+          }
+        }
+        .status__selectarea {
+          display: inline-block;
+          position: relative;
+          width: 620px;
+          margin-top: 16px;      
+          align-items: center;
+          display: inline-flex;
+          width: 100%;
+          .form__brand {
+            @include form();
+            width: 620px;
+            margin-bottom: 32px;
+            width: 100%;
+          }
+        }
+        .arrow-sell {
+          @include arrow-sell();
+        }
+        .arrow-sell::after {
+          @include arrow-sells();
+          margin-top: -20px;     
+        }     
+      }
+ }
+        
+    
+  
+    .shipping {
+      @include outline();
+      height: 444px;
+      .shipping__words {
+        height: 19px;
+        width: 620px;
+        display: flex;
+        &--word {
+          @include label();
+          color: rgb(136, 136, 136);
+          line-height: 1.4em;
+          margin-bottom: 24px;  
+        }
+        &--question__mark{
+          @include question_mark();
+        }
+      }
+      .shipping__payer {
+        width: 620px;
+        height: 19px;
+        align-items: center;
+        display: flex;
+        margin-top: 32px;
+        &--label {
+          @include label();
+          margin-right: 8px;
+        }
+        &--important {
+          @include important();                
+        }
+      }
+      .payer__select {
+        width: 100%;
+        height: 48px;
+        margin-top: 16px;
+        align-items: center;
+        display: inline-flex;
+        .payer__selectarea{
+          display: inline-block;
+          position: relative;
+          width: inherit;
+        }
+          .form__shippingfee {
+            @include form();
+            width: 100%;   
+          }      
+        .arrow-sell {
+          @include arrow-sell();
+        }
+        .arrow-sell::after {
+          @include arrow-sells();
+          margin-top: -8px;                 
+        }     
+      }
+      .shipping__from__area {
+        align-items: center;
+        display: flex;
+        height: 19px;
+        width: 620px;
+        margin-top: 32px;
+        &--label {
+          @include label();
+        }
+        &--important {
+          @include important();
+        }
+      }
+      .from__area__select{
+        &--area {
+          margin-top: 16px;
+          align-items: center;
+          display: inline-flex;
+          width: 100%;
+          display: inline-block;
+          position: relative;
+          width: inherit;
+          select{
+            @include form();
+            width: 620px;
+          }
+        }
+          .arrow-sell {
+            @include arrow-sell();
+          }
+          .arrow-sell::after {
+            @include arrow-sells();
+            margin-top: -8px;        
+          }    
+      }
+        .shipping__day {
+          width: 620px;
+          height: 19px;
+          margin-top: 32px;
+          align-items: center;
+          display: flex;
+          &--label {
+            @include label();
+            margin-right: 8px;
+          }
+          &--important {
+            @include important();
+          }
+        }
+      .days {
+        margin-top: 16px;
+        align-items: center;
+        display: inline-flex;
+        width: 620px;
+        height: 48px;
+        .days_form {
+          @include form();
+          display: inline-block;
+          position: relative;
+          width: 620px;
+          height: 48px;       
+        }
+      } 
+      .arrow-sell {
+        @include arrow-sell();
+      }
+      .arrow-sell::after {
+        @include arrow-sells();
+        margin-top: -8px;        
+      }    
+    }
+      
+
+    .price {
+      @include outline();
+      .price__scorps {
+        width: 620px;
+        height: 19px;
+        display: flex;
+        margin-bottom: 24px;
+        &--scorp {
+          @include label();
+          color: rgb(136, 136, 136);
+        }
+        &--question_mark {
+          @include question_mark();
+        }
+      }
+    
+      .price__prices {
+        width: 620px;
+        height: 80px;
+        align-items: center;
+        box-sizing: content-box;
+        display: flex;
+        padding-bottom: 12px;
+        &__names {
+          margin-right: auto;
+          white-space: nowrap;
+          align-items: center;
+          display: flex;
+          &--label {
+            @include label();
+          }
+          &--important {
+            @include important();
+          }
+        } 
+        &__form{
+          &__price{
+            &__input_area{
+              display: flex;
+              &--yen_mark{
+                font-size: 14px;
+                margin-right: 5px;
+                line-height: 48px;
+              }
+              .form_price{
+                @include mini_form();
+              }
+            }
+          }
+        }    
+      } 
+      .price__sales_commission {
+        width: 620px;
+        height: 45px;
+        padding-top: 12px;
+        box-sizing: content-box;
+        &__fees {
+          margin-right: auto;
+          white-space: nowrap;
+          display: flex;
+          font-size: 14px;
+          &__fee {
+            align-items: center;
+            width: 126px;
+            height: 14px;
+            margin-right: auto;
+            line-height: 14px;
+            &--labal {
+              line-height: 1.4em;
+            }
+          }
+        }
+        &--fees_mark {
+          line-height: 1.4em;
+        }
+      }       
+      .price__sales_profit {
+        @include border-line();
+        width: 620px;
+        height: 80px;
+        padding-top: 30px;
+        &__gains {
+          margin-right: auto;
+          white-space: nowrap;
+          display: flex;
+          font-size: 14px;
+          &__gain {
+            align-items: center;
+            width: 126px;
+            height: 14px;
+            margin-right: auto;
+            line-height: 14px;
+            &--label{
+              line-height: 1.4em;
+            }
+          }
+        }
+        &--mark {
+          line-height: 1.4em;
+        } 
+      }
+      .price__sales_bottons{
+        width: 360px;
+        margin: 0px auto 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 30px;     
+        .sales_btn{
+          @include priceseals_btn();
+        }          
+        .save_btn {
+          @include  pricesave_btn();
+        }         
+        .back {
+          margin-top: 24px;
+          color: #0095ee;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          a {
+            display: flex;
+            width: 100%;
+            height: 20px;
+            -webkit-box-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            align-items: center;
+          }
+        }          
+      }
+      .price__matter {
+        width: 620px;
+        font-size: 12px;
+        line-height: 1.4em;
+        color: black;
+        display: block;
+        margin-bottom: 50px;
+        margin-right: 40px;       
+      }
+    }
+}

@@ -18,4 +18,5 @@ Rails.application.routes.draw do
       post 'show', to: 'credit_cards#show'
     end
   end
+  resources :item_sell, only: :new
 end
