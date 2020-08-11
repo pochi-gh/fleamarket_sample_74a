@@ -1,0 +1,62 @@
+.sign-up
+  .sign-up__header
+    %h1.logo
+      = link_to root_path do
+        = image_tag 'furima.svg'
+  %h2.sign-up__title 新規会員登録
+  .form__sign-up
+    = form_with(model: @user, url: user_registration_path, local: true) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .field
+        = f.label :nickname, "ニックネーム"
+        %span.require 必須
+        %br/
+        = f.text_field :nickname
+      .field
+        = f.label :last_name, "苗字(全角)"
+        %span.require 必須
+        %br/
+        = f.text_field :last_name
+      .field
+        = f.label :first_name, "名前(全角)"
+        %span.require 必須
+        %br/
+        = f.text_field :first_name
+      .field
+        = f.label :last_name_kana, "苗字(全角カナ)"
+        %span.require 必須
+        %br/
+        = f.text_field :last_name_kana
+      .field
+        = f.label :first_name_kana, "名前(全角カナ)"
+        %span.require 必須
+        %br/
+        = f.text_field :first_name_kana
+      .field
+        = f.label :birthday, "生年月日"
+        %span.require 必須
+        %br/
+        = f.date_select :birthday, autofocus: true, prompt:"--", use_month_numbers: true,start_year: 1900, end_year: (Time.now.year - 10), class: "select__date"
+      .field
+        = f.label :email, "メールアドレス"
+        %span.require 必須
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email"
+      .field
+        = f.label :password, "パスワード"
+        - if @minimum_password_length
+          %em
+            (#{@minimum_password_length} 文字以上入力してください)
+        %span.require 必須
+        %br/
+        = f.password_field :password, autocomplete: "new-password"
+      .field
+        = f.label :password_confirmation, "パスワード(確認用)"
+        %span.require 必須
+        %span (確認のためもう一度入力してください)
+        %br/
+        = f.password_field :password_confirmation, autocomplete: "new-password"
+      .actions
+        = f.submit "次へ", class: "actions__btn"
+= render partial: "template/banner"
+= render partial: "template/footer"

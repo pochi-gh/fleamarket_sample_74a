@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+  }
+  devise_scope :user do
+    get 'addresses', to: 'users/registrations#new_address'
+    post 'addresses', to: 'users/registrations#create_address'
+  end
   root 'items#index'
   resources :items do
     member do
@@ -8,7 +14,7 @@ Rails.application.routes.draw do
   end
   resources :user, only: [:show] do
     collection do
-      get 'logout', to: 'user#logout'
+      get 'logout', to: 'users#logout'
     end
   end
   resources :credit_cards, only: [:index, :new, :show] do

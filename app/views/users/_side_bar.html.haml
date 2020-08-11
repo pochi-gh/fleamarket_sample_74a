@@ -2,7 +2,7 @@
   .sideBar-Top
     %ul.sideBar-contents
       %li
-        = link_to "マイページ", "/user/1"
+        = link_to "マイページ", "/users/#{current_user.id}"
       %li
         = link_to "いいね！した商品"
       %li
@@ -36,4 +36,4 @@
       %li
         = link_to "本人確認"
       %li
-        = link_to "ログアウト", controller: 'user', action: 'logout'
+        = link_to "ログアウト", controller: 'users', action: 'logout'

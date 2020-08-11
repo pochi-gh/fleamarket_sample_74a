@@ -6,9 +6,9 @@
     = render "side_bar"
     
     .main-information
-      -if current_page?(logout_user_index_path)
+      -if current_page?(logout_users_path)
         .main-information__logout-btn
-          = link_to "ログアウト", root_path
+          = link_to "ログアウト", destroy_user_session_path, method: :delete
 
 = render partial: "template/banner"
 = render partial: "template/footer"

@@ -1,0 +1,64 @@
+.register-address
+  .register-address__header
+    %h1.logo
+      = link_to root_path do
+        = image_tag 'furima.svg'
+  %h2 送付先の住所登録
+  .form
+    = form_with(model: @address, local: true) do |f|
+      = render "devise/shared/error_messages", resource: @address
+      .field
+        = f.label :destination_last_name, "送付先の住所の苗字(全角)"
+        %span.require 必須
+        %br/
+        = f.text_field :destination_last_name
+      .field
+        = f.label :destination_first_name, "送付先の住所の名前(全角)"
+        %span.require 必須
+        %br/
+        = f.text_field :destination_first_name
+      .field
+        = f.label :destination_last_name_kana, "送付先の住所の苗字(全角カナ)"
+        %span.require 必須
+        %br/
+        = f.text_field :destination_last_name_kana
+      .field
+        = f.label :destination_first_name_kana, "送付先の住所の名前(全角カナ)"
+        %span.require 必須
+        %br/
+        = f.text_field :destination_first_name_kana
+      .field
+        = f.label :postal_code, "郵便番号(ハイフンはいりません)"
+        %span.require 必須
+        %br/
+        = f.text_field :postal_code
+      .field
+        = f.label :prefecture, "都道府県"
+        %span.require 必須
+        %br/
+        = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "---", class: 'select_prefecture'
+      .field
+        = f.label :city, "市区町村"
+        %span.require 必須
+        %br/
+        = f.text_field :city
+      .field
+        = f.label :block, "丁、番地"
+        %span.require 必須
+        %br/
+        = f.text_field :block
+      .field
+        = f.label :building, "建物名、部屋番号"
+        %br/
+        = f.text_field :building
+      .field
+        = f.label :phone_numeber, "電話番号"
+        %br/
+        = f.text_field :phone_numeber
+      
+      .actions
+        = f.submit "登録する", class: "actions__btn"
+= render partial: "template/banner"
+= render partial: "template/footer"
+
+

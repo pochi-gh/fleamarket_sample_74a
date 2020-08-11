@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+.sign-up {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+
+  &__header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 142px;
+    padding-top: 30px;
+
+    img {
+      height: 81px;
+      width: 280px;
+    }
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    color: $main_color;
+    margin-bottom: 20px;
+  }
+}
+
+.require {
+  background-color: red;
+  color: $white;
+  font-size: 16px;
+  padding: 0 4px;
+  border-radius: 2px;
+  display: inline-block;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 26px;
+}
+
+.form__sign-up {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  .field {
+    justify-content: center;
+    label {
+      font-size: 16px;
+    }
+    input {
+      width: 330px;
+      height: 48px;
+      padding : 10px 16px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      margin: 8px;
+    }
+    select {
+      height: 48px;
+      width: 107px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      margin: 8px 0;
+    }
+  }
+}
+.actions {
+  margin: 20px;
+  &__btn {
+    width: 328px;
+    height: 50px;
+    background-color: $main_color;
+    border: 1px solid $main_color;
+    border-radius: 4px;
+    color: $white;
+    cursor: pointer;
+  }
+}
