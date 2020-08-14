@@ -144,6 +144,34 @@ a{
         letter-spacing: 10px;
       }
     }
+    
+    .p {
+      font-size: 16px;
+      text-align: center;
+      color: black;
+      background-repeat: no-repeat;
+      margin: 0;
+      padding: 0;
+    }
+    &__delete {
+      height: 180px;
+      line-height: 180px;
+      &--btn {
+        display: inline-block;
+        margin-left: 20%;
+        line-height: 48px;
+        background: #aaa;
+        border: 1px solid #aaa;
+        color: #fff;
+        width: 60%;
+        font-size: 18px;
+        border-radius: 100px;
+        text-align: center;
+        letter-spacing: 10px;
+      }
+    }
+
+    }
   }
   &__comment{
     @include main_width;

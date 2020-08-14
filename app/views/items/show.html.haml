@@ -70,8 +70,17 @@
       .item_show-wrapper__main__optionalArea_report
         = icon('fa', 'flag')
         = link_to "不適切な商品の通報","#"
-    .item_show-wrapper__main__buy
+        
+    - if true
+      .item_show-wrapper__main__buy
+        = link_to "商品の編集", "#", class: "item_show-wrapper__main__buy--btn"
+       %p or
+      .item_show-wrapper__main__delete
+        = link_to "この商品を削除する", "#", class:"item_show-wrapper__main__delete--btn"
+    - else
+      .item_show-wrapper__main__buy
       = link_to "購入画面に進む","#",class:"item_show-wrapper__main__buy--btn"
+  
   .item_show-wrapper__comment
     .item_show-wrapper__comment_area
       .item_show-wrapper__comment_area--data
@@ -171,5 +180,6 @@
                 = icon('fas', 'star')
                 0
             %p（税込）
+
 = render 'template/banner'
 = render 'template/footer'
