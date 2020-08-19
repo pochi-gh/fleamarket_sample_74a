@@ -3,7 +3,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
     create_table :items do |t|
       t.string :name, null: false #名前
       t.text :explain, null: false #商品説明
-      t.references :category, null: false#カテゴリー 
+      t.references :category, null: false, foreign_key: true#カテゴリー 
       t.text :brand #ブランド名
       t.references :state, null: false #商品状態
       t.references :shipping_burden, null: false #送料負担
