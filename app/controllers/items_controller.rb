@@ -10,4 +10,7 @@ class ItemsController < ApplicationController
     @seller = User.find(1)
     @images = Image.where(item_id: 1)
   end
+
+  def confirm
+  end
 end
