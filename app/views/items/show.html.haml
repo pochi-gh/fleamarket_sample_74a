@@ -70,53 +70,50 @@
       .item_show-wrapper__main__optionalArea_report
         = icon('fa', 'flag')
         = link_to "不適切な商品の通報","#"
-    .item_show-wrapper__main__buy
-      = link_to "購入画面に進む","#",class:"item_show-wrapper__main__buy--btn"
+    -if user_signed_in? && current_user.id == 2 #sellId比較するように変更する
+      .item_show-wrapper__main__buy
+        = link_to "購入画面に進む","#",class:"item_show-wrapper__main__buy--btn"
+    - else
+      .item_show-wrapper__main__seller
+        .item_show-wrapper__main__seller__edit
+          = link_to "編集する","#",class:"item_show-wrapper__main__seller__edit--btn"
+        .item_show-wrapper__main__seller__delete
+          = link_to "出品を取り消す","#",class:"item_show-wrapper__main__seller__delete--btn"
+  
   .item_show-wrapper__comment
     .item_show-wrapper__comment_area
       .item_show-wrapper__comment_area--data
-        %p.item_show-wrapper__comment_area--data__user_name
-          通りすがりのチンゲンサイ
-          .item_show-wrapper__comment_area--data_box
-            %p.item_show-wrapper__comment_area--data_box__text
-              晩ご飯はやっぱり中華がいいと思います。
-            .item_show-wrapper__comment_area--data_box__time
-              投稿日時: 2020−07−07 17:00
-      .item_show-wrapper__comment_area--data
-        %p.item_show-wrapper__comment_area--data__user_name
-          ss (出品者)
-          .item_show-wrapper__comment_area--data_box
-            %p.item_show-wrapper__comment_area--data_box__text
-              申し訳ありませんが、中華はやっておりません。
-            %p.item_show-wrapper__comment_area--data_box__time
-              投稿日時: 2020−07−07 19:31
-      .item_show-wrapper__comment_area--data
-        %p.item_show-wrapper__comment_area--data__user_name
-          通りすがりのチンゲンサイ
-          .item_show-wrapper__comment_area--data_box
-            %p.item_show-wrapper__comment_area--data_box__text
-              致し方ないのでチャーハンと餃子で手を打ちます。
-            %p.item_show-wrapper__comment_area--data_box__time
-              投稿日時: 2020−07−07 19:46
-      .item_show-wrapper__comment_area--data
-        %p.item_show-wrapper__comment_area--data__user_name
-          食いしん坊たろう
-          .item_show-wrapper__comment_area--data_box
-            %p.item_show-wrapper__comment_area--data_box__text
-              だったら、ラーメンもつけるべきですね。餃子は5個は最低ライン。個人的には麻婆茄子をつまみにいっぱいやりたいです。
-
-            %p.item_show-wrapper__comment_area--data_box__time
-              投稿日時: 2020−07−07 19:46
+        .item_show-wrapper__comment_area--data__user_name
+          %span 通りすがりのチンゲンサイ
+          -if user_signed_in? && current_user.id == 2 #sellId比較するように変更する
+            %span (出品者)
+          -if user_signed_in? && current_user.id == 2 #コメントのユーザーと比較する
+            .comment__current_user--btn
+              = link_to "編集する","#",class:"comment__current_user--btn--edit"
+              = link_to "削除する","#",class:"comment__current_user--btn--delet"
+        .item_show-wrapper__comment_area--data_box
+          %p.item_show-wrapper__comment_area--data_box__text
+            晩ご飯はやっぱり中華がいいと思います。
+          .item_show-wrapper__comment_area--data_box__time
+            投稿日時: 2020−07−07 17:00
 
     .item_show-wrapper__comment_box
       = form_with url:'#' do |form|
         = form.text_area :comment, rows: 5, class:'comment_box', placeholder:"コメントを入力してください。"
+      - if user_signed_in?
         %p.item_show-wrapper__comment_box_announce
           相手のことを考え丁寧なコメントを心がけましょう。<br>
           不快な言葉遣いなどは利用制限や退会処分となることがあります
         = button_tag type: 'submit', class: "submit_btn" do
           = icon('fa', 'comment')
           コメントする
+      - else
+        %p.item_show-wrapper__comment_box--not_signed
+          ※コメント機能は
+          %span.rogin_link
+            =link_to "ログイン", "#"
+          %span
+            するとできるようになります
 
   .item_show-wrapper__itemLinks
     .item_show-wrapper__itemLinks__before
