@@ -144,6 +144,44 @@ a{
         letter-spacing: 10px;
       }
     }
+    &__seller{
+      height: 180px;
+      line-height: 180px;
+      display: flex;
+      
+      &__edit{
+        margin: 0 150px 0 50px;
+        &--btn{
+        display: inline-block;
+        margin-left: 20%;
+        line-height: 48px;
+        @include back_color_blue;
+        color: white;
+        width: 200px;
+        font-size: 18px;
+        border-radius: 100px;
+        text-align: center;
+        letter-spacing: 10px;
+    
+        }
+      }
+      &__delete{
+        &--btn{
+        display: inline-block;
+        margin-left: 20%;
+        line-height: 48px;
+        background:  red;
+        border: 1px solid red;
+        color: white;
+        width: 200px;
+        font-size: 18px;
+        border-radius: 100px;
+        text-align: center;
+        letter-spacing: 7px;
+        }
+      }
+    }
+
   }
   &__comment{
     @include main_width;
@@ -156,6 +194,16 @@ a{
         margin-bottom: 20px;
         &__user_name{
           padding: 5px;
+          display: flex;
+          a{
+            @include font_color_blue;
+          }
+          .comment__current_user--btn{
+           padding-left: 220px;
+           &--edit{
+             padding-right: 20px;
+           }
+          }
         }
         &_box{
           margin-left: 20px;
@@ -184,9 +232,23 @@ a{
         margin:10px 0 30px 0;
         @include back_color_gry;
         font-size: 14px;
-        width: 640px;
+        
         padding: 10px 0 10px 10px ;
       }
+      &--not_signed{
+        margin:10px 0 30px 130px;
+        @include back_color_gry;
+        width: 380px;
+        font-size: 14px;
+        width: 200x;
+        padding: 10px 0 10px 10px ;
+        
+        a{
+          @include font_color_blue;
+          font-weight: bold;
+        }
+      }
+
       .submit_btn{
         margin-left: 20%;
         line-height: 48px;
