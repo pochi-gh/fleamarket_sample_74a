@@ -10,13 +10,13 @@
         = image_tag @images[0].photo, alt: 'メイン画像', height: '350px', width: '560px'
       %ul.item_show-wrapper__main__img-sub 
         - @images.each do |image|
-          %li
+          %li.item_show-wrapper__main__img-sub--photo
             = image_tag image.photo, alt: 'サブ画像', height: '90px', width: '100px'
       %p.item_show-wrapper__main__img-price
         = @item.price 
         円
         %p.item_show-wrapper__main__img-price-detail
-          -# = @item.ShippingBurden.name
+          = @item.shipping_burden.name
         %p.item_show-wrapper__main__img-price-text
           = @item.explain
     .item_show-wrapper__main__teble
