@@ -49,11 +49,13 @@ a{
       }
       ul{
         @include img_width;
-        display: flex;
+        padding-left:10px;
+        
         justify-content: center;
-        margin-top: 10px;
         li{
-          width: 140px;
+          float:left;
+          margin-top: 10px;
+          width: 100px;
           height: 90px;
           margin-right: 10px;
         }
