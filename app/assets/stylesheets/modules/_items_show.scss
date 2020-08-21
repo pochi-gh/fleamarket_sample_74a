@@ -50,7 +50,7 @@ a{
       ul{
         @include img_width;
         padding-left:10px;
-        
+        display:block;
         justify-content: center;
         li{
           float:left;
@@ -59,6 +59,8 @@ a{
           width: 100px;
           height: 90px;
           margin-right: 10px;
+          display:block;
+          cursor:pointer;
         }
       }
       &-price{

@@ -7,11 +7,11 @@
       %h2.item_show-wrapper__main__img-title
         = @item.name
       .item_show-wrapper__main__img-main
-        = image_tag @images[0].photo, alt: 'メイン画像', height: '350px', width: '560px'
+        = image_tag @images[0].photo, alt: 'メイン画像', height: '350px', width: '560px',id:"MainPhoto"
       %ul.item_show-wrapper__main__img-sub 
         - @images.each do |image|
           %li.item_show-wrapper__main__img-sub--photo
-            = image_tag image.photo, alt: 'サブ画像', height: '90px', width: '100px'
+            = image_tag image.photo, alt: 'サブ画像', height: '90px', width: '100px',class:"ChangePhoto"
       %p.item_show-wrapper__main__img-price
         = @item.price 
         円
