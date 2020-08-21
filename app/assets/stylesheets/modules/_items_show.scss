@@ -161,6 +161,22 @@ a{
         letter-spacing: 10px;
       }
     }
+    &__login{
+      height: 180px;
+      line-height: 180px;
+      &--btn{
+        display: inline-block;
+        margin: 30px 0 30px 20%;
+        line-height: 48px;
+        @include back_color_blue;
+        width: 60%;
+        font-size: 18px;
+        border-radius: 100px;
+        text-align: center;
+        letter-spacing: 10px;
+      }
+
+    }
     &__seller{
       height: 180px;
       line-height: 180px;
