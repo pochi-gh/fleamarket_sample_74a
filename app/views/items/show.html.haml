@@ -30,9 +30,9 @@
           %th 
             カテゴリー
           %td
-            = link_to @item.category.name, '#'
-            = link_to "ベビー服(男の子用) ~95cm",'#'
-            = link_to "アウター",'#'
+            = link_to @item.category.parent.parent.name, '#'
+            = link_to @item.category.parent.name,'#'
+            = link_to @item.category.name,'#'
         %tr  
           %th 
             ブランド
@@ -88,7 +88,7 @@
       .item_show-wrapper__comment_area--data
         .item_show-wrapper__comment_area--data__user_name
           %span 通りすがりのチンゲンサイ
-          -if user_signed_in? && current_user.id == 2 #sellId比較するように変更する
+          -if user_signed_in? && current_user.id == @seller.id  
             %span (出品者)
           -if user_signed_in? && current_user.id == 2 #コメントのユーザーと比較する
             .comment__current_user--btn
