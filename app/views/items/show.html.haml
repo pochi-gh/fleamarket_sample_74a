@@ -97,7 +97,7 @@
                 %span (出品者)
               -if user_signed_in? && current_user.id == comment.user.id
                 .comment__current_user--btn
-                  = link_to "編集する","#",class:"comment__current_user--btn--edit"
+                  = link_to "編集する", edit_item_comment_path(item_id: @item.id) ,class:"comment__current_user--btn--edit"
                   = link_to "削除する","/items/#{@item.id}/comments/#{comment.id}",class:"comment__current_user--btn--delet", method: :delete
             .item_show-wrapper__comment_area--data_box
               %p.item_show-wrapper__comment_area--data_box__text
@@ -119,7 +119,7 @@
           %p.item_show-wrapper__comment_box--not_signed
             ※コメント機能は
             %span.rogin_link
-              =link_to "ログイン", "#"
+              =link_to "ログイン", new_user_session_path
             %span
               するとできるようになります
       - else

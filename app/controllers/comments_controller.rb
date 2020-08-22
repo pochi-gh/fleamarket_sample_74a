@@ -4,6 +4,17 @@ class CommentsController < ApplicationController
     redirect_to "/items/#{comment.item.id}"
   end
 
+  def edit
+    @item = Item.find(params[:item_id])
+    @comment = Comment.find(params[:id])
+  end
+
+  def update
+    comment = Comment.find(params[:id])
+    comment.update(comment_params)
+    redirect_to "/items/#{params[:item_id]}"
+  end
+
   def destroy
     comment= Comment.find(params[:id])
     comment.destroy
