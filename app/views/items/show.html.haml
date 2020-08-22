@@ -87,32 +87,34 @@
 
   .item_show-wrapper__comment
     .item_show-wrapper__comment_area
-      .item_show-wrapper__comment_area--data
-        .item_show-wrapper__comment_area--data__user_name
-          %span 通りすがりのチンゲンサイ
-          -if user_signed_in? && current_user.id == @seller.id 
-            %span (出品者)
-          -if user_signed_in? && current_user.id == 2 #コメントのユーザーと比較する
-            .comment__current_user--btn
-              = link_to "編集する","#",class:"comment__current_user--btn--edit"
-              = link_to "削除する","#",class:"comment__current_user--btn--delet"
-        .item_show-wrapper__comment_area--data_box
-          %p.item_show-wrapper__comment_area--data_box__text
-            晩ご飯はやっぱり中華がいいと思います。
-          .item_show-wrapper__comment_area--data_box__time
-            投稿日時: 2020−07−07 17:00
+      - if @comments
+        - @comments.each do |comment|
+          .item_show-wrapper__comment_area--data
+            .item_show-wrapper__comment_area--data__user_name
+              %span
+                = comment.user.nickname
+              -if user_signed_in? && comment.user_id == @seller.id 
+                %span (出品者)
+              -if user_signed_in? && current_user.id == comment.user.id
+                .comment__current_user--btn
+                  = link_to "編集する","#",class:"comment__current_user--btn--edit"
+                  = link_to "削除する","#",class:"comment__current_user--btn--delet"
+            .item_show-wrapper__comment_area--data_box
+              %p.item_show-wrapper__comment_area--data_box__text
+                = comment.text
+              .item_show-wrapper__comment_area--data_box__time
+                = comment.created_at.strftime("%Y-%m-%d %H:%M")
 
     .item_show-wrapper__comment_box
       -if @item.buyer_id.nil?
-        = form_with url:'#' do |form|
-          = form.text_area :comment, rows: 5, class:'comment_box', placeholder:"コメントを入力してください。"
         - if user_signed_in? 
-          %p.item_show-wrapper__comment_box_announce
-            相手のことを考え丁寧なコメントを心がけましょう。<br>
-            不快な言葉遣いなどは利用制限や退会処分となることがあります
-          = button_tag type: 'submit', class: "submit_btn" do
-            = icon('fa', 'comment')
-            コメントする
+          = form_with(model: [@item,@comment], local: true) do |f|
+            = f.text_area :text, rows: 5, class:'comment_box', placeholder:"コメントを入力してください。"
+            %p.item_show-wrapper__comment_box_announce
+              相手のことを考え丁寧なコメントを心がけましょう。<br>
+              不快な言葉遣いなどは利用制限や退会処分となることがあります
+            = f.submit "コメントする", class: "submit_btn" do
+              = icon('fa', 'comment')
         - else
           %p.item_show-wrapper__comment_box--not_signed
             ※コメント機能は
