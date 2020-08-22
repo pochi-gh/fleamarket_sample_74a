@@ -98,7 +98,7 @@
               -if user_signed_in? && current_user.id == comment.user.id
                 .comment__current_user--btn
                   = link_to "編集する","#",class:"comment__current_user--btn--edit"
-                  = link_to "削除する","#",class:"comment__current_user--btn--delet"
+                  = link_to "削除する","/items/#{@item.id}/comments/#{comment.id}",class:"comment__current_user--btn--delet", method: :delete
             .item_show-wrapper__comment_area--data_box
               %p.item_show-wrapper__comment_area--data_box__text
                 = comment.text

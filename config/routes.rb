@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     member do
       get 'confirm'
     end
-    resources :comments, only: :create
+    resources :comments, only: [:create,:destroy, :edit, :update]
   end
   resources :users, only: [:show] do
     collection do
