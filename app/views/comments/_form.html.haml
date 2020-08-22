@@ -1,0 +1,8 @@
+= form_with(model: [@item,@comment], local: true) do |f|
+  = f.text_area :text, rows: 5, class:'comment_box', placeholder:"コメントを入力してください。"
+  %p.item_show-wrapper__comment_box_announce
+    相手のことを考え丁寧なコメントを心がけましょう。<br>
+    不快な言葉遣いなどは利用制限や退会処分となることがあります
+  = button_tag  type: 'submit', class: "submit_btn" do
+    = icon('fa', 'comment')
+    コメントする
