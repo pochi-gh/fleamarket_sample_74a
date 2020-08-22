@@ -127,7 +127,7 @@
       = link_to icon('fa','angle-right'),"#"
   .item_show-wrapper__relatedItems
     .item_show-wrapper__relatedItems__category_name
-      = link_to "ベビー・キッズをもっと見る","#"
+      = link_to "#{@item.category.parent.parent.name}をもっと見る","#"
     .item_show-wrapper__relatedItems__list
       .item_show-wrapper__relatedItems__list__box
         =link_to "" ,"#"
