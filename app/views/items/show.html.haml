@@ -120,11 +120,20 @@
 
   .item_show-wrapper__itemLinks
     .item_show-wrapper__itemLinks__before
-      = link_to icon('fa','angle-left'),"#"
-      = link_to "前の商品", "#"
+      - if @item.previous.present?
+        = link_to icon('fa','angle-left'),"#"
+        = link_to "前の商品", item_path(@item.previous.id)
+      - else
+
     .item_show-wrapper__itemLinks__affter
-      = link_to "後ろの商品","#"
-      = link_to icon('fa','angle-right'),"#"
+      -if @item.next.present?
+        = link_to "後ろの商品", item_path(@item.nest.id)
+        = link_to icon('fa','angle-right'),"#"
+
+
+
+
+
   .item_show-wrapper__relatedItems
     .item_show-wrapper__relatedItems__category_name
       = link_to "#{@item.category.parent.parent.name}をもっと見る","#"
