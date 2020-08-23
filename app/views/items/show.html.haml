@@ -127,7 +127,7 @@
 
     .item_show-wrapper__itemLinks__affter
       -if @item.next.present?
-        = link_to "後ろの商品", item_path(@item.nest.id)
+        = link_to "後ろの商品", item_path(@item.next.id)
         = link_to icon('fa','angle-right'),"#"
 
 

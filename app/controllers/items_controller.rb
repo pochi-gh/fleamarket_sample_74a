@@ -6,9 +6,9 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(2)
+    @item = Item.find(1)
     @seller = User.find(1)
-    @images = Image.where(item_id: 2)
+    @images = Image.where(item_id: 1)
     @comment = Comment.new
     @comments = @item.comments
   end
