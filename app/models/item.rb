@@ -3,6 +3,9 @@ class Item < ApplicationRecord
   belongs_to :category
   accepts_nested_attributes_for :images, allow_destroy: true
 
+  validates  :name, :explain, :category_id, :state_id, :shipping_burden_id, :prefecture_id, :shipping_day_id,:price, :seller_id, presence: true
+  
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :state
   belongs_to_active_hash :shipping_burden

@@ -1,5 +1,23 @@
+@mixin input_form{
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #222;
+  font-size: 16px;
+  margin: 0;
+  outline: none;
+  padding: 13px 16px;
+  resize: vertical;
+  vertical-align: middle;
+  margin-top: 16px;
+}
+
 .sell_main { 
   background-color: rgb(245, 245, 245);
+  select{
+    @include input_form;
+  }
   .box {
     width: 700px;
     margin: 0 auto;
@@ -96,19 +114,8 @@
           height: 16px;
         }
       }        
-      .text_field {
-        width: 100%;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        color: #222;
-        font-size: 16px;
-        margin: 0;
-        outline: none;
-        padding: 13px 16px;
-        resize: vertical;
-        vertical-align: middle;
-        margin-top: 16px;
+      .input_form {
+        @include input_form;
       }
       &__explans {
         margin: 0;
@@ -181,10 +188,10 @@
         width: 620px;
         margin-top: 16px;
         margin-bottom: 32px;
-        .style__selectarea{
+        #item_category_id{
           display: inline-block;
           position: relative;
-          width: inherit;
+          width: 620px;
           height: 48px;       
           .form_category{
             @include form();
@@ -227,31 +234,15 @@
       .brand__textfields {
         margin-top: 16px;
         .brand__textfield {
-          align-items: center;
-          display: inline-flex;
-          width: 100%;
-          font-size: 16px;
-          display: inline-block;
-          position: relative;
-          width: inherit;
-          margin-bottom: 32px;
-          .brand__text {
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-family: inherit;
-            font-size: inherit;
-            height: 48px;
-            margin: 0;
-            outline: none;
-            padding: 0 16px;
-            width: 620px;
+          .input_form {
+            @include input_form;
           }
         }
       }
         .brand__status__names{
           @include names();
-          margin: 0 !important;
+          // margin: 0 !important;
+          margin-top:20px;
           &--label{
             @include label();
             padding-right: 8px;
@@ -268,20 +259,13 @@
           align-items: center;
           display: inline-flex;
           width: 100%;
-          .form__brand {
+          .input_form {
             @include form();
             width: 620px;
             margin-bottom: 32px;
             width: 100%;
           }
-        }
-        .arrow-sell {
-          @include arrow-sell();
-        }
-        .arrow-sell::after {
-          @include arrow-sells();
-          margin-top: -20px;     
-        }     
+        } 
       }
  }
         
@@ -358,23 +342,9 @@
         &--area {
           margin-top: 16px;
           align-items: center;
-          display: inline-flex;
-          width: 100%;
-          display: inline-block;
-          position: relative;
+          width: 620px;
           width: inherit;
-          select{
-            @include form();
-            width: 620px;
-          }
-        }
-          .arrow-sell {
-            @include arrow-sell();
-          }
-          .arrow-sell::after {
-            @include arrow-sells();
-            margin-top: -8px;        
-          }    
+        } 
       }
         .shipping__day {
           width: 620px;
@@ -396,21 +366,10 @@
         display: inline-flex;
         width: 620px;
         height: 48px;
-        .days_form {
-          @include form();
-          display: inline-block;
-          position: relative;
-          width: 620px;
-          height: 48px;       
+        &_selectarea{
+          width:620px;
         }
-      } 
-      .arrow-sell {
-        @include arrow-sell();
-      }
-      .arrow-sell::after {
-        @include arrow-sells();
-        margin-top: -8px;        
-      }    
+      }  
     }
       
 
