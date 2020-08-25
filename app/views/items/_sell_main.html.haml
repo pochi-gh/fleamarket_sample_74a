@@ -1,6 +1,7 @@
 .sell_main
   .box
     =form_with model:@item ,class:"item_new__box",local: true do |form|
+      -# = render "devise/shared/error_messages", resource: @item
       .phots 
         .phots__names
           .phots__names--label
@@ -138,12 +139,7 @@
           -#   出品する
           %button.save_btn{:tabindex => "0", :type => "button"} 
             下書きに保存
-          %a.back{:href => "#"} 
+          %a.back{:href => "/"} 
             もどる
         .price__matter
           禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
-
-
-
-
-            

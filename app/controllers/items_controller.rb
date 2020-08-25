@@ -3,13 +3,18 @@ class ItemsController < ApplicationController
   end
   
   def new
+    if user_signed_in?
     @item = Item.new
     @category_parent_array = Category.where(ancestry: nil)
+    else
+      redirect_to root_path, notice: 'ログインもしくは新規会員登録をしてください。'
+    end
   end
 
   def create
     binding.pry
   end
+
   def show
   end
 

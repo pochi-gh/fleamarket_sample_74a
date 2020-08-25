@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 2020_08_12_033751) do
   end
 
   add_foreign_key "images", "items"
+  add_foreign_key "items", "categories"
   add_foreign_key "items", "users", column: "buyer_id"
   add_foreign_key "items", "users", column: "seller_id"
 end
