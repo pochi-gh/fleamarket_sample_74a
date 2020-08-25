@@ -1,0 +1,28 @@
+.pickup {
+  &__list {
+    &__img {
+      position: relative;
+      img {
+        width: 220px;
+        height: 150px;
+        object-fit: cover;
+        overflow: hidden;
+        margin: 0;
+      }
+      &__soldBox {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 40px solid;
+        border-color: red transparent transparent red;
+        z-index: 100;
+        &--soldOut {
+          transform: rotate(-45deg);
+          margin: -30px -35px;
+          color: #fff;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
