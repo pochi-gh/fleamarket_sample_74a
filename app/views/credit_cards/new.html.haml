@@ -7,7 +7,7 @@
       %h1 クレジットカード情報入力
 
     .creditCard-wrapper__inner__form
-      = form_with model: @credit, method: :post, id: "cardCreateForm" do |f|
+      = form_with model: @card, url: credit_cards_path, method: :get, local: true, id: "cardCreateForm" do |f|
         .creditCard-wrapper__inner__form__card-number
           %label カード番号
           %span.essential-redBox 必須
@@ -30,8 +30,8 @@
           %br
           = f.text_field :cvc, type: 'text', class: 'security-input', id: 'cvc', placeholder: "カード背面4ケタor3ケタの番号", maxlength: "4"
 
-        .creditCard-wrapper__inner__form__addBtn
-          = link_to "クレジットカードを追加する", credit_cards_path, method: :post
+        #card_token.creditCard-wrapper__inner__form__addBtn
+          =f.submit "クレジットカードを登録する", id: "token_submit", class: "card-btn"
 
 = render partial: "template/banner"
 = render partial: "template/footer"

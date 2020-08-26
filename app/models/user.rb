@@ -23,4 +23,7 @@ class User < ApplicationRecord
   validates :birthday,
     presence: true
   has_one :address
+  
+# クレジットカード
+  has_one :credit_card, dependent: :destroy
 end
