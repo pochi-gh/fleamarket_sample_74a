@@ -1,11 +1,11 @@
 .sell_main
   .box
     =form_with model:@item ,class:"item_new__box",local: true do |form|
-      -# - if @item.errors
-      -#   %ul.error_message_items_new
-      -#     - @item.errors.full_messages.each do |message|
-      -#       %li.error_message_items_new__li
-      -#         = message
+      - if @item.errors
+        %ul.error_message_items_new
+          - @item.errors.full_messages.each do |message|
+            %li.error_message_items_new__li
+              = message
       .phots 
         .phots__names
           .phots__names--label
