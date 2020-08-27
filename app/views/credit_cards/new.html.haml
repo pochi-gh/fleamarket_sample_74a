@@ -7,7 +7,7 @@
       %h1 クレジットカード情報入力
 
     .creditCard-wrapper__inner__form
-      = form_with model: @card, url: credit_cards_path, method: :get, id: "card-form", local: true do |f|
+      = form_with model: @card, url: pay_credit_cards_path, method: :post, id: "card-form", local: true do |f|
         .creditCard-wrapper__inner__form__card-number
           %label カード番号
           %span.essential-redBox 必須
