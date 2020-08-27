@@ -15,10 +15,10 @@ $(function() {
         $('#card-form').append(
           $('<input type="hidden" name="payjp-token">').val(response.id)
         );
-        alert("カード情報が正し");
+        window.alert("クレジットカード登録に成功しました");
         $('#card-form').submit();
       } else {
-        alert("カード情報が正しくありません");
+        window.alert("入力情報が正しくありません");
       }
     });
   });

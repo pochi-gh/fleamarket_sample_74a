@@ -9,8 +9,23 @@
   }
 }
 
+// クレジットカードボタンレイアウト
+@mixin credit-cardBtn {
+  cursor: pointer;
+  color: #ffffff;
+  border-radius: 10px;
+  background-color: $main_color;
+  border: none;
+  transition: .3s;
+}
+// クレジットカードボタンホバー
+@mixin credit-cardBtn-hover {
+  box-shadow: none;
+  opacity: 0.8;
+}
+
+// クレジットカードを追加するボタンがあるだけのページ
 .main-information {
-  // 支払い方法
   &__payTop {
     @include main-information__payTop;
   }
@@ -25,28 +40,25 @@
     &__credit-AdditionBtn {
       width: 300px;
       height: 50px;
-      background-color: red;
       margin: 0 auto;
-      margin-top: 30px;
-      border-radius: 10px;
-      &__contents {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: $white;
-        padding: 13px;
-        i {
-          padding-right: 10px;
-        }
-        a {
-          text-decoration: none;
-          color: $white;
-        }
+      margin-top: 40px;
+      @include credit-cardBtn;
+      i {
+        padding: 0px 10px 0px 30px;
       }
+      a {
+        line-height: 50px;
+        text-decoration: none;
+        color: $white;
+      }
+      &:hover {
+        @include credit-cardBtn-hover;
+      }  
     }
   }
 }
 
+// クレジットカード登録全体画面
 @mixin creditCard-wrapper {
   height: 100vh;
   padding-top: 50px;
@@ -154,7 +166,17 @@
   }
 }
 
-// クレジットカード一覧確認・削除ボタンありページ
+// クレジットカード登録ボタン
+.card-btn {
+  width: 300px;
+  height: 50px;
+  @include credit-cardBtn;
+}
+.card-btn:hover {
+  @include credit-cardBtn-hover;
+}
+
+// クレジットカード詳細ページ
 .main-information {
   &__cardsIndex-inner {
     &__title {
@@ -183,4 +205,15 @@
       }
     }
   }
+}
+
+// クレジットカード削除ボタン
+.card-deleteBtn {
+  width: 100px;
+  height: 35px;
+  @include credit-cardBtn;
+}
+
+.card-deleteBtn:hover {
+  @include credit-cardBtn-hover;
 }

@@ -37,7 +37,7 @@
           .main-information__cardsIndex-inner__contents__deleteBtn
             = form_tag(delete_credit_cards_path, method: :post) do
               %input{ type: "hidden", name: "credit-card_id", value: "" }
-              %button 削除する
+              %button.card-deleteBtn 削除する
 
 = render partial: "template/banner"
 = render partial: "template/footer"
