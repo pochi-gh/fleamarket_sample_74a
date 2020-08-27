@@ -7,6 +7,26 @@ class CreditCardsController < ApplicationController
     redirect_to action: "show" if card.exists?
   end
 
+  def pay
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    if params['payjp-token'].blank?
+      redirect_to action: "new"
+    else
+      customer = Payjp::Customer.create(
+        card: params['payjp-token'],
+        metadata: {user_id: current_user.id}
+      )
+      @card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+      if @card.save
+        redirect_to action: "show"
+        flash[:notice] = 'クレジットカードの登録に成功しました'
+      else
+        redirect_to action: "pay"
+        flash[:alert] = 'クレジットカードの登録に失敗しました'
+      end
+    end
+  end
+
   def show
     card = CreditCard.where(user_id: current_user.id).first
     if card.blank?
@@ -20,23 +40,5 @@ class CreditCardsController < ApplicationController
   end
 
   def delete
-  end
-
-  def pay
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-    if params['payjp-token'].blank?
-      redirect_to action: "new"
-    else
-      customer = Payjp::Customer.create(
-        card: params['payjp-token'],
-        metadata: {user_id: current_user.id}
-      )
-      @card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-      if @card.save
-        redirect_to action: "show"
-      else
-        redirect_to action: "pay"
-      end
-    end
   end
 end
