@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :items do
     member do
       get 'confirm'
+      get 'sell_confirm', to: 'items/sell_comfirm'
     end
   end
   resources :users, only: [:show] do
