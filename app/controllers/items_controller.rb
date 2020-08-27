@@ -7,7 +7,8 @@ class ItemsController < ApplicationController
     @item = Item.new
     @category_parent_array = Category.where(ancestry: nil)
     else
-      redirect_to root_path, notice: 'ログインもしくは新規会員登録をしてください。'
+      flash[:alert] = '出品するには、ログインするか新規会員登録をしてください。'
+      redirect_to root_path
     end
   end
 
