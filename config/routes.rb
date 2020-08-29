@@ -26,4 +26,5 @@ Rails.application.routes.draw do
     end
   end
   resources :item_sell, only: :new
+  resources :addresses, only: [:edit, :update]
 end
