@@ -9,7 +9,6 @@ $(function() {
       exp_month: $('#card-month').val(),
       exp_year: $('#card-year').val()
     };
-    console.log(card);
     Payjp.createToken(card, function(status, response) {
       if (status === 200) {
         $('#card-form').append(

@@ -37,7 +37,6 @@ class CreditCardsController < ApplicationController
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
-      logger.debug("@default_card_information")
     end
   end
 
