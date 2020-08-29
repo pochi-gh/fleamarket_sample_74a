@@ -1,6 +1,10 @@
 class CreditCardsController < ApplicationController
 
   require "payjp"
+  before_action :card_exists?, only:[:index]
+
+  def index
+  end
 
   def new
     card = CreditCard.where(user_id: current_user.id)
@@ -46,6 +50,13 @@ class CreditCardsController < ApplicationController
       customer.delete
       card.delete
     end
-      redirect_to action: "new"
+      redirect_to action: "index"
+  end
+
+  def card_exists?
+    @card = CreditCard.where(user_id: current_user.id).first if CreditCard.where(user_id: current_user.id).present?
+    if @card.present?
+      redirect_to action: "show"
+    end
   end
 end
