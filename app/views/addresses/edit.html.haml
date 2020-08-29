@@ -55,7 +55,10 @@
         = f.label :phone_numeber, "電話番号"
         %br/
         = f.text_field :phone_numeber
+      -if @item.nil?
       
+      -else
+        = f.hidden_field :item_id, value:@item.id
       .actions
         = f.submit "変更する", class: "actions__btn"
 = render partial: "template/banner"

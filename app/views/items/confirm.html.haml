@@ -40,7 +40,7 @@
       .comfirm_main__address__hedder
         %h3.comfirm_main__address__hedder__left
           配送先
-        = link_to "変更する >" ,"#", class:"comfirm_main__address__hedder__right"
+        = link_to "変更する >" ,edit_address_path(current_user.id, item_id: @item.id), class:"comfirm_main__address__hedder__right" 
       %ul.comfirm_main__address__area
         %li.comfirm_main__address__area--number
           = @address.postal_code
