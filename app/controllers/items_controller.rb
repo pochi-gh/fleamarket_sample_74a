@@ -14,6 +14,9 @@ class ItemsController < ApplicationController
   end
 
   def confirm
+    @item = Item.find(params[:id])
+    @image = Image.find(params[:id])
+    @address = Address.where(user_id: current_user.id).first
   end
 
 

@@ -8,20 +8,22 @@
       購入内容の確認
     .comfirm_main__item
       .comfirm_main__item__left
-        = image_tag "IMG_main.jpg", alt: 'img画像',  height: '100px', width: '100px', class: 'comfirm_main__item__left--img'
+        = image_tag @image.photo, alt: 'img画像',  height: '100px', width: '100px', class: 'comfirm_main__item__left--img'
       .comfirm_main__item__right
         %h6.comfirm_main__item__right__title
-          今日の晩ご飯
+          =@item.name
         .comfirm_main__item__right__lower
           %p.comfirm_main__item__right__lower--detail
-            送料込み
+            = @item.shipping_burden.name
           %p.comfirm_main__item__right__lower--price
-            ¥1000
+            ¥
+            = @item.price 
     .comfirm_main__price
       %h3.comfirm_main__price__left
         支払い金額
       %p.comfirm_main__price__right
-        ¥1000
+        ¥
+        = @item.price 
     .comfirm_main__payment
       .comfirm_main__payment__head
         %h3.comfirm_main__payment__head--left
@@ -41,14 +43,20 @@
         = link_to "変更する >" ,"#", class:"comfirm_main__address__hedder__right"
       %ul.comfirm_main__address__area
         %li.comfirm_main__address__area--number
-          〒120-0006
+          = @address.postal_code
         %li.comfirm_main__address__area--main
-          東京都港区その辺にあるにコンビニの横
+          = @address.prefecture.name
+          = @address.city
+          = @address.block
+          = @address.building
         %li.comfirm_main__address__area--name
-          山田ゴンザレス
+          = @address.destination_first_name
+          =" "
+          = @address.destination_last_name
+
     .comfirm_main__buy
       = link_to "購入する" ,"#", class:"comfirm_main__buy--btn"
-      = link_to "戻る" , "#", class:"comfirm_main__buy--back_btn"
+      = link_to "戻る" , "/items/#{@item.id}", class:"comfirm_main__buy--back_btn"
 %footer.login-page-footer
   %ul.footer-links
     %li
