@@ -18,6 +18,11 @@
   select{
     @include input_form;
   }
+  .js-file {
+    // display: none;
+  }
+
+
   .box {
     width: 700px;
     margin: 0 auto;

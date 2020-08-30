@@ -7,10 +7,12 @@ class ItemsController < ApplicationController
   def new
     if user_signed_in?
     @item = Item.new
+    @item.images.new
     @category_parent_array = Category.where(ancestry: nil)
     else
       flash[:alert] = '出品するには、ログインするか新規会員登録をしてください。'
       redirect_to root_path
+      
     end
   end
 
