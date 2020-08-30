@@ -1,0 +1,33 @@
+= render partial: "template/header"
+= render partial: "template/sellbtn"
+
+.user-showPage
+  .user-showPage__main
+    = render "side_bar"
+    .main-purchase
+      .purchase
+        .purchase__area
+          %p.purchase__area--title
+            出品したの商品
+            - @items.each do |item|
+              .purchase__area__box
+                = link_to "",item_path(item.id),class:"purchase_link"
+                - image = Image.find_by(item_id: item.id)
+                .purchase__area__box__picture
+                  = image_tag image.photo, alt: 'サブ画像', height: '78px', width: '80px'
+                %p.purchase__area__box__item_name
+                  =item.name
+                  を出品中です。
+                  -if item.buyer_id.present?
+                    - buyer = User.find(item.buyer_id)
+                    %span
+                      =buyer.nickname
+                      さんが商品を購入しました。
+                %p.purchase__area__box__item_btn
+                  >
+          
+        = paginate @items
+
+
+= render partial: "template/banner"
+= render partial: "template/footer"
