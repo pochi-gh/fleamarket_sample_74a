@@ -1,0 +1,55 @@
+.main-purchase{
+  padding-left:60px
+}
+
+
+.purchase{
+  width: 700px;
+  height: 870px;
+  margin: 0 auto;
+  background-color: $background;
+  &__area{
+    padding-bottom:10px;
+    &--title{
+      height: 60px;
+      line-height:60px;
+      font-size:18px;
+      padding-left:10px;
+      background-color: $main_color;
+      color:white;
+      border-bottom:2px solid $background;
+      font-weight: bold;
+    }
+    &__box{
+      height: 80px;
+      width: 100%;
+      display: flex;
+      position: relative;
+      border-bottom:2px solid $background;
+      .purchase_link{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height:100%;
+        width: 100%;
+      }
+      &__picture{
+        width: 80px;
+        background-color: lightslategrey;
+      }
+      &__item_name{
+        width: 570px;
+        padding-left:10px;
+        line-height: 80px;
+        background-color:white;
+      }
+      &__item_btn{
+        width: 50px;
+        padding-left:10px;
+        line-height: 80px;
+        align-items: center;
+        background-color:white;
+      }
+    }
+  }
+}
