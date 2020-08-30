@@ -4,21 +4,21 @@
 .user-showPage
   .user-showPage__main
     = render "side_bar"
-    .main-purchase
-      .purchase
-        .purchase__area
-          %p.purchase__area--title
+    .user_show-item
+      .item__info
+        .item__info__area
+          %p.item__info__area--title
             購入した商品
             - @items.each do |item|
-              .purchase__area__box
+              .item__info__area__box
                 = link_to "",item_path(item.id),class:"purchase_link"
                 - image = Image.find_by(item_id: item.id)
-                .purchase__area__box__picture
+                .item__info__area__box__picture
                   = image_tag image.photo, alt: 'サブ画像', height: '78px', width: '80px'
-                %p.purchase__area__box__item_name
+                %p.item__info__area__box__item_name
                   =item.name
                   を購入しました。
-                %p.purchase__area__box__item_btn
+                %p.item__info__area__box__item_btn
                   >
           
         = paginate @items
