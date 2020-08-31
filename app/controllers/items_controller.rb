@@ -23,6 +23,14 @@ class ItemsController < ApplicationController
   def show
   end
 
+  def get_category_children
+    @children = Category.find(params[:parent_id]).children
+  end
+
+  def get_category_grandchildren
+    @grandchildren = Category.find("#{params[:child_id]}").children
+  end
+
   private
 
   def item_params
