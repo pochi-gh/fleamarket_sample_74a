@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
-  has_many :item_categories, dependent: :destroy
-  has_many :categories, through: :item_categories
+  has_many :images, dependent: :destroy
+  belongs_to :category
   accepts_nested_attributes_for :images, allow_destroy: true
 
   validates  :name, :explain, :category_id, :state_id, :shipping_burden_id, :prefecture_id, :shipping_day_id,:price, :seller_id, presence: true
