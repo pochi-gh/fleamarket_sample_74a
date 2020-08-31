@@ -8,16 +8,23 @@ class ItemsController < ApplicationController
     if user_signed_in?
     @item = Item.new
     @item.images.new
-    @category_parent_array = Category.where(ancestry: nil)
+    @category_parent_array = ["---"]
+      Category.where(ancestry: nil).each do |parent|
+        @category_parent_array << parent.name
+      end
     else
       flash[:alert] = '出品するには、ログインするか新規会員登録をしてください。'
       redirect_to root_path
-      
     end
   end
 
   def create
-    binding.pry
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def show
@@ -31,6 +38,7 @@ class ItemsController < ApplicationController
       end
     end
   end
+  
   def get_category_grandchildren
     respond_to do |format| 
       format.html

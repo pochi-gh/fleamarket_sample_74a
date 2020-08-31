@@ -70,9 +70,10 @@
             カテゴリー
           .category__names--important
             必須
-        .style__select
-          .style__selectarea
-            = form.collection_select :category_id, @category_parent_array, :id, :name,prompt: "---", class:"serect_field"
+        .listing-form-box
+          .listing-select-wrapper
+            .listing-select-wrapper__box
+              = form.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
         .brand__names
           .brand__names--label
             ブランド

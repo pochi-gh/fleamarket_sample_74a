@@ -14,7 +14,7 @@
 }
 
 .sell_main { 
-  background-color: rgb(245, 245, 245);
+  background-color: $white;
   select{
     @include input_form;
   }
@@ -188,7 +188,7 @@
           margin-bottom: 3px !important;
         }       
       }
-      .style__select {
+      .listing-form-box {
         height: 48px;
         width: 620px;
         margin-top: 16px;
