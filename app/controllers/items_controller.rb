@@ -20,10 +20,10 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save
-      redirect_to root_path
+    if @item.valid?
+      @item.save
     else
-      render :new
+      redirect_to new_item_path, flash: { error: @item.errors.full_messages }
     end
   end
 
@@ -31,21 +31,11 @@ class ItemsController < ApplicationController
   end
 
   def get_category_children
-    respond_to do |format| 
-      format.html
-      format.json do
-        @children = Category.find(params[:parent_id]).children
-      end
-    end
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
   end
   
   def get_category_grandchildren
-    respond_to do |format| 
-      format.html
-      format.json do
-        @grandchildren = Category.find("#{params[:child_id]}").children
-      end
-    end
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   private
