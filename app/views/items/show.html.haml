@@ -136,49 +136,26 @@
 
   .item_show-wrapper__relatedItems
     .item_show-wrapper__relatedItems__category_name
-      = link_to "#{@item.category.parent.parent.name}をもっと見る","#"
-    .item_show-wrapper__relatedItems__list
-      .item_show-wrapper__relatedItems__list__box
-        =link_to "" ,"#"
-        .item_show-wrapper__relatedItems__list__box_img
-          = image_tag src="IMG_link.png", alt: 'image', height: '150px', width: '220px'
-        .item_show-wrapper__relatedItems__list__box_main
-          %h6.item_show-wrapper__relatedItems__list__box_main--title
-            products3
-            %ul.item_show-wrapper__relatedItems__list__box_main--data
-              %li
-                30000円
-              %li
-                = icon('fas', 'star')
-                0
-            %p（税込）
-      .item_show-wrapper__relatedItems__list__box
-        =link_to "" ,"#"
-        .item_show-wrapper__relatedItems__list__box_img
-          = image_tag src="IMG_link.png", alt: 'image', height: '150px', width: '220px'
-        .item_show-wrapper__relatedItems__list__box_main
-          %h6.item_show-wrapper__relatedItems__list__box_main--title
-            products3
-            %ul.item_show-wrapper__relatedItems__list__box_main--data
-              %li
-                30000円
-              %li
-                = icon('fas', 'star')
-                0
-            %p（税込）
-      .item_show-wrapper__relatedItems__list__box
-        =link_to "" ,"#"
-        .item_show-wrapper__relatedItems__list__box_img
-          = image_tag src="IMG_link.png", alt: 'image', height: '150px', width: '220px'
-        .item_show-wrapper__relatedItems__list__box_main
-          %h6.item_show-wrapper__relatedItems__list__box_main--title
-            products3
-            %ul.item_show-wrapper__relatedItems__list__box_main--data
-              %li
-                30000円
-              %li
-                = icon('fas', 'star')
-                0
-            %p（税込）
+      = link_to "#{@item.category.parent.parent.name}  #{@item.category.parent.name}  #{@item.category.name}  をもっと見る","#"
+    
+    
+      .item_show-wrapper__relatedItems__list
+        -@items.each do |item|
+          .item_show-wrapper__relatedItems__list__box
+            =link_to "" ,"/items/#{item.id}"
+            .item_show-wrapper__relatedItems__list__box_img
+              = image_tag src="IMG_link.png", alt: 'image', height: '150px', width: '220px'
+            .item_show-wrapper__relatedItems__list__box_main
+              %h6.item_show-wrapper__relatedItems__list__box_main--title
+                = item.name
+                %ul.item_show-wrapper__relatedItems__list__box_main--data
+                  %li
+                    ￥
+                    = item.price
+                  %li
+                    = icon('fas', 'star')
+                    0
+                %p= item.shipping_burden.name
+      
 = render 'template/banner'
 = render 'template/footer'

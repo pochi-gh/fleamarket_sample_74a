@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
     @seller = User.find(1)
     @images = Image.where(item_id: 1)
     @comment = Comment.new
+    @items = Item.where(category: @item.category_id).order(created_at: :desc).limit(3)
     @comments = @item.comments
   end
 
