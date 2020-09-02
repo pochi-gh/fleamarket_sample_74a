@@ -48,6 +48,10 @@
     @include input_form;
   }
 
+  .js-file {
+    display: none;
+  }
+
 
   .box {
     width: 700px;
@@ -312,27 +316,10 @@
         }       
       }
       .listing-form-box {
-        height: 48px;
+        height: 200px;
         width: 620px;
         margin-top: 16px;
         margin-bottom: 32px;
-        #item_category_id{
-          display: inline-block;
-          position: relative;
-          width: 620px;
-          height: 48px;       
-          .form_category{
-            @include form();
-            width: 100%;
-            option {
-              font-weight: normal;
-              display: block;
-              white-space: pre;
-              min-height: 1.2em;
-              padding: 0px 2px 1px;
-            }        
-          }
-        }
         .arrow-sell {
           @include arrow-sell();
         }
