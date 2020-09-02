@@ -14,33 +14,65 @@
             必須
         .phots__explan
           最大10枚までアップロードできます
-        .phots__sqeare
-          #image-box
-            #previews
+
+        .phots_posts_container
+          .prev-content
+            .preview-box
               - if @item.persisted?
                 - @item.images.each_with_index do |image,i|
                   .image-box__content{data: { index: i }}
                     = image_tag image.src.url, width: "118px;", height: '118px;'
                     .js-remove 削除
+              .upper-box
+                .prev-img-data-upper
+                .label-upper-content-0
+                  %label{for: "item_images_attributes_0_src", class: "label-box", id: "label-box--#{@item.images.count}"}
+                    %pre.label-box__text-visible クリックしてファイルをアップロード
+ 
+              .lower-box
+                .prev-img-data-lower
+                .label-lower-content-4
+                  %label{for: "item_images_attributes_4_src", class: "label-box", id: "label-box--#{@item.images.count}"}
+                    %pre.label-box__text-visible クリックしてファイルをアップロード
 
-            = form.fields_for :images do |image|
-              .js-file_group{"data-index": "#{image.index}"}
-                = image.file_field :src, accept: "image/*", class: "js-file", data: {index: image.index}
+              .hidden-content
+                = form.fields_for :images do |image|
+                  .js-file_group{"data-index": "#{image.index}"}
+                    = image.file_field :src, accept: "image/*", class: "js-file", data: {index: image.index}, id: "item_images_attributes_#{image.index}_src"
 
-              - if @item.persisted?
-                = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+                  - if @item.persisted?
+                    = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
 
-            - if @item.persisted?
-              .js-file_group{"data-index": "#{@item.images.count}"}
-                = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
+                - if @item.persisted?
+                  .js-file_group{"data-index": "#{@item.images.count}"}
+                    = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
+        -# .phots__sqeare
+        -#   #image-box
+            -# #previews
+            -#   - if @item.persisted?
+            -#     - @item.images.each_with_index do |image,i|
+            -#       .image-box__content{data: { index: i }}
+            -#         = image_tag image.src.url, width: "118px;", height: '118px;'
+            -#         .js-remove 削除
 
-          .icon
-            %i.fa.fa-camera
-          .phots__sqeare--character
-            %p 
-              ドラッグアンドドロップ
-            %p 
-              またはクリックしてファイルをアップロード
+          -#   = form.fields_for :images do |image|
+          -#     .js-file_group{"data-index": "#{image.index}"}
+          -#       = image.file_field :src, accept: "image/*", class: "js-file", data: {index: image.index}
+
+          -#     - if @item.persisted?
+          -#       = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+
+          -#   - if @item.persisted?
+          -#     .js-file_group{"data-index": "#{@item.images.count}"}
+          -#       = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
+
+          -# .icon
+          -#   %i.fa.fa-camera
+          -# .phots__sqeare--character
+            -# %p 
+            -#   ドラッグアンドドロップ
+            -# %p 
+            -#   またはクリックしてファイルをアップロード
       
 
 
