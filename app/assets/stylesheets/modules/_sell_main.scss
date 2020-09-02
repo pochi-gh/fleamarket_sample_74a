@@ -404,7 +404,6 @@
       }
       .shipping__payer {
         width: 620px;
-        height: 19px;
         align-items: center;
         display: flex;
         margin-top: 32px;
@@ -413,7 +412,7 @@
           margin-right: 8px;
         }
         &--important {
-          @include important();                
+          @include important();
         }
       }
       .payer__select {

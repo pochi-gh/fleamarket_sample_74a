@@ -19,7 +19,12 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     if @item.valid?
       @item.save
+      flash[:notice] = '出品が完了しました'
+      redirect_to root_path
     else
+      @item = Item.new
+      @item.images.new
+      @category_parent_array = Category.where(ancestry: nil).pluck(:name)
       render :new
     end
   end
