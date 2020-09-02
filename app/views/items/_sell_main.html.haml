@@ -90,10 +90,6 @@
         .status__select
           .status__selectarea
             = form.collection_select :state_id, State.all, :id, :name, prompt: "---", class: 'select_state'
-          
-    
-
-    
       .shipping
         .shipping__words
           .shipping__words--word
@@ -107,7 +103,7 @@
             必須
         .payer__select
           .payer__selectarea
-            = form.collection_select :shipping_burden_id, ShippingBurden.all, :id, :name, prompt: "---", class: 'select_shipping_burde '      
+            = form.collection_select :shipping_burden_id, ShippingBurden.all, :id, :name, prompt: "---", class: 'select_shipping_burden'
         .shipping__from__area
           .shipping__from__area--label
             発送元の地域
