@@ -8,10 +8,7 @@ class ItemsController < ApplicationController
     if user_signed_in?
     @item = Item.new
     @item.images.new
-    @category_parent_array = ["---"]
-      Category.where(ancestry: nil).each do |parent|
-        @category_parent_array << parent.name
-      end
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
     else
       flash[:alert] = '出品するには、ログインするか新規会員登録をしてください。'
       redirect_to root_path
@@ -23,7 +20,7 @@ class ItemsController < ApplicationController
     if @item.valid?
       @item.save
     else
-      redirect_to new_item_path, flash: { error: @item.errors.full_messages }
+      render :new
     end
   end
 
