@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-lady = Category.create(name: "ladies", ancestry: nil)
+lady = Category.create(name: "レディス", ancestry: nil)
   ladies_tops = lady.children.create({name: "トップス"})
     ladies_tops.children.create([
                             {name: "Tシャツ/カットソー(半袖/袖なし)"},
@@ -172,7 +172,7 @@ lady = Category.create(name: "ladies", ancestry: nil)
                         ])
 
 
-mens = Category.create(name: "mens", ancestry: nil)
+mens = Category.create(name: "メンズ", ancestry: nil)
   mens_tops = mens.children.create({name: "トップス"})
     mens_tops.children.create([
                           {name: "Tシャツ/カットソー(半袖/袖なし)"},
@@ -324,7 +324,7 @@ mens = Category.create(name: "mens", ancestry: nil)
                         {name: "その他"},
                 ])                       
 
-babykids = Category.create(name: "babykids", ancestry: nil)
+babykids = Category.create(name: "ベビー・キッズ", ancestry: nil)
   babykids_tops = babykids.children.create({name: "ベビー服(女の子用)〜95cm"})
     babykids_tops.children.create([
                           {name: "トップス"},
@@ -498,7 +498,7 @@ babykids = Category.create(name: "babykids", ancestry: nil)
                       ])
 
 
-interior = Category.create(name: "interior", ancestry: nil)
+interior = Category.create(name: "インテリア・住まい・小物", ancestry: nil)
   interior_kitchin = interior.children.create({name: "キッチン/食器"})
     interior_kitchin.children.create([
                       {name: "食器"},
@@ -657,7 +657,7 @@ interior = Category.create(name: "interior", ancestry: nil)
 
 
 
-book = Category.create(name: "book", ancestry: nil)
+book = Category.create(name: "本・音楽・ゲーム", ancestry: nil)
   book_book = book.children.create({name: "本"})
     book_book.children.create([
                       {name: "文学/小説"},
@@ -733,7 +733,7 @@ book = Category.create(name: "book", ancestry: nil)
 
 
 
-toy = Category.create(name: "toy", ancestry: nil)
+toy = Category.create(name: "おもちゃ・ホビー・グッズ", ancestry: nil)
   toy_toy = toy.children.create({name: "おもちゃ"})
     toy_toy.children.create([
                       {name: "キャラクターグッズ"},
@@ -845,7 +845,7 @@ toy_figure = toy.children.create({name: "フィギュア"})
                       {name: "額縁"},
                       {name: "その他"}
                       ])                                                          
-  toy_another = toy.children.create({name: ""})
+  toy_another = toy.children.create({name: "その他"})
     toy_another.children.create([
                     {name: "トランプ/ウノ"},
                     {name: "カルタ/百人一首"},
@@ -864,7 +864,7 @@ toy_figure = toy.children.create({name: "フィギュア"})
                     ])      
                     
                     
-beauty = Category.create(name: "beauty", ancestry: nil)
+beauty = Category.create(name: "コスメ・香水・美容", ancestry: nil)
   beauty_basemakeup = beauty.children.create({name: "ベースメイク"})
     beauty_basemakeup.children.create([
                       {name: "ファンデーション"},
@@ -979,7 +979,7 @@ beauty = Category.create(name: "beauty", ancestry: nil)
                       {name: "その他"}
                       ])
       
- homeappliances = Category.create(name: "phone", ancestry: nil)
+ homeappliances = Category.create(name: "家電・スマホ・カメラ", ancestry: nil)
   homeappliances_phone = homeappliances.children.create({name: "スマートフォン/携帯電話"})
     homeappliances_phone.children.create([
                         {name: "スマートフォン本体"},
@@ -1077,7 +1077,7 @@ beauty = Category.create(name: "beauty", ancestry: nil)
                       ])
 
 
-sport = Category.create(name: "golf", ancestry: nil)
+sport = Category.create(name: "スポーツ・レジャー", ancestry: nil)
   sport_golf = sport.children.create({name: "ゴルフ"})
     sport_golf.children.create([
                           {name: "クラブ"},
@@ -1212,7 +1212,7 @@ sport = Category.create(name: "golf", ancestry: nil)
                           ])
                                                         
                       
-handmade = Category.create(name: "accessory", ancestry: nil)
+handmade = Category.create(name: "ハンドメイド", ancestry: nil)
   handmade_accessory = handmade.children.create({name: "アクセサリー(女性用)"})
     handmade_accessory.children.create([
                           {name: "ピアス"},
@@ -1282,7 +1282,7 @@ handmade = Category.create(name: "accessory", ancestry: nil)
                           ])
                                
                           
-ticket = Category.create(name: "accessory", ancestry: nil)
+ticket = Category.create(name: "チケット", ancestry: nil)
   ticket_music = ticket.children.create({name: "音楽"})
     ticket_music.children.create([
                           {name: "男性アイドル"},
@@ -1346,7 +1346,7 @@ ticket = Category.create(name: "accessory", ancestry: nil)
 
 
 
-motorcycle = Category.create(name: "accessory", ancestry: nil)
+motorcycle = Category.create(name: "自動車・オートバイ", ancestry: nil)
   motorcycle_body = motorcycle.children.create({name: "自動車本体"})
     motorcycle_body.children.create([
                               {name: "国内自動車本体"},
@@ -1424,7 +1424,7 @@ motorcycle = Category.create(name: "accessory", ancestry: nil)
 
 
 
-another = Category.create(name: "another", ancestry: nil)
+another = Category.create(name: "その他", ancestry: nil)
   another_sale = another.children.create({name: "まとめ売り"})
     another_sale.children.create([
                                   {name: "その他"}
@@ -1510,14 +1510,4 @@ another = Category.create(name: "another", ancestry: nil)
   another_another = another.children.create({name: "その他"})
     another_another.children.create([
                               {name: "その他"}
-                              ])
-                                                      
-
-
-
-
-
-
-
-
-
+                              ])                                         
