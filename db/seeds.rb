@@ -867,649 +867,649 @@ toy_figure = toy.children.create({name: "フィギュア"})
 beauty = Category.create(name: "コスメ・香水・美容", ancestry: nil)
   beauty_basemakeup = beauty.children.create({name: "ベースメイク"})
     beauty_basemakeup.children.create([
-                      {name: "ファンデーション"},
-                      {name: "化粧下地"},
-                      {name: "コントロールカラー"},
-                      {name: "BBクリーム"},
-                      {name: "CCクリーム"},
-                      {name: "コンシーラー"},
-                      {name: "フェイスパウダー"},
-                      {name: "トライアルセット/サンプル"},
-                      {name: "その他"}
-                      ])
+                          {name: "ファンデーション"},
+                          {name: "化粧下地"},
+                          {name: "コントロールカラー"},
+                          {name: "BBクリーム"},
+                          {name: "CCクリーム"},
+                          {name: "コンシーラー"},
+                          {name: "フェイスパウダー"},
+                          {name: "トライアルセット/サンプル"},
+                          {name: "その他"}
+                          ])
   beauty_makeup = beauty.children.create({name: "メイクアップ"})
     beauty_makeup.children.create([
-                      {name: "ファンデーション"},
-                      {name: "化粧下地"},
-                      {name: "コントロールカラー"},
-                      {name: "BBクリーム"},
-                      {name: "CCクリーム"},
-                      {name: "コンシーラー"},
-                      {name: "フェイスパウダー"},
-                      {name: "トライアルセット/サンプル"},
-                      {name: "その他"}
-                      ])
+                          {name: "ファンデーション"},
+                          {name: "化粧下地"},
+                          {name: "コントロールカラー"},
+                          {name: "BBクリーム"},
+                          {name: "CCクリーム"},
+                          {name: "コンシーラー"},
+                          {name: "フェイスパウダー"},
+                          {name: "トライアルセット/サンプル"},
+                          {name: "その他"}
+                          ])
   beauty_nailscare = beauty.children.create({name: "ネイルケア"})
     beauty_nailscare.children.create([
-                      {name: "ネイルケア"},
-                      {name: "カラージェル"},
-                      {name: "ネイルベースコート/トップコート"},
-                      {name: "ネールアート用品"},
-                      {name: "ネイルパーツ"},
-                      {name: "ネイルチップ/付け爪"},
-                      {name: "手入れ用具"},
-                      {name: "除光液"},
-                      {name: "その他"}
-                      ])
+                          {name: "ネイルケア"},
+                          {name: "カラージェル"},
+                          {name: "ネイルベースコート/トップコート"},
+                          {name: "ネールアート用品"},
+                          {name: "ネイルパーツ"},
+                          {name: "ネイルチップ/付け爪"},
+                          {name: "手入れ用具"},
+                          {name: "除光液"},
+                          {name: "その他"}
+                          ])
   beauty_perfume = beauty.children.create({name: "香水"})
     beauty_perfume.children.create([
-                      {name: "香水(女性用)"},
-                      {name: "香水(男性用)"},
-                      {name: "ユニセックス"},
-                      {name: "ボディミスト"},
-                      {name: "その他"}
-                      ])
+                          {name: "香水(女性用)"},
+                          {name: "香水(男性用)"},
+                          {name: "ユニセックス"},
+                          {name: "ボディミスト"},
+                          {name: "その他"}
+                          ])
   beauty_skincare = beauty.children.create({name: "スキンケア"})
     beauty_skincare.children.create([
-                      {name: "化粧水/ローション"},
-                      {name: "乳液/ミルク"},
-                      {name: "フェイスクリーム"},
-                      {name: "洗顔料"},
-                      {name: "クレンジング/メイク落とし"},
-                      {name: "パック/フェイスマスク"},
-                      {name: "ジェル/ゲル"},
-                      {name: "ブースター/導入液"},
-                      {name: "アイケア"},
-                      {name: "リップケア"},
-                      {name: "トライアルセット/サンプル"},
-                      {name: "洗顔グッズ"},
-                      {name: "その他"}
-                      ])                      
+                          {name: "化粧水/ローション"},
+                          {name: "乳液/ミルク"},
+                          {name: "フェイスクリーム"},
+                          {name: "洗顔料"},
+                          {name: "クレンジング/メイク落とし"},
+                          {name: "パック/フェイスマスク"},
+                          {name: "ジェル/ゲル"},
+                          {name: "ブースター/導入液"},
+                          {name: "アイケア"},
+                          {name: "リップケア"},
+                          {name: "トライアルセット/サンプル"},
+                          {name: "洗顔グッズ"},
+                          {name: "その他"}
+                          ])                      
   beauty_haircare = beauty.children.create({name: "ヘアケア"})
     beauty_haircare.children.create([
-                      {name: "シャンプー"},
-                      {name: "トリートメント"},
-                      {name: "コンディショナー"},
-                      {name: "リンス"},
-                      {name: "スタイリング剤"},
-                      {name: "カラーリング剤"},
-                      {name: "ブラシ"},
-                      {name: "その他"}
-                      ])
+                          {name: "シャンプー"},
+                          {name: "トリートメント"},
+                          {name: "コンディショナー"},
+                          {name: "リンス"},
+                          {name: "スタイリング剤"},
+                          {name: "カラーリング剤"},
+                          {name: "ブラシ"},
+                          {name: "その他"}
+                          ])
   beauty_bodycare = beauty.children.create({name: "ボディケア"})
     beauty_bodycare.children.create([
-                      {name: "オイル/クリーム"},
-                      {name: "ハンドクリーム"},
-                      {name: "ローション"},
-                      {name: "日焼け止め/サンオイル"},
-                      {name: "ボディソープ"},
-                      {name: "入浴剤"},
-                      {name: "制汗/デオドラント"},
-                      {name: "フットケア"},
-                      {name: "その他"}
-                      ])
+                          {name: "オイル/クリーム"},
+                          {name: "ハンドクリーム"},
+                          {name: "ローション"},
+                          {name: "日焼け止め/サンオイル"},
+                          {name: "ボディソープ"},
+                          {name: "入浴剤"},
+                          {name: "制汗/デオドラント"},
+                          {name: "フットケア"},
+                          {name: "その他"}
+                          ])
   beauty_oralcare = beauty.children.create({name: "オーラルケア"})
     beauty_oralcare.children.create([
-                      {name: "口臭防止/エチケット用品"},
-                      {name: "歯ブラシ"},
-                      {name: "その他"}
-                      ])
+                          {name: "口臭防止/エチケット用品"},
+                          {name: "歯ブラシ"},
+                          {name: "その他"}
+                          ])
   beauty_relaxionat = beauty.children.create({name: "リラクゼーション"})
     beauty_relaxionat.children.create([
-                      {name: "エッセンシャルオイル"},
-                      {name: "芳香器"},
-                      {name: "お香/香炉"},
-                      {name: "キャンドル"},
-                      {name: "リラクゼーショングッズ"},
-                      {name: "その他"}
-                      ])
+                          {name: "エッセンシャルオイル"},
+                          {name: "芳香器"},
+                          {name: "お香/香炉"},
+                          {name: "キャンドル"},
+                          {name: "リラクゼーショングッズ"},
+                          {name: "その他"}
+                          ])
   beauty_diet = beauty.children.create({name: "ダイエット"})
     beauty_diet.children.create([
-                      {name: "ダイエット食品"},
-                      {name: "エクスサイズ用品"},
-                      {name: "体重計"},
-                      {name: "体脂肪計"},
-                      {name: "その他"}
-                      ])
+                        {name: "ダイエット食品"},
+                        {name: "エクスサイズ用品"},
+                        {name: "体重計"},
+                        {name: "体脂肪計"},
+                        {name: "その他"}
+                        ])
   beauty_another = beauty.children.create({name: "その他"})
     beauty_another.children.create([
-                      {name: "健康用品"},
-                      {name: "看護/介護"},
-                      {name: "救急/衛生用品"},
-                      {name: "その他"}
-                      ])
+                        {name: "健康用品"},
+                        {name: "看護/介護"},
+                        {name: "救急/衛生用品"},
+                        {name: "その他"}
+                        ])
 
 
                     
 homeappliances = Category.create(name: "家電・スマホ・カメラ", ancestry: nil)
   homeappliances_phone = homeappliances.children.create({name: "スマートフォン/携帯電話"})
     homeappliances_phone.children.create([
-                      {name: "スマートフォン本体"},
-                      {name: "バッテリー/充電器"},
-                      {name: "携帯電話本体"},
-                      {name: "PHP本体"},
-                      {name: "その他"}
-                      ])
+                          {name: "スマートフォン本体"},
+                          {name: "バッテリー/充電器"},
+                          {name: "携帯電話本体"},
+                          {name: "PHP本体"},
+                          {name: "その他"}
+                          ])
   homeappliances_phoneaccessory = homeappliances.children.create({name: "スマホアクセサリー"})
     homeappliances_phoneaccessory.children.create([
-                        {name: "Android用ケース"},
-                        {name: "iPhone用ケース"},
-                        {name: "カバー"},
-                        {name: "イヤリングジャック"},
-                        {name: "ストラップ"},
-                        {name: "フィルム"},
-                        {name: "自撮り棒"},
-                        {name: "その他"}
-                        ])
+                          {name: "Android用ケース"},
+                          {name: "iPhone用ケース"},
+                          {name: "カバー"},
+                          {name: "イヤリングジャック"},
+                          {name: "ストラップ"},
+                          {name: "フィルム"},
+                          {name: "自撮り棒"},
+                          {name: "その他"}
+                          ])
   homeappliances_pctablet = homeappliances.children.create({name: "PCタブレット"})
     homeappliances_pctablet.children.create([
-                        {name: "タブレット"},
-                        {name: "ノートPC"},
-                        {name: "デスクトップ型PC"},
-                        {name: "ディスプレイ"},
-                        {name: "電子ブックリーダー"},
-                        {name: "PC周辺機器"},
-                        {name: "PCパーツ"},
-                        {name: "その他"}
-                        ])
+                          {name: "タブレット"},
+                          {name: "ノートPC"},
+                          {name: "デスクトップ型PC"},
+                          {name: "ディスプレイ"},
+                          {name: "電子ブックリーダー"},
+                          {name: "PC周辺機器"},
+                          {name: "PCパーツ"},
+                          {name: "その他"}
+                          ])
   homeappliances_camera = homeappliances.children.create({name: "カメラ"})
     homeappliances_camera.children.create([
-                        {name: "デジタルカメラ"},
-                        {name: "ビデオカメラ"},
-                        {name: "レンズ(単焦点)"},
-                        {name: "レンズ(ズーム)"},
-                        {name: "フィルムカメラ"},
-                        {name: "防犯カメラ"},
-                        {name: "その他"}
-                        ])
+                          {name: "デジタルカメラ"},
+                          {name: "ビデオカメラ"},
+                          {name: "レンズ(単焦点)"},
+                          {name: "レンズ(ズーム)"},
+                          {name: "フィルムカメラ"},
+                          {name: "防犯カメラ"},
+                          {name: "その他"}
+                          ])
   homeappliances_tv = homeappliances.children.create({name: "テレビ/映像機器"})
     homeappliances_tv.children.create([
-                        {name: "テレビ"},
-                        {name: "プロジェクター"},
-                        {name: "ブルーレイレコーダー"},
-                        {name: "ブルーレイプレイヤー"},
-                        {name: "DVDプレイヤー"},
-                        {name: "映像用ケーブル"},
-                        {name: "その他"}
-                        ])
+                          {name: "テレビ"},
+                          {name: "プロジェクター"},
+                          {name: "ブルーレイレコーダー"},
+                          {name: "ブルーレイプレイヤー"},
+                          {name: "DVDプレイヤー"},
+                          {name: "映像用ケーブル"},
+                          {name: "その他"}
+                          ])
   homeappliances_audio = homeappliances.children.create({name: "オーディオ機器"})
     homeappliances_audio.children.create([
-                        {name: "ポータブルプレイヤー"},
-                        {name: "イヤフォン"},
-                        {name: "ヘッドフォン"},
-                        {name: "アンプ"},
-                        {name: "スピーカー"},
-                        {name: "ケーブル/シールド"},
-                        {name: "ラジオ"},
-                        {name: "その他"}
-                        ])
+                          {name: "ポータブルプレイヤー"},
+                          {name: "イヤフォン"},
+                          {name: "ヘッドフォン"},
+                          {name: "アンプ"},
+                          {name: "スピーカー"},
+                          {name: "ケーブル/シールド"},
+                          {name: "ラジオ"},
+                          {name: "その他"}
+                          ])
   homeappliances_airconditioning = homeappliances.children.create({name: "冷暖房/空調"})
     homeappliances_airconditioning.children.create([
-                        {name: "エアコン"},
-                        {name: "空調清浄器"},
-                        {name: "加湿器"},
-                        {name: "扇風機"},
-                        {name: "ファンヒーター"},
-                        {name:  "電気ヒーター"},
-                        {name: "オールヒーター"},
-                        {name: "ストーブ"}, 
-                        {name: "ホットカーペット"},
-                        {name: "こたつ"},
-                        {name: "電気毛布"},
-                        {name: "その他"}
-                        ])
+                          {name: "エアコン"},
+                          {name: "空調清浄器"},
+                          {name: "加湿器"},
+                          {name: "扇風機"},
+                          {name: "ファンヒーター"},
+                          {name:  "電気ヒーター"},
+                          {name: "オールヒーター"},
+                          {name: "ストーブ"}, 
+                          {name: "ホットカーペット"},
+                          {name: "こたつ"},
+                          {name: "電気毛布"},
+                          {name: "その他"}
+                          ])
   homeappliances_homeholdappliances = homeappliances.children.create({name: "生活家電"})
     homeappliances_homeholdappliances.children.create([
-                        {name: "冷蔵庫"},
-                        {name: "洗濯機"},
-                        {name: "炊飯器"},
-                        {name: "電子レンジ/オーブン"},
-                        {name: "調理機器"},
-                        {name:  "アイロン"},
-                        {name: "掃除機"},
-                        {name: "エスプレッソマシーン"},                    
-                        {name: "コーヒーメーカー"},
-                        {name: "衣類乾燥"},
-                        {name: "その他"}
-                        ])           
+                          {name: "冷蔵庫"},
+                          {name: "洗濯機"},
+                          {name: "炊飯器"},
+                          {name: "電子レンジ/オーブン"},
+                          {name: "調理機器"},
+                          {name:  "アイロン"},
+                          {name: "掃除機"},
+                          {name: "エスプレッソマシーン"},                    
+                          {name: "コーヒーメーカー"},
+                          {name: "衣類乾燥"},
+                          {name: "その他"}
+                          ])           
   homeappliances_another = homeappliances.children.create({name: "その他"})
     homeappliances_another.children.create([
-                        {name: "その他"}
-                        ])
+                          {name: "その他"}
+                          ])
 
 
 
 sport = Category.create(name: "スポーツ・レジャー", ancestry: nil)
   sport_golf = sport.children.create({name: "ゴルフ"})
     sport_golf.children.create([
-                        {name: "クラブ"},
-                        {name: "ウェア(男性用)"},
-                        {name: "ウェア(女性用)"},
-                        {name: "バッグ"},
-                        {name: "シューズ(男性用)"},
-                        {name: "シューズ(女性用)"},
-                        {name: "アクセサリー"},
-                        {name: "その他"}
-                        ])
+                          {name: "クラブ"},
+                          {name: "ウェア(男性用)"},
+                          {name: "ウェア(女性用)"},
+                          {name: "バッグ"},
+                          {name: "シューズ(男性用)"},
+                          {name: "シューズ(女性用)"},
+                          {name: "アクセサリー"},
+                          {name: "その他"}
+                          ])
   sport_fising = sport.children.create({name: "フィッシング"})
     sport_fising.children.create([
-                        {name: "ロッド"},
-                        {name: "リール"},
-                        {name: "ルアー用品"},
-                        {name: "ウエア"},
-                        {name: "釣り糸/ライン"},
-                        {name: "その他"}
-                        ])
+                          {name: "ロッド"},
+                          {name: "リール"},
+                          {name: "ルアー用品"},
+                          {name: "ウエア"},
+                          {name: "釣り糸/ライン"},
+                          {name: "その他"}
+                          ])
   sport_bicycle = sport.children.create({name: "自転車"})
     sport_bicycle.children.create([
-                        {name: "自転車本体"},
-                        {name: "ウエア"},
-                        {name: "パーツ"},
-                        {name: "アクセサリー"},
-                        {name: "バッグ"},
-                        {name: "工具/メンテナンス"},
-                        {name: "その他"}
-                        ])
+                          {name: "自転車本体"},
+                          {name: "ウエア"},
+                          {name: "パーツ"},
+                          {name: "アクセサリー"},
+                          {name: "バッグ"},
+                          {name: "工具/メンテナンス"},
+                          {name: "その他"}
+                          ])
   sport_exsize = sport.children.create({name: "トレーニング/エクスサイズ"})
     sport_exsize.children.create([
-                        {name: "ランニング"},
-                        {name: "ウォーキング"},
-                        {name: "ヨガ"},
-                        {name: "トレーニング用品"},
-                        {name: "その他"}
-                        ])
+                          {name: "ランニング"},
+                          {name: "ウォーキング"},
+                          {name: "ヨガ"},
+                          {name: "トレーニング用品"},
+                          {name: "その他"}
+                          ])
   sport_baseball = sport.children.create({name: "野球"})
     sport_baseball.children.create([
-                        {name: "ウエア"},
-                        {name: "シューズ"},
-                        {name: "グローブ"},
-                        {name: "バッド"},
-                        {name: "アクセサリー"},
-                        {name: "防具"},
-                        {name: "練習器具"},
-                        {name: "記念グッズ"},
-                        {name: "応援グッズ"},
-                        {name: "その他"}
-                        ])
+                          {name: "ウエア"},
+                          {name: "シューズ"},
+                          {name: "グローブ"},
+                          {name: "バッド"},
+                          {name: "アクセサリー"},
+                          {name: "防具"},
+                          {name: "練習器具"},
+                          {name: "記念グッズ"},
+                          {name: "応援グッズ"},
+                          {name: "その他"}
+                          ])
   sport_football = sport.children.create({name: "サッカー/フットボール"})
     sport_football.children.create([
-                        {name: "ウエア"},
-                        {name: "シューズ"},
-                        {name: "ボール"},
-                        {name: "アクセサリー"},
-                        {name: "記念グッズ"},
-                        {name: "応援グッズ"},
-                        {name: "その他"}
-                        ])
+                          {name: "ウエア"},
+                          {name: "シューズ"},
+                          {name: "ボール"},
+                          {name: "アクセサリー"},
+                          {name: "記念グッズ"},
+                          {name: "応援グッズ"},
+                          {name: "その他"}
+                          ])
   sport_tennis = sport.children.create({name: "テニス"})
     sport_tennis.children.create([
-                        {name: "ラケット(硬式)"},
-                        {name: "ラケット(軟式)"},
-                        {name: "ウエア"},
-                        {name: "シューズ"},
-                        {name: "ボール"},
-                        {name: "アクセサリー"},
-                        {name: "記念グッズ"},
-                        {name: "応援グッズ"},
-                        {name: "その他"}
-                        ])
+                          {name: "ラケット(硬式)"},
+                          {name: "ラケット(軟式)"},
+                          {name: "ウエア"},
+                          {name: "シューズ"},
+                          {name: "ボール"},
+                          {name: "アクセサリー"},
+                          {name: "記念グッズ"},
+                          {name: "応援グッズ"},
+                          {name: "その他"}
+                          ])
   sport_snowboard = sport.children.create({name: "スノーボード"})
     sport_snowboard.children.create([
-                        {name: "ボード"},
-                        {name: "バインディング"},
-                        {name: "ブーツ(男性用)"},
-                        {name: "ブーツ(女性用)"},
-                        {name: "ブーツ(子ども用)"},
-                        {name: "ウエア/装備(男性用)"},
-                        {name: "ウエア/装備(女性用)"},
-                        {name: "ウエア/装備(子ども用)"},
-                        {name: "アクセサリー"},
-                        {name: "バッグ"},
-                        {name: "その他"}
-                        ])
+                          {name: "ボード"},
+                          {name: "バインディング"},
+                          {name: "ブーツ(男性用)"},
+                          {name: "ブーツ(女性用)"},
+                          {name: "ブーツ(子ども用)"},
+                          {name: "ウエア/装備(男性用)"},
+                          {name: "ウエア/装備(女性用)"},
+                          {name: "ウエア/装備(子ども用)"},
+                          {name: "アクセサリー"},
+                          {name: "バッグ"},
+                          {name: "その他"}
+                          ])
   sport_skiing = sport.children.create({name: "スキー"})
     sport_skiing.children.create([
-                        {name: "板"},
-                        {name: "ブーツ(男性用)"},
-                        {name: "ブーツ(女性用)"},
-                        {name: "ブーツ(子ども用)"},
-                        {name: "ビインディング"},
-                        {name: "ウエア(男性用)"},
-                        {name: "ウエア(女性用)"},
-                        {name: "ウエア(子ども用)"},
-                        {name: "ストック"},
-                        {name: "その他"}
-                        ])
+                          {name: "板"},
+                          {name: "ブーツ(男性用)"},
+                          {name: "ブーツ(女性用)"},
+                          {name: "ブーツ(子ども用)"},
+                          {name: "ビインディング"},
+                          {name: "ウエア(男性用)"},
+                          {name: "ウエア(女性用)"},
+                          {name: "ウエア(子ども用)"},
+                          {name: "ストック"},
+                          {name: "その他"}
+                          ])
   sport_anothersport = sport.children.create({name: "その他のスポーツ"})
     sport_anothersport.children.create([
-                        {name: "ダンス/バレエ"},
-                        {name: "サーフィン"},
-                        {name: "バスケットボール"},
-                        {name: "バトミントン"},
-                        {name: "バレーボール"},
-                        {name: "スケートボード"},
-                        {name: "陸上競技"},
-                        {name: "ラグビー"},
-                        {name: "アメリカンフットボール"},
-                        {name: "ボクシング"},
-                        {name: "ボーリング"},
-                        {name: "その他"}
-                        ])
+                          {name: "ダンス/バレエ"},
+                          {name: "サーフィン"},
+                          {name: "バスケットボール"},
+                          {name: "バトミントン"},
+                          {name: "バレーボール"},
+                          {name: "スケートボード"},
+                          {name: "陸上競技"},
+                          {name: "ラグビー"},
+                          {name: "アメリカンフットボール"},
+                          {name: "ボクシング"},
+                          {name: "ボーリング"},
+                          {name: "その他"}
+                          ])
   sport_outdoor = sport.children.create({name: "アウトドア"})
     sport_outdoor.children.create([
-                        {name: "テント/ターブ"},
-                        {name: "ライト/ランタン"},
-                        {name: "寝袋/寝具"},
-                        {name: "テーブル/チェア"},
-                        {name: "ストーブ/コンロ"},
-                        {name: "調理器具"},
-                        {name: "食器"},
-                        {name: "登山用品"},
-                        {name: "その他"}
-                        ])
+                          {name: "テント/ターブ"},
+                          {name: "ライト/ランタン"},
+                          {name: "寝袋/寝具"},
+                          {name: "テーブル/チェア"},
+                          {name: "ストーブ/コンロ"},
+                          {name: "調理器具"},
+                          {name: "食器"},
+                          {name: "登山用品"},
+                          {name: "その他"}
+                          ])
   sport_another = sport.children.create({name: "その他"})
     sport_another.children.create([
-                        {name: "旅行用品"},
-                        {name: "その他"}
-                        ])
+                          {name: "旅行用品"},
+                          {name: "その他"}
+                          ])
                                                         
                       
 handmade = Category.create(name: "ハンドメイド", ancestry: nil)
   handmade_accessory = handmade.children.create({name: "アクセサリー(女性用)"})
     handmade_accessory.children.create([
-                        {name: "ピアス"},
-                        {name: "イヤリング"},
-                        {name: "ネックレッス"},
-                        {name: "ブレスッレド"},
-                        {name: "リング"},
-                        {name: "チャーム"},
-                        {name: "ヘアゴム"},
-                        {name: "アンクレット"},
-                        {name: "その他"}
-                        ])
+                          {name: "ピアス"},
+                          {name: "イヤリング"},
+                          {name: "ネックレッス"},
+                          {name: "ブレスッレド"},
+                          {name: "リング"},
+                          {name: "チャーム"},
+                          {name: "ヘアゴム"},
+                          {name: "アンクレット"},
+                          {name: "その他"}
+                          ])
   handmade_fashion = handmade.children.create({name: "ファッション/小物"})
     handmade_fashion.children.create([
-                        {name: "バッグ(女性用)"},
-                        {name: "バッグ(男性用)"},
-                        {name: "財布(女性用)"},
-                        {name: "財布(男性用)"},
-                        {name: "ファッション雑貨"},
-                        {name: "その他"}
-                        ])
+                          {name: "バッグ(女性用)"},
+                          {name: "バッグ(男性用)"},
+                          {name: "財布(女性用)"},
+                          {name: "財布(男性用)"},
+                          {name: "ファッション雑貨"},
+                          {name: "その他"}
+                          ])
   handmade_fashion = handmade.children.create({name: "アクセサリー/時計"})
     handmade_fashion.children.create([
-                        {name: "アクセサリー(男性用)"},
-                        {name: "時計(女性用)"},
-                        {name: "時計(男性用)"},
-                        {name: "その他"}
-                        ])
+                          {name: "アクセサリー(男性用)"},
+                          {name: "時計(女性用)"},
+                          {name: "時計(男性用)"},
+                          {name: "その他"}
+                          ])
   handmade_dailynecessities = handmade.children.create({name: "日用品/インテリア"})
     handmade_dailynecessities.children.create([
-                        {name: "キッチン用品"},
-                        {name: "家具"},
-                        {name: "アート/写真"},
-                        {name: "アロマ/キャンドル"},
-                        {name: "フラワー/ガーデン"},
-                        {name: "その他"}
-                        ])
+                          {name: "キッチン用品"},
+                          {name: "家具"},
+                          {name: "アート/写真"},
+                          {name: "アロマ/キャンドル"},
+                          {name: "フラワー/ガーデン"},
+                          {name: "その他"}
+                          ])
   handmade_hobby = handmade.children.create({name: "趣味/おもちゃ"})
     handmade_hobby.children.create([
-                        {name: "クラフト/布財布"},
-                        {name: "おもちゃ/人形"},
-                        {name: "その他"}
-                        ])
+                          {name: "クラフト/布財布"},
+                          {name: "おもちゃ/人形"},
+                          {name: "その他"}
+                          ])
   handmade_kids= handmade.children.create({name: "キッズ/ベビー"})
     handmade_kids.children.create([
-                        {name: "ファッション雑貨"},
-                        {name: "スタイ/よだれかけ"},
-                        {name: "外出用品"},
-                        {name: "ネームタグ"},
-                        {name: "その他"}
-                        ])
+                          {name: "ファッション雑貨"},
+                          {name: "スタイ/よだれかけ"},
+                          {name: "外出用品"},
+                          {name: "ネームタグ"},
+                          {name: "その他"}
+                          ])
   handmade_material = handmade.children.create({name: "素材/材料"})
     handmade_material.children.create([
-                        {name: "各種パーツ"},
-                        {name: "生地/糸"},
-                        {name: "型紙/パターン"},
-                        {name: "その他"}
-                        ])
+                          {name: "各種パーツ"},
+                          {name: "生地/糸"},
+                          {name: "型紙/パターン"},
+                          {name: "その他"}
+                          ])
   handmade_cerecondarycreateion = handmade.children.create({name: "二次創作物"})
     handmade_cerecondarycreateion.children.create([
-                        {name: "ingress"},
-                        {name: "クリエーターズ宇宙兄弟"}
-                        ])
+                          {name: "ingress"},
+                          {name: "クリエーターズ宇宙兄弟"}
+                          ])
   handmade_another = handmade.children.create({name: "その他"})
     handmade_another.children.create([
-                        {name: "その他"}
-                        ])
+                          {name: "その他"}
+                          ])
                                
                           
 ticket = Category.create(name: "チケット", ancestry: nil)
   ticket_music = ticket.children.create({name: "音楽"})
     ticket_music.children.create([
-                        {name: "男性アイドル"},
-                        {name: "女性アイドル"},
-                        {name: "韓流"},
-                        {name: "国内アーティスト"},
-                        {name: "海外アーティスト"},
-                        {name: "音楽フェス"},
-                        {name: "声優/アニメ"},
-                        {name: "その他"}
-                        ])
+                          {name: "男性アイドル"},
+                          {name: "女性アイドル"},
+                          {name: "韓流"},
+                          {name: "国内アーティスト"},
+                          {name: "海外アーティスト"},
+                          {name: "音楽フェス"},
+                          {name: "声優/アニメ"},
+                          {name: "その他"}
+                          ])
   ticket_sport = ticket.children.create({name: "スポーツ"})
     ticket_sport.children.create([
-                        {name: "サッカー"},
-                        {name: "野球"},
-                        {name: "格闘技/プロレス"},
-                        {name: "格闘技/武道"},
-                        {name: "バレーボール"},
-                        {name: "バスケットボール"},
-                        {name: "モータースポーツ"},
-                        {name: "ウィンタースポーツ"},
-                        {name: "その他"}
-                        ])
+                          {name: "サッカー"},
+                          {name: "野球"},
+                          {name: "格闘技/プロレス"},
+                          {name: "格闘技/武道"},
+                          {name: "バレーボール"},
+                          {name: "バスケットボール"},
+                          {name: "モータースポーツ"},
+                          {name: "ウィンタースポーツ"},
+                          {name: "その他"}
+                          ])
   ticket_entertaiment = ticket.children.create({name: "演劇/芸能"})
     ticket_entertaiment.children.create([
-                        {name: "ミュージカル"},
-                        {name: "演劇"},
-                        {name: "伝統芸能"},
-                        {name: "落語"},
-                        {name: "お笑い"},
-                        {name: "オペラ"},
-                        {name: "サーカス"},
-                        {name: "バレエ"},
-                        {name: "その他"}
+                          {name: "ミュージカル"},
+                          {name: "演劇"},
+                          {name: "伝統芸能"},
+                          {name: "落語"},
+                          {name: "お笑い"},
+                          {name: "オペラ"},
+                          {name: "サーカス"},
+                          {name: "バレエ"},
+                          {name: "その他"}
                         ])
   ticket_event = ticket.children.create({name: "イベント"})
     ticket_event.children.create([
-                        {name: "声優/アニメ"},
-                        {name: "キッズ/ファミリー"},
-                        {name: "トークショー/講演会"},
-                        {name: "その他"}
-                        ])
+                          {name: "声優/アニメ"},
+                          {name: "キッズ/ファミリー"},
+                          {name: "トークショー/講演会"},
+                          {name: "その他"}
+                          ])
   ticket_movie = ticket.children.create({name: "映画"})
     ticket_movie.children.create([
-                        {name: "邦画"},
-                        {name: "洋画"},
-                        {name: "その他"}
-                        ])
+                          {name: "邦画"},
+                          {name: "洋画"},
+                          {name: "その他"}
+                          ])
   ticket_discount = ticket.children.create({name: "優待券/割引券"})
     ticket_discount.children.create([
-                        {name: "ショッピング"},
-                        {name: "レストラン/食事券"},
-                        {name: "フード/ドリンク券"},
-                        {name: "宿泊券"},
-                        {name: "その他"}
-                        ])
+                          {name: "ショッピング"},
+                          {name: "レストラン/食事券"},
+                          {name: "フード/ドリンク券"},
+                          {name: "宿泊券"},
+                          {name: "その他"}
+                          ])
   ticket_another = ticket.children.create({name: "その他"})
     ticket_another.children.create([
-                        {name: "その他"}
-                        ])
+                          {name: "その他"}
+                          ])
 
 
 
 motorcycle = Category.create(name: "自動車・オートバイ", ancestry: nil)
   motorcycle_body = motorcycle.children.create({name: "自動車本体"})
     motorcycle_body.children.create([
-                        {name: "国内自動車本体"},
-                        {name: "外国自動車本体"}
-                        ])
+                          {name: "国内自動車本体"},
+                          {name: "外国自動車本体"}
+                          ])
     motorcycle_tire = motorcycle.children.create({name: "自動車タイヤ/ホイール"})
       motorcycle_tire.children.create([
-                        {name: "タイヤ/ホイールセット"},
-                        {name: "タイヤ"},
-                        {name: "ホイール"},
-                        {name: "その他"}
-                        ])
+                          {name: "タイヤ/ホイールセット"},
+                          {name: "タイヤ"},
+                          {name: "ホイール"},
+                          {name: "その他"}
+                          ])
   motorcycle_parts = motorcycle.children.create({name: "自動車パーツ"})
     motorcycle_parts.children.create([
-                        {name: "サスペンション"},
-                        {name: "ブレーキ"},
-                        {name: "外装、エアロパーツ"},
-                        {name: "ライト"},
-                        {name: "内装品、シート"},
-                        {name: "ステアリング"},
-                        {name: "マフラー・排気系"},
-                        {name: "エンジン、過給機、冷却装置"},
-                        {name: "クラッチ、ミッション、駆動系"},
-                        {name: "電装品"},
-                        {name: "補強パーツ"},
-                        {name: "凡用パーツ"},
-                        {name: "外国自動車用パーツ"},
-                        {name: "その他"}
-                        ])
+                          {name: "サスペンション"},
+                          {name: "ブレーキ"},
+                          {name: "外装、エアロパーツ"},
+                          {name: "ライト"},
+                          {name: "内装品、シート"},
+                          {name: "ステアリング"},
+                          {name: "マフラー・排気系"},
+                          {name: "エンジン、過給機、冷却装置"},
+                          {name: "クラッチ、ミッション、駆動系"},
+                          {name: "電装品"},
+                          {name: "補強パーツ"},
+                          {name: "凡用パーツ"},
+                          {name: "外国自動車用パーツ"},
+                          {name: "その他"}
+                          ])
   motorcycle_accessory = motorcycle.children.create({name: "自動車アクセサリー"})
     motorcycle_accessory.children.create([
-                        {name: "車内アクセサリー"},
-                        {name: "カーナビ"},
-                        {name: "カーオーディオ"},
-                        {name: "車外アクセサリー"},
-                        {name: "メンテナンス用品"},
-                        {name: "チャイルドシート"},
-                        {name: "ドライブレコーダー"},
-                        {name: "レーダー探知機"},
-                        {name: "カタログ/マニュアル"},
-                        {name: "セキュリティ"},
-                        {name: "ECT"},
-                        {name: "その他"}
-                        ])
+                          {name: "車内アクセサリー"},
+                          {name: "カーナビ"},
+                          {name: "カーオーディオ"},
+                          {name: "車外アクセサリー"},
+                          {name: "メンテナンス用品"},
+                          {name: "チャイルドシート"},
+                          {name: "ドライブレコーダー"},
+                          {name: "レーダー探知機"},
+                          {name: "カタログ/マニュアル"},
+                          {name: "セキュリティ"},
+                          {name: "ECT"},
+                          {name: "その他"}
+                          ])
   motorcycle_bodis = motorcycle.children.create({name: "オートバイ車体"})
     motorcycle_bodis.children.create([
-                        {name: "その他"}
-                        ])
+                          {name: "その他"}
+                          ])
   motorcycle_mparts = motorcycle.children.create({name: "オートバイパーツ"})
     motorcycle_mparts.children.create([
-                        {name: "タイヤ"},
-                        {name: "マフラー"},
-                        {name: "エンジン、冷却装置"},
-                        {name: "カウル、フェンダー、外装"},
-                        {name: "サスペンション"},
-                        {name: "ホイール"},
-                        {name: "ステアリング"},
-                        {name: "シート"},
-                        {name: "ブレーキ"},
-                        {name: "タンク"},
-                        {name: "ライト、ウィンカー"},
-                        {name: "チェーン、スブロケット、駆動系"},
-                        {name: "メーター"},
-                        {name: "電装系"},
-                        {name: "ミラー"}
-                        ])
+                          {name: "タイヤ"},
+                          {name: "マフラー"},
+                          {name: "エンジン、冷却装置"},
+                          {name: "カウル、フェンダー、外装"},
+                          {name: "サスペンション"},
+                          {name: "ホイール"},
+                          {name: "ステアリング"},
+                          {name: "シート"},
+                          {name: "ブレーキ"},
+                          {name: "タンク"},
+                          {name: "ライト、ウィンカー"},
+                          {name: "チェーン、スブロケット、駆動系"},
+                          {name: "メーター"},
+                          {name: "電装系"},
+                          {name: "ミラー"}
+                          ])
   motorcycle_accessories = motorcycle.children.create({name: "オートバイアクセサリー"})
     motorcycle_accessories.children.create([
-                        {name: "ヘルメット/シールド"},
-                        {name: "バイクウエア/装備"},
-                        {name: "メンテナンス"},
-                        {name: "カタログ/マニュアル"},
-                        {name: "その他"}
-                        ])
+                          {name: "ヘルメット/シールド"},
+                          {name: "バイクウエア/装備"},
+                          {name: "メンテナンス"},
+                          {name: "カタログ/マニュアル"},
+                          {name: "その他"}
+                          ])
 
 
 
 another = Category.create(name: "その他", ancestry: nil)
   another_sale = another.children.create({name: "まとめ売り"})
     another_sale.children.create([
-                        {name: "その他"}
-                        ])
+                          {name: "その他"}
+                          ])
   another_pet = another.children.create({name: "ペット用品"})
     another_pet.children.create([
-                        {name: "ペットフード"},
-                        {name: "犬用品"},
-                        {name: "猫用品"},
-                        {name: "魚用品/水草"},
-                        {name: "小動物用品"},
-                        {name: "昆虫類/両生類用品"},
-                        {name: "かご/おり"},
-                        {name: "鳥用品"},
-                        {name: "虫類用品"},
-                        {name: "その他"}
-                        ])
+                          {name: "ペットフード"},
+                          {name: "犬用品"},
+                          {name: "猫用品"},
+                          {name: "魚用品/水草"},
+                          {name: "小動物用品"},
+                          {name: "昆虫類/両生類用品"},
+                          {name: "かご/おり"},
+                          {name: "鳥用品"},
+                          {name: "虫類用品"},
+                          {name: "その他"}
+                          ])
   another_food = another.children.create({name: "食品"})
     another_food.children.create([
-                        {name: "菓子"},
-                        {name: "米"},
-                        {name: "野菜"},
-                        {name: "果物"},
-                        {name: "調味料"},
-                        {name: "魚介類(加工食品)"},
-                        {name: "肉類(加工食品)"},
-                        {name: "その他 加工品"},
-                        {name: "その他"}
-                        ])
+                          {name: "菓子"},
+                          {name: "米"},
+                          {name: "野菜"},
+                          {name: "果物"},
+                          {name: "調味料"},
+                          {name: "魚介類(加工食品)"},
+                          {name: "肉類(加工食品)"},
+                          {name: "その他 加工品"},
+                          {name: "その他"}
+                          ])
   another_drink = another.children.create({name: "飲料/酒"})
     another_drink.children.create([
-                        {name: "コーヒー"},
-                        {name: "ソフトドリンク"},
-                        {name: "ミネラルウォーター"},
-                        {name: "茶"},
-                        {name: "ウィスキー"},
-                        {name: "ワイン"},
-                        {name: "ブランデー"},
-                        {name: "焼酎"},
-                        {name: "日本酒"},
-                        {name: "ビール、発泡酒"},
-                        {name: "その他"}
-                        ])
+                          {name: "コーヒー"},
+                          {name: "ソフトドリンク"},
+                          {name: "ミネラルウォーター"},
+                          {name: "茶"},
+                          {name: "ウィスキー"},
+                          {name: "ワイン"},
+                          {name: "ブランデー"},
+                          {name: "焼酎"},
+                          {name: "日本酒"},
+                          {name: "ビール、発泡酒"},
+                          {name: "その他"}
+                          ])
   another_travel = another.children.create({name: "日用品/生活雑貨/旅行"})
     another_travel.children.create([
-                        {name: "タオル/バス用品"},
-                        {name: "日用品/生活雑貨"},
-                        {name: "洗剤/柔軟剤"},
-                        {name: "旅行用品"},
-                        {name: "防災関連グッズ"},
-                        {name: "その他"}
-                        ])
+                          {name: "タオル/バス用品"},
+                          {name: "日用品/生活雑貨"},
+                          {name: "洗剤/柔軟剤"},
+                          {name: "旅行用品"},
+                          {name: "防災関連グッズ"},
+                          {name: "その他"}
+                          ])
   another_antique = another.children.create({name: "アンティーク/コレクション"})
     another_antique.children.create([
-                        {name: "雑貨"},
-                        {name: "工芸品"},
-                        {name: "家具"},
-                        {name: "印刷物"},
-                        {name: "その他"}
-                        ])
+                          {name: "雑貨"},
+                          {name: "工芸品"},
+                          {name: "家具"},
+                          {name: "印刷物"},
+                          {name: "その他"}
+                          ])
   another_stationery = another.children.create({name: "文房具/事務用品"})
     another_stationery.children.create([
-                        {name: "筆記具"},
-                        {name: "ノート/メモ帳"},
-                        {name: "テープ/マスキングテープ"},
-                        {name: "カレンダー/スケジュール"},
-                        {name: "アルバム/スクラップ"},
-                        {name: "ファイル/バインダー"},
-                        {name: "はさみ/カッター"},
-                        {name: "カードホルダー/名刺管理"},
-                        {name: "のり/ホッチキス"},
-                        {name: "その他"}
-                        ])
+                          {name: "筆記具"},
+                          {name: "ノート/メモ帳"},
+                          {name: "テープ/マスキングテープ"},
+                          {name: "カレンダー/スケジュール"},
+                          {name: "アルバム/スクラップ"},
+                          {name: "ファイル/バインダー"},
+                          {name: "はさみ/カッター"},
+                          {name: "カードホルダー/名刺管理"},
+                          {name: "のり/ホッチキス"},
+                          {name: "その他"}
+                          ])
   another_office = another.children.create({name: "事務/店舗用品"})
     another_office.children.create([
-                        {name: "オフィス用品一般"},
-                        {name: "オフィス家具"},
-                        {name: "店舗用品"},
-                        {name: "OA機器"},
-                        {name: "ラッピング/包装"},
-                        {name: "その他"}
-                        ])
+                          {name: "オフィス用品一般"},
+                          {name: "オフィス家具"},
+                          {name: "店舗用品"},
+                          {name: "OA機器"},
+                          {name: "ラッピング/包装"},
+                          {name: "その他"}
+                          ])
   another_another = another.children.create({name: "その他"})
     another_another.children.create([
-                        {name: "その他"}
-                        ])                                         
+                          {name: "その他"}
+                          ])                                         
