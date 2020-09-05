@@ -57,6 +57,10 @@
     width: 700px;
     margin: 0 auto;
     position: relative;
+    .error_message_items_new__li {
+      text-align: center;
+      color: red;
+    }
     .phots {
       background-color: $white;
       width: 700px;
