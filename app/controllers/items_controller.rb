@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.images.new
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+    @category_parent_array.unshift("---")
     else
       flash[:alert] = '出品するには、ログインするか新規会員登録をしてください。'
       redirect_to root_path
@@ -25,6 +26,7 @@ class ItemsController < ApplicationController
       @item = Item.new(item_params)
       @item.images.new
       @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+      @category_parent_array.unshift("---")
       render :new
     end
   end
