@@ -11,15 +11,31 @@
           %button{type: "submit", value: ""}
             .searchbox__icon
               = image_tag "icon-search.png"
+
     %nav.header__inner__nav
       %ul.list__left
         %li.list__left__category
-          = link_to "#" do
-            %span カテゴリー
+          .categories
+            カテゴリー
+            %ul.category__parent.category__list
+              - @categories.roots.each do |parent|
+                %li
+                  = link_to "#", class: "category__parent--name" do
+                    = parent.name
+                  %ul.category__child.category__list
+                    - parent.children.each do |child|
+                      %li
+                        = link_to "#", class: "category__child--name" do
+                          = child.name
+                        %ul.category__grandchild.category__list
+                          - child.children.each do |grandchild|
+                            %li
+                              = link_to "#", class: " category__child--name" do
+                                = grandchild.name                
         %li.list__left__brand
           = link_to "#" do
             %span ブランド
-      %ul.list__right
+      %ul.list__rightc
         - if user_signed_in?
           %li.list__right__login
             = link_to "/users/#{current_user.id}" do
