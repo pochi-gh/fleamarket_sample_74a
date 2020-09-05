@@ -46,36 +46,6 @@
                 - if @item.persisted?
                   .js-file_group{"data-index": "#{@item.images.count}"}
                     = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
-        -# .phots__sqeare
-        -#   #image-box
-            -# #previews
-            -#   - if @item.persisted?
-            -#     - @item.images.each_with_index do |image,i|
-            -#       .image-box__content{data: { index: i }}
-            -#         = image_tag image.src.url, width: "118px;", height: '118px;'
-            -#         .js-remove 削除
-
-          -#   = form.fields_for :images do |image|
-          -#     .js-file_group{"data-index": "#{image.index}"}
-          -#       = image.file_field :src, accept: "image/*", class: "js-file", data: {index: image.index}
-
-          -#     - if @item.persisted?
-          -#       = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-
-          -#   - if @item.persisted?
-          -#     .js-file_group{"data-index": "#{@item.images.count}"}
-          -#       = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
-
-          -# .icon
-          -#   %i.fa.fa-camera
-          -# .phots__sqeare--character
-            -# %p 
-            -#   ドラッグアンドドロップ
-            -# %p 
-            -#   またはクリックしてファイルをアップロード
-      
-
-
       .items
         .items__names
           .items__names--label
@@ -92,9 +62,6 @@
           = form.text_area :explain, rows: "7", class:"items_explan_text-box", :autocomplete => "off", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）&#13;&#10;&#13;&#10;例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。".html_safe 
         .items--count
           0/1000
-
-
-
       .category
         %p 商品の詳細
         .category__names
@@ -152,14 +119,12 @@
         .days  
           .days_selectarea
             = form.collection_select :shipping_day_id, ShippingDay.all, :id, :name, prompt: "---", class: 'select_shipping_day'
-
       .price
         .price__scorps   
           .price__scorps--scorp
             価格（¥300〜9,999,999）
           .price__scorps--question_mark
-            ?
-        
+            ?      
         .price__prices
           .price__prices__names
             .price__prices__names--label
@@ -187,8 +152,6 @@
               —
         .price__sales_bottons
           = form.submit "出品する", class:"sales_btn"
-          -# %button.sales_btn{:tabindex => "0", :type => "submit"} 
-          -#   出品する
           %button.save_btn{:tabindex => "0", :type => "button"} 
             下書きに保存
           %a.back{:href => "/"} 
