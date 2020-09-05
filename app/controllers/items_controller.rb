@@ -17,8 +17,10 @@ class ItemsController < ApplicationController
   end
 
   def create
-    # binding.pry
+
     @item = Item.new(item_params)
+    binding.pry
+
     if @item.valid?
       @item.save
       flash[:notice] = '出品が完了しました'
@@ -46,7 +48,8 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :explain, :brand, :state_id, :shipping_burden_id, :prefecture_id, :shipping_day_id, :price).merge(category_id: params[:category_id] ,seller_id: current_user.id)
+    params.require(:item).permit(:name, :explain, :brand, :state_id, :shipping_burden_id, :prefecture_id, :shipping_day_id, :price, images_attributes:[:src, :_destroy, :id]).merge(category_id: params[:category_id] ,seller_id: current_user.id)
+    # params.require(:image).permit(:item_id, :photo).merge()
   end
 
   def set_item
