@@ -1,6 +1,6 @@
 // 販売価格が入力されたら、販売手数料と販売利益を計算してくれます
 $(function(){
-  $( document ).on( 'keyup', '.form_price', function(){ 
+  $( document ).on( 'change', '.form_price', function(){ 
     // 販売価格の入力欄に入力すると動きます
     let amount = $( this ).val();
     // 販売価格の入力欄に入力された値を変数「amount」に代入
