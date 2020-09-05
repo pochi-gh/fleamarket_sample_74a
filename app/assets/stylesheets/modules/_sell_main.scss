@@ -597,11 +597,13 @@
         .sales_btn{
           @include priceseals_btn();
           background-color: $main_color;
+          cursor: pointer;
         }          
         .save_btn {
           @include  pricesave_btn();
           background-color: #0099e8;
           color: $white;
+          cursor: pointer;
         }         
         .back {
           margin-top: 24px;
