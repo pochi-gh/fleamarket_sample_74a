@@ -29,6 +29,7 @@ class ItemsController < ApplicationController
       @item.images.new
       @category_parent_array = Category.where(ancestry: nil).pluck(:name)
       @category_parent_array.unshift("---")
+      flash.now[:alert] = '必須項目を入力してください'
       render :new
     end
   end
