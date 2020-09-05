@@ -596,9 +596,12 @@
         margin-top: 30px;     
         .sales_btn{
           @include priceseals_btn();
+          background-color: $main_color;
         }          
         .save_btn {
           @include  pricesave_btn();
+          background-color: #0099e8;
+          color: $white;
         }         
         .back {
           margin-top: 24px;
