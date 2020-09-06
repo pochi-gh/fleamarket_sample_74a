@@ -7,7 +7,6 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.text :brand #ブランド名
       t.references :state, null: false #商品状態
       t.references :shipping_burden, null: false #送料負担
-      t.references :reservation_email, null: false #発送方法
       t.references :prefecture, null: false #発送地域
       t.references :shipping_day, null: false #発送までの日数
       t.integer :price, null: false #商品価格
