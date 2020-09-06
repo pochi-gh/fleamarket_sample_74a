@@ -6,11 +6,11 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(1)
-    @seller = User.find(1)
-    @images = Image.where(item_id: 1)
+    @item = Item.find(params[:id])
+    @seller = User.find(@item.seller_id)
+    @images = @item.images
     @comment = Comment.new
-    @items = Item.where(category: @item.category_id).order(created_at: :desc).limit(3)
+    @items = Item.where(category: @item.category_id).where.not(id: @item.id).order(created_at: :desc).limit(3)
     @comments = @item.comments
   end
 

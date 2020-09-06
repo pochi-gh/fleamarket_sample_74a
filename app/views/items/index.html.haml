@@ -164,7 +164,8 @@
             アーカイバ
       .pickup__lists
         .pickup__list
-          = link_to '#' do
+          - @item = Item.find(1)
+          = link_to "/items/#{@item.id}" do
             .pickup__list__img
               = image_tag "a001.png"
             .pickup__list__body
