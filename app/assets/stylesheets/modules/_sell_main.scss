@@ -1,69 +1,13 @@
-@mixin input_form{
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  color: #222;
-  font-size: 16px;
-  margin: 0;
-  outline: none;
-  padding: 13px 16px;
-  resize: vertical;
-  vertical-align: middle;
-  margin-top: 16px;
-}
-
-@mixin photo_area{
-  margin-bottom: 10px;
-  width: 620px;
-  .label-box {
-    display: block;
-    border: 1px dashed #ccc;
-    position: relative;
-    background: #f5f5f5;
-    width: 100%;
-    height: 162px;
-    cursor: pointer;
-    &__text-visible {
-      position: absolute;
-      top: 50%;
-      left: 16px;
-      right: 16px;
-      text-align: center;
-      font-size: 14px;
-      line-height: 1.5;
-      font-weight: bold;
-      -webkit-transform: translate(0, -50%);
-      transform: translate(0, -50%);
-      pointer-events: none;
-      white-space: pre-wrap;
-      word-wrap: break-word;
-    }
-  }
-}
-
 .sell_main { 
-  background-color: $white;
-  select{
-    @include input_form;
-  }
-
-  .js-file {
-    display: none;
-  }
-
-
+  background-color: rgb(245, 245, 245);
   .box {
     width: 700px;
     margin: 0 auto;
     position: relative;
-    .error_message_items_new__li {
-      text-align: center;
-      color: red;
-    }
     .phots {
-      background-color: $white;
+      background-color: rgb(255, 255, 255);
       width: 700px;
+      height: 300px;
       padding: 40px;
       margin: 0!important;
       &__names {
@@ -73,7 +17,7 @@
         align-items: center;
         &--label {
           @include label();
-          margin: 0 !important;
+          margin: 0 !important;         
           padding-right: 5px;
         }
         &--important {
@@ -86,105 +30,6 @@
         margin-top: 16px;
         margin-bottom: 16px;
       }
-      .phots_posts_container{
-        display: block;
-        margin: 16px auto 0;
-        display: flex;
-        flex-wrap: wrap;
-        .prev-content {
-          .preview-box {
-            .prev-img-data{
-              margin: 15px 5px 0;
-              width:130px;
-            }
-            .js-file_group{
-              display: none;
-            }
-            .js-area{
-              display:flex;
-              justify-content: space-between;
-              padding: 0 10px;
-              // .js-remove{
-              //   width:50px
-              // }
-            }
-            .upper-box {
-              display: flex;
-              .prev-img-data-upper{
-                display: flex;
-                img{
-                  width: 112px;
-                  height: 112px;
-                }
-              }
-            }
-            .lower-box {
-              display: flex;
-              .prev-img-data-lower{
-                display: flex;
-              }
-              img{
-                width: 112px;
-                height: 112px;
-              }
-            }
-          }
-        }
-      }
-      .label-upper-content-0{
-        @include photo_area;
-      }
-      .label-upper-content-1{
-        @include photo_area;
-        width:480px;
-      }
-      .label-upper-content-2{
-        @include photo_area;
-        width:360px;
-      }
-      .label-upper-content-3{
-        @include photo_area;
-        width:240px;
-      }
-      .label-upper-content-4{
-        @include photo_area;
-        width:120px;
-      }
-      .label-upper-content-5{
-        display:none;
-      }
-      .label-lower-content-4{
-        display: none;
-      }
-      .label-lower-content-5{
-        @include photo_area;
-      }
-      .label-lower-content-6{
-        @include photo_area;
-        width:480px;
-      }
-      .label-lower-content-7{
-        @include photo_area;
-        width:360px;
-      }
-      .label-lower-content-8{
-        @include photo_area;
-        width:240px;
-      }
-      .label-lower-content-9{
-        @include photo_area;
-        width:120px;
-      }
-      .label-lower-content-10{
-        display:none;
-      }
-
-
-
-
-
-
-
       &__sqeare {
         height: 150px;
         width: 620px;
@@ -251,8 +96,19 @@
           height: 16px;
         }
       }        
-      .input_form {
-        @include input_form;
+      .text_field {
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        color: #222;
+        font-size: 16px;
+        margin: 0;
+        outline: none;
+        padding: 13px 16px;
+        resize: vertical;
+        vertical-align: middle;
+        margin-top: 16px;
       }
       &__explans {
         margin: 0;
@@ -286,20 +142,7 @@
           margin-top: 16px;
         }
       }
-      .form_count{
-        width:620px;
-        text-align: right;
-      }
       &--count {
-        margin: 0;
-        margin-top: 16px;
-        padding: 0;
-        text-align: right;
-        color: #888;
-        font-size: 12px;
-        line-height: 1.4em;
-      }
-      &--count--max {
         margin: 0;
         margin-top: 16px;
         padding: 0;
@@ -314,6 +157,7 @@
 
     .category {
       @include outline();
+      height: 444px;
       p {
         color: rgb(136, 136, 136);
         font-size: 14px;
@@ -332,10 +176,28 @@
           margin-bottom: 3px !important;
         }       
       }
-      .listing-form-box {
+      .style__select {
+        height: 48px;
         width: 620px;
         margin-top: 16px;
         margin-bottom: 32px;
+        .style__selectarea{
+          display: inline-block;
+          position: relative;
+          width: inherit;
+          height: 48px;       
+          .form_category{
+            @include form();
+            width: 100%;
+            option {
+              font-weight: normal;
+              display: block;
+              white-space: pre;
+              min-height: 1.2em;
+              padding: 0px 2px 1px;
+            }        
+          }
+        }
         .arrow-sell {
           @include arrow-sell();
         }
@@ -354,7 +216,7 @@
           font-size: 12px;
           padding: 0 4px;
           background-color: #bfbfbf;
-          color: $white;
+          color: #fff;
           border-radius: 2px;
           display: inline-block;
           font-style: normal;
@@ -365,15 +227,31 @@
       .brand__textfields {
         margin-top: 16px;
         .brand__textfield {
-          .input_form {
-            @include input_form;
+          align-items: center;
+          display: inline-flex;
+          width: 100%;
+          font-size: 16px;
+          display: inline-block;
+          position: relative;
+          width: inherit;
+          margin-bottom: 32px;
+          .brand__text {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: inherit;
+            height: 48px;
+            margin: 0;
+            outline: none;
+            padding: 0 16px;
+            width: 620px;
           }
         }
       }
         .brand__status__names{
           @include names();
-          // margin: 0 !important;
-          margin-top:20px;
+          margin: 0 !important;
           &--label{
             @include label();
             padding-right: 8px;
@@ -390,13 +268,20 @@
           align-items: center;
           display: inline-flex;
           width: 100%;
-          .input_form {
+          .form__brand {
             @include form();
             width: 620px;
             margin-bottom: 32px;
             width: 100%;
           }
-        } 
+        }
+        .arrow-sell {
+          @include arrow-sell();
+        }
+        .arrow-sell::after {
+          @include arrow-sells();
+          margin-top: -20px;     
+        }     
       }
  }
         
@@ -421,6 +306,7 @@
       }
       .shipping__payer {
         width: 620px;
+        height: 19px;
         align-items: center;
         display: flex;
         margin-top: 32px;
@@ -429,7 +315,7 @@
           margin-right: 8px;
         }
         &--important {
-          @include important();
+          @include important();                
         }
       }
       .payer__select {
@@ -472,9 +358,23 @@
         &--area {
           margin-top: 16px;
           align-items: center;
-          width: 620px;
+          display: inline-flex;
+          width: 100%;
+          display: inline-block;
+          position: relative;
           width: inherit;
-        } 
+          select{
+            @include form();
+            width: 620px;
+          }
+        }
+          .arrow-sell {
+            @include arrow-sell();
+          }
+          .arrow-sell::after {
+            @include arrow-sells();
+            margin-top: -8px;        
+          }    
       }
         .shipping__day {
           width: 620px;
@@ -496,10 +396,21 @@
         display: inline-flex;
         width: 620px;
         height: 48px;
-        &_selectarea{
-          width:620px;
+        .days_form {
+          @include form();
+          display: inline-block;
+          position: relative;
+          width: 620px;
+          height: 48px;       
         }
-      }  
+      } 
+      .arrow-sell {
+        @include arrow-sell();
+      }
+      .arrow-sell::after {
+        @include arrow-sells();
+        margin-top: -8px;        
+      }    
     }
       
 
@@ -613,14 +524,9 @@
         margin-top: 30px;     
         .sales_btn{
           @include priceseals_btn();
-          background-color: $main_color;
-          cursor: pointer;
         }          
         .save_btn {
           @include  pricesave_btn();
-          background-color: #0099e8;
-          color: $white;
-          cursor: pointer;
         }         
         .back {
           margin-top: 24px;

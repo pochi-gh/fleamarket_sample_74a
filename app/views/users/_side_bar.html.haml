@@ -16,9 +16,9 @@
       %li
         = link_to "商品を出品する"
       %li
-        = link_to "出品した商品",sell_item_users_path
+        = link_to "出品した商品"
       %li
-        = link_to "購入した商品",purchase_item_users_path
+        = link_to "購入した商品"
       %li
         = link_to "お知らせ"
 
@@ -32,7 +32,7 @@
       %li
         = link_to "メール/パスワード変更"
       %li
-        = link_to "支払い方法", controller: 'credit_cards'
+        = link_to "支払い方法", controller: 'credit_cards', action: 'index'
       %li
         = link_to "本人確認"
       %li
