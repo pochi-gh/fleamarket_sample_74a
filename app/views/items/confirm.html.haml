@@ -8,7 +8,7 @@
       購入内容の確認
     .comfirm_main__item
       .comfirm_main__item__left
-        = image_tag @image.src, alt: 'img画像',  height: '100px', width: '100px', class: 'comfirm_main__item__left--img'
+        = image_tag @image.src_url, alt: 'img画像',  height: '100px', width: '100px', class: 'comfirm_main__item__left--img'
       .comfirm_main__item__right
         %h6.comfirm_main__item__right__title
           =@item.name
