@@ -12,10 +12,9 @@ $(window).on('load', ()=> {
 // プレビュー用のimgタグの生成
 const buildImg = (index, url)=> {
   const html = `<div class="prev-img-data" data-index="${index}"><img data-index="${index}" src="${url}" width="100px" height="100px">
-    <div class="js-area">
     <label class="js-edit" for="item_images_attributes_${index}_src">編集</label>
-    <div class="js-remove">削除</div>
-    </div></div></div>
+    <label class="js-remove">削除</label>
+    </div></div>
   `;
   return html;
 }
@@ -76,18 +75,22 @@ $('.hidden-content').on('change', '.js-file', function(e) {
   }
 });
 
-$('#image-box').on('click', '.js-remove', function() {
+$('.preview-box').on('click', '.js-remove', function() {
   const targetIndex = $(this).parent().data('index');
+  console.log(this.parent);
   // 該当indexを振られているチェックボックスを取得する
   const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
   // もしチェックボックスが存在すればチェックを入れる
   if (hiddenCheck) hiddenCheck.prop('checked', true);
 
   $(this).parent().remove();
+  console.log(this);
+  console.log(targetIndex);
+  console.log($(`img[data-index="${targetIndex}"]`));
   $(`img[data-index="${targetIndex}"]`).remove();
 
   // 画像入力欄が0個にならないようにしておく
-  if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
+  if ($('.js-file').length == 0) $('.preview-box').append(buildFileField(fileIndex[0]));
 });
 
 })
