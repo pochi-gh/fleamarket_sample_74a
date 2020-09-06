@@ -11,10 +11,10 @@ $(window).on('load', ()=> {
 
 // プレビュー用のimgタグの生成
 const buildImg = (index, url)=> {
-  const html = `<div class="prev-img-data" data-index="${index}"><img data-index="${index}" src="${url}" width="100px" height="100px">
+  const html = `<div class="prev-img-data" data-index="${index}"><img data-index="${index}" src="${url}" width="110px" height="110px">
     <label class="js-edit" for="item_images_attributes_${index}_src">編集</label>
-    <label class="js-remove">削除</label>
-    </div></div>
+    <div class="js-remove">削除</div>
+    </div>
   `;
   return html;
 }
