@@ -24,7 +24,9 @@ class User < ApplicationRecord
     presence: true
   has_one :address
 
+
   has_many :items
   has_many :comments
 
+  has_one :credit_card, dependent: :destroy
 end
