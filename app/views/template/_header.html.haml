@@ -35,7 +35,7 @@
         %li.list__left__brand
           = link_to "#" do
             %span ブランド
-      %ul.list__rightc
+      %ul.list__right
         - if user_signed_in?
           %li.list__right__login
             = link_to "/users/#{current_user.id}" do
