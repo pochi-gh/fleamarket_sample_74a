@@ -6,7 +6,9 @@ class Item < ApplicationRecord
   validates_associated :images
   
   validates  :name, :explain, :category_id, :state_id, :shipping_burden_id, :prefecture_id, :shipping_day_id,:price, :seller_id,:images, presence: true
-  
+  validates :name, length: { maximum: 40 }
+  validates :explain, length: { maximum: 1000 }
+  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :state
