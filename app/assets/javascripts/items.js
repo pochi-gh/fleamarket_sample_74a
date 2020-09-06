@@ -43,8 +43,6 @@ $('.hidden-content').on('change', '.js-file', function(e) {
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
       // ファイル選択エリアのクラス名を変更
-      console.log(targetIndex)
-
 
       $('.label-box').attr({for: `item_images_attributes_${targetIndex +1}_src`});
       $(`.label-upper-content-${targetIndex}`).attr('class', `label-upper-content-${targetIndex + 1}`)
@@ -56,7 +54,7 @@ $('.hidden-content').on('change', '.js-file', function(e) {
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
       // ファイル選択エリアのクラス名を変更
-      console.log(targetIndex)
+
       $('.label-box').attr({for: `item_images_attributes_${targetIndex +1}_src`});
       $(`.label-upper-content-${targetIndex}`).attr('class', `label-upper-content-${targetIndex + 1}`)
       $(`.label-lower-content-${targetIndex}`).attr('class', `label-lower-content-${targetIndex + 1}`)

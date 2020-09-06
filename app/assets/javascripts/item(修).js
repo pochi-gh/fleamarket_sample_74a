@@ -14,7 +14,7 @@ const buildImg = (index, url)=> {
   const html = `<div class="prev-img-data" data-index="${index}"><img data-index="${index}" src="${url}" width="100px" height="100px">
     <label class="js-edit" for="item_images_attributes_${index}_src">編集</label>
     <label class="js-remove">削除</label>
-    </div></div>
+    </div>
   `;
   return html;
 }
@@ -44,8 +44,6 @@ $('.hidden-content').on('change', '.js-file', function(e) {
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
       // ファイル選択エリアのクラス名を変更
-      console.log(targetIndex)
-
 
       $('.label-box').attr({for: `item_images_attributes_${targetIndex +1}_src`});
       $(`.label-upper-content-${targetIndex}`).attr('class', `label-upper-content-${targetIndex + 1}`)
@@ -87,9 +85,7 @@ $('.preview-box').on('click', '.js-remove', function() {
 
 
   $(this).parent().remove();
-  console.log(this);
-  console.log(targetIndex);
-  console.log($(`img[data-index="${targetIndex}"]`));
+
   $(`img[data-index="${targetIndex}"]`).remove();
 
 
