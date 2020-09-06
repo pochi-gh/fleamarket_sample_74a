@@ -19,7 +19,6 @@ const buildImg = (index, url)=> {
   return html;
 }
 
-
 let fileIndex = [1,2,3,4,5,6,7,8,9,10];
 
 lastIndex = $('.js-file_group:last').data('index');
