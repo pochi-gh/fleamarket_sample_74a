@@ -60,8 +60,9 @@
             .items__explans__explan--importamt
               必須
           = form.text_area :explain, rows: "7", class:"items_explan_text-box", :autocomplete => "off", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）&#13;&#10;&#13;&#10;例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。".html_safe 
-        .items--count
-          0/1000
+        .form_count
+          %span.items--count
+          %span.items--count--max  /1000
       .category
         %p 商品の詳細
         .category__names
