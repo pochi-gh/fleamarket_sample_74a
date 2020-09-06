@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     collection do
       get 'logout', to: 'users#logout'
+      get 'purchase_item'
+      get 'sell_item'
     end
   end
   resources :credit_cards, only: [:index, :new, :show] do
@@ -29,4 +31,12 @@ Rails.application.routes.draw do
     end
   end
   resources :item_sell, only: :new
+
+  # resources :categories, only: [:index] do
+  #   member do
+  #     get 'parent'
+  #     get 'child'
+  #     get 'grandchild'
+  #   end
+  # end
 end

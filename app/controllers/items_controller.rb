@@ -1,7 +1,11 @@
 class ItemsController < ApplicationController
+
   before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
 
+  before_action :set_category, only: [:parent, :child, :grandchild]
+
   def index
+    @categories = Category.all  
   end
   
   def new

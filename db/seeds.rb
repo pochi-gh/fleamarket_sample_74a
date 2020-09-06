@@ -5,7 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-lady = Category.create(name: "ladies", ancestry: nil)
+
+lady = Category.create(name: "レディス", ancestry: nil)
+
   ladies_tops = lady.children.create({name: "トップス"})
     ladies_tops.children.create([
                             {name: "Tシャツ/カットソー(半袖/袖なし)"},
@@ -38,7 +40,9 @@ lady = Category.create(name: "ladies", ancestry: nil)
                             {name: "トレンチコート"},
                             {name: "ダッフルコート"},
                             {name: "ピーコート"}
+
                           ])
+
   ladies_pants = lady.children.create({name: "パンツ"})
     ladies_pants.children.create([
                             {name: "デニム/ジーンズ"},
@@ -53,7 +57,9 @@ lady = Category.create(name: "ladies", ancestry: nil)
                             {name: "サルエルパンツ"},
                             {name: "ガチョウパンツ"},
                             {name: "その他"}
+
                           ])
+
   ladies_skirts = lady.children.create({name: "スカート"})
     ladies_skirts.children.create([
                             {name: "ミニスカート"},
@@ -125,6 +131,7 @@ lady = Category.create(name: "ladies", ancestry: nil)
                              ])
   ladies_accessory = lady.children.create({name: "アクセサリー"})
     ladies_accessory.children.create([
+
                           {name: "ネックレッス"},
                           {name: "ブレスレット"},
                           {name: "バングル/リストバンド"},
@@ -137,6 +144,7 @@ lady = Category.create(name: "ladies", ancestry: nil)
                           {name: "チャーム"},
                           {name: "その他"}
                           ])
+
   ladies_hairaccessory = lady.children.create({name: "ヘアーアクセサリー"})
     ladies_hairaccessory.children.create([
                           {name: "ヘアゴム/シュシュ"},
@@ -144,6 +152,7 @@ lady = Category.create(name: "ladies", ancestry: nil)
                           {name: "ヘアピン"},
                           {name: "その他"}
                           ])
+
   ladies_smallaccessory = lady.children.create({name: "小物"})
     ladies_smallaccessory.children.create([
                           {name: "長財布"},
@@ -163,6 +172,7 @@ lady = Category.create(name: "ladies", ancestry: nil)
                           ])
   ladies_watch = lady.children.create({name: "時計"})
     ladies_watch.children.create([
+
                         {name: "腕時計(アナログ)"},
                         {name: "腕時計(デジタル)"},
                         {name: "ラバーベルト"},
@@ -1512,12 +1522,3 @@ another = Category.create(name: "another", ancestry: nil)
                               {name: "その他"}
                               ])
                                                       
-
-
-
-
-
-
-
-
-
