@@ -76,16 +76,14 @@ $('.hidden-content').on('change', '.js-file', function(e) {
 
 $('.preview-box').on('click', '.js-remove', function() {
   const targetIndex = $(this).parent().data('index');
-  console.log(this.parent);
+
   // 該当indexを振られているチェックボックスを取得する
   const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
   // もしチェックボックスが存在すればチェックを入れる
   if (hiddenCheck) hiddenCheck.prop('checked', true);
 
   $(this).parent().remove();
-  console.log(this);
-  console.log(targetIndex);
-  console.log($(`img[data-index="${targetIndex}"]`));
+
   $(`img[data-index="${targetIndex}"]`).remove();
 
   // 画像入力欄が0個にならないようにしておく
