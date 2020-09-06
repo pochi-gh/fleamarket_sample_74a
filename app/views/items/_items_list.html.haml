@@ -1,12 +1,11 @@
 = link_to '#' do
   - @items.each do |item|
     .pickup__list__img
-      - images = item.images do
-        = image_tag item.images.first.photo.url if item.images.present?
-          - if item.buyer_id.present?
-            .pickup__list__img__soldBox
-              .pickup__list__img__soldBox--soldOut
-                SOLD
+      = image_tag(item.images.first.src.url)
+        - if item.buyer_id.present?
+          .pickup__list__img__soldBox
+            .pickup__list__img__soldBox--soldOut
+              SOLD
     .pickup__list__body
       = item.name
       .details
