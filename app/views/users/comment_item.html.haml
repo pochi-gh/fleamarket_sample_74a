@@ -1,0 +1,32 @@
+-# = render partial: "template/header"
+= render partial: "template/sellbtn"
+
+.user-showPage
+  .user-showPage__main
+    = render "side_bar"
+    .user_show-item
+      .item__info
+        .item__info__area
+          %p.item__info__area--title
+            コメントした商品
+            - @comments.each do |comment|
+              - last_comment = Comment.order(created_at: :desc).find_by(item_id: 1)
+              .item__info__area__box
+                = link_to "",item_path(comment.item.id),class:"purchase_link"
+                - image = Image.find_by(item_id: comment.item.id)
+                .item__info__area__box__picture
+                  = image_tag image.src_url, alt: 'サブ画像', height: '78px', width: '80px'
+                %p.item__info__area__box__item_name
+                  =comment.item.name
+                  に対してコメントしています。
+                  最終コメントは
+                  =  last_comment.created_at.strftime("%Y年%m月%d日 %H:%M")
+                  になります。
+                %p.item__info__area__box__item_btn
+                  >
+          
+        = paginate @comments
+
+
+= render partial: "template/banner"
+= render partial: "template/footer"

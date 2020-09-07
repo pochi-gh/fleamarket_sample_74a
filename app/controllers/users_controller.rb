@@ -11,4 +11,8 @@ class UsersController < ApplicationController
     @items = Item.where(seller_id: current_user.id).page(params[:page]).per(10)
   end
 
+  def comment_item
+    @comments = Comment.where(user_id: current_user.id).select(:item_id).distinct.page(params[:page]).per(10)
+  end
+
 end

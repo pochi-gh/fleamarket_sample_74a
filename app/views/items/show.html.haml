@@ -1,5 +1,4 @@
--# = render 'template/header'
-.pankuzu
+= render 'sell_header'
 .item_show-wrapper
   = render 'template/sellbtn'
   .item_show-wrapper__main
@@ -38,10 +37,6 @@
             ブランド
           %td
             = @item.brand
-        -# %tr  
-        -#   %th 
-        -#     商品のサイズ
-        -#   %td
         %tr  
           %th 
             商品の状態
@@ -157,5 +152,4 @@
                     0
                 %p= item.shipping_burden.name
       
-= render 'template/banner'
-= render 'template/footer'
+= render 'sell_footer'

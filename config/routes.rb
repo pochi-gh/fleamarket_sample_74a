@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       get 'logout', to: 'users#logout'
       get 'purchase_item'
       get 'sell_item'
+      get 'comment_item'
     end
   end
   resources :credit_cards, only: [:index, :new, :show] do
