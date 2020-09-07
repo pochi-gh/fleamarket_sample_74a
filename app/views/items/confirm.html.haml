@@ -40,18 +40,21 @@
         = link_to "変更する >" ,edit_address_path(current_user.id, item_id: @item.id), class:"comfirm_main__address__hedder__right" 
       %ul.comfirm_main__address__area
         %li.comfirm_main__address__area--number
-          = @address.postal_code
+          = @user.address.postal_code
         %li.comfirm_main__address__area--main
-          = @address.prefecture.name
-          = @address.city
-          = @address.block
-          = @address.building
+          = @user.address.prefecture.name
+          = @user.address.city
+          = @user.address.block
+          = @user.address.building
         %li.comfirm_main__address__area--name
-          = @address.destination_last_name
+          = @user.address.destination_last_name
           =" "
-          = @address.destination_first_name
+          = @user.address.destination_first_name
 
     .comfirm_main__buy
-      = link_to "購入する" ,"#", class:"comfirm_main__buy--btn"
+      -if @card.nil?
+        = link_to "支払い登録" ,"credit_cards_path", class:"comfirm_main__buy--btn"
+      -else
+        = link_to "購入する" ,"#", class:"comfirm_main__buy--btn"
       = link_to "戻る" , "/items/#{@item.id}", class:"comfirm_main__buy--back_btn"
 = render 'sell_footer'

@@ -6,9 +6,9 @@
       %h2.item_show-wrapper__main__img-title
         = @item.name
       .item_show-wrapper__main__img-main
-        = image_tag @images[0].src_url, alt: 'メイン画像', height: '350px', width: '560px',id:"MainPhoto"
+        = image_tag @item.images[0].src_url, alt: 'メイン画像', height: '350px', width: '560px',id:"MainPhoto"
       %ul.item_show-wrapper__main__img-sub 
-        - @images.each do |image|
+        - @item.images.each do |image|
           %li.item_show-wrapper__main__img-sub--photo
             = image_tag image.src_url, alt: 'サブ画像', height: '90px', width: '100px',class:"ChangePhoto"
       %p.item_show-wrapper__main__img-price
@@ -82,8 +82,8 @@
 
   .item_show-wrapper__comment
     .item_show-wrapper__comment_area
-      - if @comments
-        - @comments.each do |comment|
+      - if @item.comments
+        - @item.comments.each do |comment|
           .item_show-wrapper__comment_area--data
             .item_show-wrapper__comment_area--data__user_name
               %span
