@@ -3,9 +3,11 @@ class ItemsController < ApplicationController
   before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
 
   before_action :set_category, only: [:parent, :child, :grandchild]
+  #header用
+  before_action :set_categorys, only: [:index, :show]
 
   def index
-    @categories = Category.all  
+    
   end
   
   def new
@@ -68,5 +70,10 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
+
+  def set_categorys
+    @categories = Category.all  
+  end
+
 
 end

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_categorys
 
   def show
     @nickname = current_user.nickname 
@@ -13,6 +14,12 @@ class UsersController < ApplicationController
 
   def comment_item
     @comments = Comment.where(user_id: current_user.id).select(:item_id).distinct.page(params[:page]).per(10)
+  end
+
+
+  private
+  def set_categorys
+    @categories = Category.all  
   end
 
 end
