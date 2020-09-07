@@ -206,19 +206,7 @@
                       7
                 %p (税込)
         .pickup__list
-          = link_to '#' do
-            .pickup__list__img
-              = image_tag "IMG_9072.jpg"
-            .pickup__list__body
-              %h3.name
-                商品4
-              .details
-                %ul
-                  %li 1000円
-                  %li.likeicon
-                    %i.fa.fa-star
-                      9
-                %p (税込)
+          = render partial: 'items_list'
 
 = render partial: "template/banner"
 = render partial: "template/footer"

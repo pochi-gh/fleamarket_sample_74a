@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
   before_action :set_category, only: [:parent, :child, :grandchild]
 
   def index
+    @items = Item.all
     @categories = Category.all  
   end
   
