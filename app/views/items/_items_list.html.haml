@@ -1,5 +1,5 @@
-= link_to '#' do
-  - @items.each do |item|
+- @items.each do |item|
+  = link_to '#' do
     .pickup__list__img
       = image_tag(item.images.first.src.url)
         - if item.buyer_id.present?
@@ -11,7 +11,7 @@
       .details
         %ul
           %li
-            = "#{item.price.to_s(:delimited)}円"
+            = "¥ #{item.price.to_s(:delimited)}"
           %li.likeicon
             %i.fa.fa-star
               1
