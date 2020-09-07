@@ -1,7 +1,4 @@
-%header.login-page-header
-  =link_to root_path do
-    .header-logo
-      = image_tag 'logo.png'
+= render 'template/header'
 .comfirm_wrapper
   .comfirm_main 
     %h2.comfirm_main--head
@@ -57,16 +54,4 @@
     .comfirm_main__buy
       = link_to "購入する" ,"#", class:"comfirm_main__buy--btn"
       = link_to "戻る" , "/items/#{@item.id}", class:"comfirm_main__buy--back_btn"
-%footer.login-page-footer
-  %ul.footer-links
-    %li
-      =link_to "プライバシーポリシー", root_path
-    %li
-      =link_to "利用契約", root_path
-    %li
-      =link_to "特定取引に関する表記"
-  =link_to root_path do
-    .footer-logo
-      =image_tag 'logo-white.png'
-  %p
-    ©a班 
+= render 'sell_footer'

@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
 
   before_action :set_category, only: [:parent, :child, :grandchild]
   #header用
-  before_action :set_categorys, only: [:index, :show]
+  before_action :set_categorys, only: [:index, :show, :confirm]
 
   def index
     
