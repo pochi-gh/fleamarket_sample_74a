@@ -2,7 +2,8 @@ class CreditCardsController < ApplicationController
   
   require "payjp"
   before_action :card_exists?, only:[:index]
-
+  before_action :set_categorys
+  
   def index
   end
 
@@ -58,4 +59,10 @@ class CreditCardsController < ApplicationController
       redirect_to action: "show"
     end
   end
+
+  private
+  def set_categorys
+    @categories = Category.all  
+  end
+
 end
