@@ -38,6 +38,27 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
+
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+
+    @category_children_array = []
+    Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_children_array << children
+    end
+
+    @category_grandchildren_array = []
+    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchildren_array << grandchildren
+    end
+  end
+
+
   def show
     @item = Item.find(params[:id])
     @seller = User.find(@item.seller_id)
