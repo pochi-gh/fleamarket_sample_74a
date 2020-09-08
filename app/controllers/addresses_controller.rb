@@ -11,7 +11,7 @@ class AddressesController < ApplicationController
     address = Address.find(params[:id])
     if address.update(address_params)
       if item_links_params[:item_id]
-        redirect_to "/items/#{item_links_params[:item_id]}/confirm"
+        redirect_to confirm_item_path(item_links_params[:item_id])
       else
       end
     else

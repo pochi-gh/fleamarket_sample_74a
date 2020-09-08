@@ -50,7 +50,6 @@ class ItemsController < ApplicationController
     @image = Image.find(params[:id])
     @user = User.find(current_user.id)
     @card = CreditCard.find_by(user_id: current_user.id)
-    binding.pry
   end
 
   def get_category_children
