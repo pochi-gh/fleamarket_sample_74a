@@ -5,8 +5,8 @@ class ItemsController < ApplicationController
   before_action :set_category, only: [:parent, :child, :grandchild]
 
   def index
-    @items = Item.all
-    @categories = Category.all  
+    @items = Item.includes(:seller).order("created_at DESC").limit(4)
+    @categories = Category.all
   end
   
   def new

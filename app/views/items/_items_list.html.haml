@@ -1,5 +1,5 @@
 - @items.each do |item|
-  = link_to '#' do
+  = link_to item_path(item) do
     .pickup__list__img
       = image_tag(item.images.first.src.url)
         - if item.buyer_id.present?

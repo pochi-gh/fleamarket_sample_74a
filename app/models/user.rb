@@ -25,4 +25,5 @@ class User < ApplicationRecord
   has_one :address
 
   has_one :credit_card, dependent: :destroy
+  has_many :items
 end
