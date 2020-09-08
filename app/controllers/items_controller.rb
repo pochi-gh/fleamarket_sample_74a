@@ -60,7 +60,7 @@ class ItemsController < ApplicationController
 
   def update
     item = Item.find(params[:id])   
-    if item.update(edit_params)
+    if item.update(item_params)
       flash[:notice] = '更新が完了しました'
       redirect_to item_path(item.id)
     else
@@ -111,7 +111,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :explain, :brand, :state_id, :shipping_burden_id, :prefecture_id, :shipping_day_id, :price, images_attributes:[:src, :_destroy, :id]).merge(category_id: params[:category_id] ,seller_id: current_user.id)
+    params.require(:item).permit(:name, :explain, :brand, :state_id, :shipping_burden_id, :prefecture_id, :category_id, :shipping_day_id, :price, images_attributes:[:src, :_destroy, :id]).merge(seller_id: current_user.id)
   end
 
   def set_item
@@ -120,9 +120,6 @@ class ItemsController < ApplicationController
 
   def set_categorys
     @categories = Category.all  
-  end
-  def edit_params
-    params.require(:item).permit(:name, :explain, :brand, :state_id, :shipping_burden_id, :prefecture_id, :category_id, :shipping_day_id, :price, images_attributes:[:src, :_destroy, :id]).merge(seller_id: current_user.id)
   end
 
 end
