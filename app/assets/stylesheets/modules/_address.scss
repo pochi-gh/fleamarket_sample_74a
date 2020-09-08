@@ -1,0 +1,17 @@
+.address_main{
+ 
+  &-box{
+    background-color: $main_color;
+    color:white;
+    height: 100px;
+    width: 400px;
+    margin:100px 0 0 200px;
+    padding-top:20px;
+    text-align: center;
+    border-radius:10px;
+    .update_back{
+      margin-top:25px;
+    }
+  }
+
+}

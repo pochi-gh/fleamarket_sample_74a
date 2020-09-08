@@ -10,11 +10,11 @@
       %li
         = link_to "最近チェックした商品"
       %li
-        = link_to "コメントした商品"
+        = link_to "コメントした商品",comment_item_users_path
       %li
         = link_to "下書きした商品"
       %li
-        = link_to "商品を出品する"
+        = link_to "商品を出品する",new_item_path
       %li
         = link_to "出品した商品",sell_item_users_path
       %li
@@ -28,7 +28,7 @@
       %li
         = link_to "プロフィール"
       %li
-        = link_to "住所変更"
+        = link_to "住所変更",edit_address_path(current_user.id)
       %li
         = link_to "メール/パスワード変更"
       %li

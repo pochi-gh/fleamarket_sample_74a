@@ -2,6 +2,7 @@ class Item < ApplicationRecord
   belongs_to :seller, class_name: "User"
   has_many :images, dependent: :destroy
   belongs_to :category
+  has_many :comments, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
 
   validates_associated :images
@@ -16,4 +17,14 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipping_burden
   belongs_to_active_hash :shipping_day
   belongs_to_active_hash :prefecture
+
+
+  def previous
+    Item.where("id < ?", self.id).order("id DESC").first
+  end
+
+  def next
+    Item.where("id > ?", self.id).order("id ASC").first
+  end
+  
 end

@@ -1,0 +1,35 @@
+.comment__warapper{
+  height: calc(100vh - 128px - 138px);
+  width: 100vw;
+  background-color:$background;
+  &__form_area{
+    width: 700px;
+    margin: 0 auto;
+    background-color:white;
+    &--title{
+      font-size:20px;
+      text-align:center;
+      letter-spacing: 10px;
+      padding:20px 0 50px 0;
+    }
+    #comment_text{
+      padding:10px;
+      width: 600px;
+      margin-left:50px;
+    }
+    .item_show-wrapper__comment_box_announce{
+     width: 600px;
+     margin-left:50px;
+    }
+    .submit_btn{
+      margin-left: 20%;
+      line-height: 48px;
+      background-color: #3CCACE;
+      color: white;
+      border: 1px solid #3CCACE;
+      width: 60%;
+      font-size: 18px;
+      border-radius: 100px;
+    }
+  }
+}

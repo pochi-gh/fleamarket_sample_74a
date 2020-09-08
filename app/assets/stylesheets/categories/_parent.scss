@@ -6,6 +6,7 @@
   position: absolute;
   height: 560px;
   background-color: white;
+  z-index: 1;
 }
 
 .category__child--name{
@@ -19,6 +20,8 @@
 
 .categories{
   padding-bottom: 10px;
+  position: revert;
+  z-index: 2;
   &:hover{
     .category__parent{
       display: block;
