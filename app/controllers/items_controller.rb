@@ -58,6 +58,33 @@ class ItemsController < ApplicationController
     end
   end
 
+  def update
+    item = Item.find(params[:id])   
+    if item.update(edit_params)
+      flash[:notice] = '更新が完了しました'
+      redirect_to item_path(item.id)
+    else
+      grandchild_category = @item.category
+    child_category = grandchild_category.parent
+
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+
+    @category_children_array = []
+    Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_children_array << children
+    end
+
+    @category_grandchildren_array = []
+    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchildren_array << grandchildren
+    end
+      flash.now[:alert] = '必須項目を入力してください'
+      render :edit
+    end
+  end
 
   def show
     @item = Item.find(params[:id])
@@ -94,6 +121,8 @@ class ItemsController < ApplicationController
   def set_categorys
     @categories = Category.all  
   end
-
+  def edit_params
+    params.require(:item).permit(:name, :explain, :brand, :state_id, :shipping_burden_id, :prefecture_id, :category_id, :shipping_day_id, :price, images_attributes:[:src, :_destroy, :id]).merge(seller_id: current_user.id)
+  end
 
 end
