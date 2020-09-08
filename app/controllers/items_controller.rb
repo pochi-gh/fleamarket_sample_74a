@@ -39,52 +39,33 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    grandchild_category = @item.category
-    child_category = grandchild_category.parent
-
-    @category_parent_array = []
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
-
-    @category_children_array = []
-    Category.where(ancestry: child_category.ancestry).each do |children|
-      @category_children_array << children
-    end
-
-    @category_grandchildren_array = []
-    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
-      @category_grandchildren_array << grandchildren
-    end
+    edit_category
   end
 
   def update
-    item = Item.find(params[:id])   
-    if item.update(item_params)
-      flash[:notice] = '更新が完了しました'
-      redirect_to item_path(item.id)
-    else
-      grandchild_category = @item.category
-    child_category = grandchild_category.parent
-
-    @category_parent_array = []
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
-
-    @category_children_array = []
-    Category.where(ancestry: child_category.ancestry).each do |children|
-      @category_children_array << children
-    end
-
-    @category_grandchildren_array = []
-    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
-      @category_grandchildren_array << grandchildren
-    end
-      flash.now[:alert] = '必須項目を入力してください'
+    if item_params[:images_attributes].nil?
+      flash.now[:alert] = '更新失敗しました。画像を登録してください。'
+      edit_category
       render :edit
+    else
+      exit_ids = []
+      item_params[:images_attributes].each do |a,b|
+        exit_ids << item_params[:images_attributes].dig(:"#{a}",:id).to_i
+      end
+      ids = Image.where(item_id: params[:id]).map{|image| image.id }
+      delete__db = ids - exit_ids
+      Image.where(id:delete__db).destroy_all
+      @item.touch
+      if @item.update(item_params)
+        redirect_to item_path(@item.id)
+      else
+        edit_category
+        flash.now[:alert] = '更新できませんでした'
+        render :edit
+      end
     end
   end
+
 
   def show
     @item = Item.find(params[:id])
@@ -106,6 +87,28 @@ class ItemsController < ApplicationController
   
   def get_category_grandchildren
     @category_grandchildren = Category.find("#{params[:child_id]}").children
+  end
+
+
+
+  def edit_category
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
+
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+
+    @category_children_array = []
+    Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_children_array << children
+    end
+
+    @category_grandchildren_array = []
+    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchildren_array << grandchildren
+    end
   end
 
   private
