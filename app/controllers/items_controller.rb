@@ -7,7 +7,8 @@ class ItemsController < ApplicationController
   before_action :set_categorys, only: [:index, :show, :confirm]
 
   def index
-    
+    @items = Item.includes(:seller).order("created_at DESC").limit(4)
+    @categories = Category.all
   end
   
   def new

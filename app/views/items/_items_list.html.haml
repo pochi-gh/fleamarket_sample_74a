@@ -1,0 +1,18 @@
+- @items.each do |item|
+  = link_to item_path(item) do
+    .pickup__list__img
+      = image_tag(item.images.first.src.url)
+        - if item.buyer_id.present?
+        .pickup__list__img__soldBox
+          .pickup__list__img__soldBox--soldOut
+            SOLD
+    .pickup__list__body
+      = item.name
+      .details
+        %ul
+          %li
+            = "¥ #{item.price.to_s(:delimited)}"
+          %li.likeicon
+            %i.fa.fa-star
+              1
+        %p (税込)
