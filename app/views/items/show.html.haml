@@ -1,68 +1,62 @@
 = render 'template/header'
-.pankuzu
 .item_show-wrapper
   = render 'template/sellbtn'
   .item_show-wrapper__main
     .item_show-wrapper__main__img
       %h2.item_show-wrapper__main__img-title
-        今日の晩ご飯
+        = @item.name
       .item_show-wrapper__main__img-main
-        = image_tag src="IMG_main.jpg", alt: 'メイン画像', height: '350px', width: '560px'
+        = image_tag @item.images[0].src_url, alt: 'メイン画像', height: '350px', width: '560px',id:"MainPhoto"
       %ul.item_show-wrapper__main__img-sub 
-        %li
-          = image_tag src="IMG_main.jpg", alt: 'サブ画像', height: '90px', width: '140px'
-        %li 
-          = image_tag src="IMG_sub2.jpg", alt: 'サブ画像', height: '90px', width: '140px'
-
+        - @item.images.each do |image|
+          %li.item_show-wrapper__main__img-sub--photo
+            = image_tag image.src_url, alt: 'サブ画像', height: '90px', width: '100px',class:"ChangePhoto"
       %p.item_show-wrapper__main__img-price
-        ¥1000
+        = @item.price 
+        円
         %p.item_show-wrapper__main__img-price-detail
-          (税込) 送料込み
+          = @item.shipping_burden.name
         %p.item_show-wrapper__main__img-price-text
-          今日の晩ご飯はどれにしようかな。お腹が減っては戦ができぬと言うけれど、おなかを膨らませるのだって
-          一苦労なんだからねっ！ぷんぷん！
+          = @item.explain
     .item_show-wrapper__main__teble
       %table.item_show-wrapper__main__teble__date
         %tr  
           %th  
             出品者
           %td
-            = link_to "ss", '#' 
+            = @seller.nickname
         %tr  
           %th 
             カテゴリー
           %td
-            = link_to "ベビー・キッズ", '#'
-            = link_to "ベビー服(男の子用) ~95cm",'#'
-            = link_to "アウター",'#'
+            = link_to @item.category.parent.parent.name, '#'
+            = link_to @item.category.parent.name,'#'
+            = link_to @item.category.name,'#'
         %tr  
           %th 
             ブランド
           %td
-        %tr  
-          %th 
-            商品のサイズ
-          %td
+            = @item.brand
         %tr  
           %th 
             商品の状態
           %td
-            新品/未使用
+            = @item.state.name
         %tr  
           %th 
             配送料の負担
           %td
-            送料込み（出品者負担）
+            = @item.shipping_burden.name
         %tr  
           %th  
             発送元の地域
           %td
-            北海道
+            = @item.prefecture.name
         %tr  
           %th
             発送日の目安
           %td
-            送料込み
+            = @item.shipping_day.name
     .item_show-wrapper__main__optionalArea
       .item_show-wrapper__main__optionalArea_like
         = icon('fas', 'star')
@@ -70,106 +64,92 @@
       .item_show-wrapper__main__optionalArea_report
         = icon('fa', 'flag')
         = link_to "不適切な商品の通報","#"
-    .item_show-wrapper__main__buy
-      = link_to "購入画面に進む","#",class:"item_show-wrapper__main__buy--btn"
+    
+    - if @item.buyer_id.present?
+      %p.item_buy_out 売り切れ
+    - else
+      - if user_signed_in? && current_user.id == @seller.id 
+        .item_show-wrapper__main__buy
+          .item_show-wrapper__main__seller
+            .item_show-wrapper__main__seller__edit
+              = link_to "編集する","#",class:"item_show-wrapper__main__seller__edit--btn"
+            .item_show-wrapper__main__seller__delete
+              = link_to "出品を取り消す","#",class:"item_show-wrapper__main__seller__delete--btn"
+      - elsif user_signed_in?
+        = link_to "購入画面に進む",confirm_item_path(@item.id),class:"item_show-wrapper__main__buy--btn"
+      - else
+        = link_to "ログイン画面へ",new_user_session_path ,class:"item_show-wrapper__main__login--btn"
+
   .item_show-wrapper__comment
     .item_show-wrapper__comment_area
-      .item_show-wrapper__comment_area--data
-        %p.item_show-wrapper__comment_area--data__user_name
-          通りすがりのチンゲンサイ
-          .item_show-wrapper__comment_area--data_box
-            %p.item_show-wrapper__comment_area--data_box__text
-              晩ご飯はやっぱり中華がいいと思います。
-            .item_show-wrapper__comment_area--data_box__time
-              投稿日時: 2020−07−07 17:00
-      .item_show-wrapper__comment_area--data
-        %p.item_show-wrapper__comment_area--data__user_name
-          ss (出品者)
-          .item_show-wrapper__comment_area--data_box
-            %p.item_show-wrapper__comment_area--data_box__text
-              申し訳ありませんが、中華はやっておりません。
-            %p.item_show-wrapper__comment_area--data_box__time
-              投稿日時: 2020−07−07 19:31
-      .item_show-wrapper__comment_area--data
-        %p.item_show-wrapper__comment_area--data__user_name
-          通りすがりのチンゲンサイ
-          .item_show-wrapper__comment_area--data_box
-            %p.item_show-wrapper__comment_area--data_box__text
-              致し方ないのでチャーハンと餃子で手を打ちます。
-            %p.item_show-wrapper__comment_area--data_box__time
-              投稿日時: 2020−07−07 19:46
-      .item_show-wrapper__comment_area--data
-        %p.item_show-wrapper__comment_area--data__user_name
-          食いしん坊たろう
-          .item_show-wrapper__comment_area--data_box
-            %p.item_show-wrapper__comment_area--data_box__text
-              だったら、ラーメンもつけるべきですね。餃子は5個は最低ライン。個人的には麻婆茄子をつまみにいっぱいやりたいです。
-
-            %p.item_show-wrapper__comment_area--data_box__time
-              投稿日時: 2020−07−07 19:46
+      - if @item.comments
+        - @item.comments.each do |comment|
+          .item_show-wrapper__comment_area--data
+            .item_show-wrapper__comment_area--data__user_name
+              %span
+                = comment.user.nickname
+              -if user_signed_in? && comment.user_id == @seller.id 
+                %span (出品者)
+              -if user_signed_in? && current_user.id == comment.user.id
+                .comment__current_user--btn
+                  = link_to "編集する", "/items/#{@item.id}/comments/#{comment.id}/edit" ,class:"comment__current_user--btn--edit"
+                  = link_to "削除する","/items/#{@item.id}/comments/#{comment.id}",class:"comment__current_user--btn--delet", method: :delete
+            .item_show-wrapper__comment_area--data_box
+              %p.item_show-wrapper__comment_area--data_box__text
+                = comment.text
+              .item_show-wrapper__comment_area--data_box__time
+                = comment.created_at.strftime("%Y-%m-%d %H:%M")
 
     .item_show-wrapper__comment_box
-      = form_with url:'#' do |form|
-        = form.text_area :comment, rows: 5, class:'comment_box', placeholder:"コメントを入力してください。"
-        %p.item_show-wrapper__comment_box_announce
-          相手のことを考え丁寧なコメントを心がけましょう。<br>
-          不快な言葉遣いなどは利用制限や退会処分となることがあります
-        = button_tag type: 'submit', class: "submit_btn" do
-          = icon('fa', 'comment')
-          コメントする
+      -if @item.buyer_id.nil?
+        - if user_signed_in? 
+          = render "comments/form"
+        - else
+          %p.item_show-wrapper__comment_box--not_signed
+            ※コメント機能は
+            %span.rogin_link
+              =link_to "ログイン", new_user_session_path
+            %span
+              するとできるようになります
+      - else
 
   .item_show-wrapper__itemLinks
     .item_show-wrapper__itemLinks__before
-      = link_to icon('fa','angle-left'),"#"
-      = link_to "前の商品", "#"
+      - if @item.previous.present?
+        = link_to icon('fa','angle-left'),"#"
+        = link_to "前の商品", item_path(@item.previous.id)
+      - else
+
     .item_show-wrapper__itemLinks__affter
-      = link_to "後ろの商品","#"
-      = link_to icon('fa','angle-right'),"#"
+      -if @item.next.present?
+        = link_to "後ろの商品", item_path(@item.next.id)
+        = link_to icon('fa','angle-right'),"#"
+
+
+
+
+
   .item_show-wrapper__relatedItems
     .item_show-wrapper__relatedItems__category_name
-      = link_to "ベビー・キッズをもっと見る","#"
-    .item_show-wrapper__relatedItems__list
-      .item_show-wrapper__relatedItems__list__box
-        =link_to "" ,"#"
-        .item_show-wrapper__relatedItems__list__box_img
-          = image_tag src="IMG_link.png", alt: 'image', height: '150px', width: '220px'
-        .item_show-wrapper__relatedItems__list__box_main
-          %h6.item_show-wrapper__relatedItems__list__box_main--title
-            products3
-            %ul.item_show-wrapper__relatedItems__list__box_main--data
-              %li
-                30000円
-              %li
-                = icon('fas', 'star')
-                0
-            %p（税込）
-      .item_show-wrapper__relatedItems__list__box
-        =link_to "" ,"#"
-        .item_show-wrapper__relatedItems__list__box_img
-          = image_tag src="IMG_link.png", alt: 'image', height: '150px', width: '220px'
-        .item_show-wrapper__relatedItems__list__box_main
-          %h6.item_show-wrapper__relatedItems__list__box_main--title
-            products3
-            %ul.item_show-wrapper__relatedItems__list__box_main--data
-              %li
-                30000円
-              %li
-                = icon('fas', 'star')
-                0
-            %p（税込）
-      .item_show-wrapper__relatedItems__list__box
-        =link_to "" ,"#"
-        .item_show-wrapper__relatedItems__list__box_img
-          = image_tag src="IMG_link.png", alt: 'image', height: '150px', width: '220px'
-        .item_show-wrapper__relatedItems__list__box_main
-          %h6.item_show-wrapper__relatedItems__list__box_main--title
-            products3
-            %ul.item_show-wrapper__relatedItems__list__box_main--data
-              %li
-                30000円
-              %li
-                = icon('fas', 'star')
-                0
-            %p（税込）
-= render 'template/banner'
-= render 'template/footer'
+      = link_to "#{@item.category.parent.parent.name}  #{@item.category.parent.name}  #{@item.category.name}  をもっと見る","#"
+    
+    
+      .item_show-wrapper__relatedItems__list
+        -@items.each do |item|
+          .item_show-wrapper__relatedItems__list__box
+            =link_to "" ,"/items/#{item.id}"
+            .item_show-wrapper__relatedItems__list__box_img
+              = image_tag src="IMG_link.png", alt: 'image', height: '150px', width: '220px'
+            .item_show-wrapper__relatedItems__list__box_main
+              %h6.item_show-wrapper__relatedItems__list__box_main--title
+                = item.name
+                %ul.item_show-wrapper__relatedItems__list__box_main--data
+                  %li
+                    ￥
+                    = item.price
+                  %li
+                    = icon('fas', 'star')
+                    0
+                %p= item.shipping_burden.name
+      
+= render 'sell_footer'

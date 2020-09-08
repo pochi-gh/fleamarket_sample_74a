@@ -1,0 +1,12 @@
+= render partial: "template/header"
+= render partial: "template/sellbtn"
+
+.user-showPage
+  .user-showPage__main
+    = render "/users/side_bar"
+    .address_main
+      .address_main-box
+        住所の変更が完了しました。
+        .update_back
+          =link_to "戻  る","/users/#{current_user.id}",class:"update_back_btn"
+= render partial: "template/footer"

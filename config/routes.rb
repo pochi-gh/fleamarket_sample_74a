@@ -15,12 +15,14 @@ Rails.application.routes.draw do
     member do
       get 'confirm'
     end
+    resources :comments, only: [:create,:destroy, :edit, :update]
   end
   resources :users, only: [:show] do
     collection do
       get 'logout', to: 'users#logout'
       get 'purchase_item'
       get 'sell_item'
+      get 'comment_item'
     end
   end
   resources :credit_cards, only: [:index, :new, :show] do
@@ -31,6 +33,7 @@ Rails.application.routes.draw do
     end
   end
   resources :item_sell, only: :new
+  resources :addresses, only: [:edit, :update]
 
   # resources :categories, only: [:index] do
   #   member do
@@ -39,4 +42,5 @@ Rails.application.routes.draw do
   #     get 'grandchild'
   #   end
   # end
+
 end

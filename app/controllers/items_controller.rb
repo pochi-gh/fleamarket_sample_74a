@@ -3,9 +3,11 @@ class ItemsController < ApplicationController
   before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
 
   before_action :set_category, only: [:parent, :child, :grandchild]
+  #header用
+  before_action :set_categorys, only: [:index, :show, :confirm]
 
   def index
-    @categories = Category.all  
+    
   end
   
   def new
@@ -37,6 +39,17 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @seller = User.find(@item.seller_id)
+    @comment = Comment.new
+    @items = Item.where(category: @item.category_id).where.not(id: @item.id).order(created_at: :desc).limit(3)
+  end
+
+  def confirm
+    @item = Item.find(params[:id])
+    @image = Image.find(params[:id])
+    @user = User.find(current_user.id)
+    @card = CreditCard.find_by(user_id: current_user.id)
   end
 
   def get_category_children
@@ -56,5 +69,10 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
+
+  def set_categorys
+    @categories = Category.all  
+  end
+
 
 end
