@@ -27,7 +27,7 @@
                         .prev-img-data{"data-index" => "#{i}"}
                           %img{"data-index" => "#{i}", :height => "110px", :src => image.src_url, :width => "110px"}/
                           %label.js-edit{:for => "item_images_attributes_#{i}_src"} 編集
-                          .js-remove 削除
+                          %label.js-remove 削除
                 -if @item.images.count <= 5       
                   #div{class:"label-upper-content-#{@item.images.count}"}
                     %label{for: "item_images_attributes_#{@item.images.count}_src", class: "label-box", id: "label-box--#{@item.images.count}"}

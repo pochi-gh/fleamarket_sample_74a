@@ -59,8 +59,9 @@ class ItemsController < ApplicationController
       if @item.update(item_params)
         redirect_to item_path(@item.id)
       else
+        set_item
         edit_category
-        flash.now[:alert] = '更新できませんでした'
+        flash.now[:alert] = '更新できませんでした。必須項目を入力してください。'
         render :edit
       end
     end
