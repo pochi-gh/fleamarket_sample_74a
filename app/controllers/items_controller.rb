@@ -57,6 +57,7 @@ class ItemsController < ApplicationController
       Image.where(id:delete__db).destroy_all
       @item.touch
       if @item.update(item_params)
+        flash[:notice] = '更新が完了しました'
         redirect_to item_path(@item.id)
       else
         set_item
