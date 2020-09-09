@@ -133,4 +133,151 @@ describe Item do
     end
 
   end
+
+  describe '#update' do
+
+    #1
+    it "必須項目が全てあれば登録できること" do
+      user = create(:user)
+      category = create(:category)
+      item = build(:item,seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
+      expect(item).to be_valid
+    end
+
+    #2
+    it "nameがない場合は登録できないこと" do
+      user = create(:user)
+      category = create(:category)
+      item = build(:item,seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
+      item.name = nil
+      expect(item).to be_valid
+    end
+
+    #3
+    it "explainがない場合は登録できないこと" do
+      user = create(:user)
+      category = create(:category)
+      item = build(:item,seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
+      item.explain = nil
+      expect(item).to be_valid
+    end
+
+    #4
+    it "category_idがない場合は登録できないこと" do
+      user = create(:user)
+      category = create(:category)
+      item = build(:item,seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
+      item.category_id = nil
+      expect(item).to be_valid
+    end
+
+    #5
+    it "shipping_burden_idがない場合は登録できないこと" do
+      user = create(:user)
+      category = create(:category)
+      item = build(:item,seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
+      item.shipping_burden_id = nil
+      expect(item).to be_valid
+    end
+
+    #6
+    it "prefecture_idがない場合は登録できないこと" do
+      user = create(:user)
+      category = create(:category)
+      item = build(:item,seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
+      item.prefecture_id = nil
+      expect(item).to be_valid
+    end
+
+    #7
+    it "shipping_day_idがない場合は登録できないこと" do
+      user = create(:user)
+      category = create(:category)
+      item = build(:item,seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
+      item.shipping_day_id = nil
+      expect(item).to be_valid
+    end
+
+    #8
+    it "priceがない場合は登録できないこと" do
+      user = create(:user)
+      category = create(:category)
+      item = build(:item,seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
+      item.price = nil
+      expect(item).to be_valid
+    end
+
+    #9
+    it "nameが40文字でも登録できること" do
+      user = create(:user)
+      category = create(:category)
+      item = build(:item,seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
+      item.name = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      expect(item).to be_valid
+    end
+
+    #10
+    it "nameが41文字だと登録できないこと" do
+      user = create(:user)
+      category = create(:category)
+      item = build(:item,seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
+      item.name = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      expect(item).to be_valid
+    end
+
+    #11
+    it "explainが1000文字でも登録できること" do
+      user = create(:user)
+      category = create(:category)
+      item = build(:item,seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
+      item.explain = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      expect(item).to be_valid
+    end
+
+    #12
+    it "explainが1001文字だと登録できないこと" do
+      user = create(:user)
+      category = create(:category)
+      item = build(:item,seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
+      item.explain = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      expect(item).to be_valid
+    end
+
+
+    #13
+    it "priceが299以下だと登録できないこと" do
+      user = create(:user)
+      category = create(:category)
+      item = build(:item,seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
+      item.price = "299"
+      expect(item).to be_valid
+    end
+
+    #14
+    it "priceが300ちょうどだと登録できる" do
+      user = create(:user)
+      category = create(:category)
+      item = build(:item,seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
+      item.price = "300"
+      expect(item).to be_valid
+    end
+
+    #15
+    it "priceが9999999だと登録できる" do
+      user = create(:user)
+      category = create(:category)
+      item = build(:item,seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
+      item.price = "9999999"
+      expect(item).to be_valid
+    end
+
+    #16
+    it "priceが10000000だと登録できない" do
+      user = create(:user)
+      category = create(:category)
+      item = build(:item,seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
+      item.price = "10000000"
+      expect(item).to be_valid
+    end
+  end
 end
