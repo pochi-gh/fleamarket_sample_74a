@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-
   before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
 
   before_action :set_category, only: [:parent, :child, :grandchild]
@@ -51,6 +50,10 @@ class ItemsController < ApplicationController
     @image = Image.find(params[:id])
     @user = User.find(current_user.id)
     @card = CreditCard.find_by(user_id: current_user.id)
+    if @card
+    customer = Payjp::Customer.retrieve(@card.customer_id)
+    @default_card_information = customer.cards.retrieve(@card.card_id)
+    end
   end
 
   def get_category_children
