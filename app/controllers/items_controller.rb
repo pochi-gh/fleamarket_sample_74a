@@ -55,16 +55,18 @@ class ItemsController < ApplicationController
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
     customer = Payjp::Customer.retrieve(@card.customer_id)
     @default_card_information = customer.cards.retrieve(@card.card_id)
-      charge = Payjp::Charge.create(
-      amount: @item.price,
-      customer: Payjp::Customer.retrieve(@card.customer_id),
-      currency: 'jpy'
-    )
-    redirect_to action: 'bought'
     end
   end
 
   def bought
+    @card = CreditCard.find_by(user_id: current_user.id)
+    Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
+    customer = Payjp::Customer.retrieve(@card.customer_id)
+    charge = Payjp::Charge.create(
+      amount: @item.price,
+      customer: Payjp::Customer.retrieve(@card.customer_id),
+      currency: 'jpy'
+    )
     @item_buyer = Item.find(params[:id])
     @item_buyer.update(buyer_id: current_user.id)
   end
