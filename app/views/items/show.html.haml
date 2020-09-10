@@ -12,8 +12,9 @@
           %li.item_show-wrapper__main__img-sub--photo
             = image_tag image.src_url, alt: 'サブ画像', height: '90px', width: '100px',class:"ChangePhoto"
       %p.item_show-wrapper__main__img-price
+        ¥ 
         = @item.price 
-        円
+        
         %p.item_show-wrapper__main__img-price-detail
           = @item.shipping_burden.name
         %p.item_show-wrapper__main__img-price-text

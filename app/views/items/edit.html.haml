@@ -58,16 +58,9 @@
                 = form.fields_for :images do |image|
                   .js-file_group{"data-index": "#{image.index}"}
                     = image.file_field :src, accept: "image/*", class: "js-file", data: {index: image.index}, id: "item_images_attributes_#{image.index}_src"
-                  -# - if @item.persisted?
-                  -#   = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-
                 - if @item.persisted?
                   .js-file_group{"data-index": "#{@item.images.count}"}
                     = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file',id: "item_images_attributes_#{@item.images.count}_src"
-
-
-
-
 
       .items
         .items__names
@@ -186,14 +179,9 @@
           = form.submit "編    集", class:"sales_btn"
           -# %button.save_btn{:tabindex => "0", :type => "button"} 
           -#   下書きに保存
-          %a.back{:href => "/"} 
-            もどる
+          = link_to "戻る" , "/items/#{@item.id}", class:"back"
         .price__matter
           禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
-
-
-
-
 
 = render partial: "template/banner"
 = render partial: "template/footer"
