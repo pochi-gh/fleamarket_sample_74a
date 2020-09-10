@@ -229,11 +229,12 @@ a{
         &__user_name{
           padding: 5px;
           display: flex;
+          justify-content: space-between;
           a{
             @include font_color_blue;
           }
           .comment__current_user--btn{
-           padding-left: 460px;
+
            
            &--edit{
              padding-right: 20px;

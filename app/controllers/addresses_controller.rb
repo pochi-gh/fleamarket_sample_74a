@@ -1,4 +1,6 @@
 class AddressesController < ApplicationController
+  before_action :set_categorys
+  
   def edit
     @address = Address.where(user_id: current_user.id).first
     if params[:item_id]
@@ -27,5 +29,9 @@ class AddressesController < ApplicationController
   end
   def item_links_params
     params.require(:address).permit(:item_id)
+  end
+
+  def set_categorys
+    @categories = Category.all  
   end
 end
