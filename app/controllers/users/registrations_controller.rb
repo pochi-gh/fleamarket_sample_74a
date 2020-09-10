@@ -60,6 +60,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     params.require(:address).permit(:destination_first_name, :destination_last_name, :destination_first_name_kana, :destination_last_name_kana, :postal_code, :prefecture_id, :city, :block, :building, :phone_numeber)
   end
 
+  def after_update_path_for(resource)
+    user_path(resource)
+  end
+
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
