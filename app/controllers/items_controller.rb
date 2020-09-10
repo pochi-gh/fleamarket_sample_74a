@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  require "payjp"
   before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
 
   before_action :set_category, only: [:parent, :child, :grandchild]
@@ -51,8 +52,14 @@ class ItemsController < ApplicationController
     @user = User.find(current_user.id)
     @card = CreditCard.find_by(user_id: current_user.id)
     if @card
+    Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
     customer = Payjp::Customer.retrieve(@card.customer_id)
     @default_card_information = customer.cards.retrieve(@card.card_id)
+      charge = Payjp::Charge.create(
+      amount: @item.price,
+      customer: Payjp::Customer.retrieve(@card.customer_id),
+      currency: 'jpy'
+    )
     end
   end
 
