@@ -1,0 +1,72 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+}
+
+.edit-user {
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 50px;
+
+
+  h2 {
+    height: 60px;
+    padding-top: 20px;
+    color: $main_color;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  form {
+  
+    .field {
+
+      margin: 20px 0;
+      label {
+        color: $sub_blue;
+        font-weight: bold;
+        font-size: 20px;
+      }
+      
+      input {
+        width: 330px;
+        height: 48px;
+        padding : 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        margin: 8px;
+      }
+      span {
+        color: $alert;
+      }
+    }
+
+    .change-btn {
+      width: 328px;
+      height: 50px;
+      background-color: $main_color;
+      border: 1px solid $main_color;
+      border-radius: 4px;
+      color: $white;
+      cursor: pointer;
+    }
+
+  }
+
+  .back-to-user-mypage {
+    margin: auto;
+    padding-top: 12px;
+    width: 328px;
+    height: 50px;
+    background-color: $sub_blue;
+    border: 1px solid $sub_blue;
+    border-radius: 4px;
+    color: $white;
+    cursor: pointer;
+  }
+
+}
