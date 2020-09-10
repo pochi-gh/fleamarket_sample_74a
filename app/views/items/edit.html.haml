@@ -24,8 +24,8 @@
                   - @item.images.each_with_index do |image,i|
                     - if i< 5
                       .image-box__content{data: { index: i }}
-                        .prev-img-data{"data-index" => "#{i}"}
-                          %img{"data-index" => "#{i}", :height => "110px", :src => image.src_url, :width => "110px"}/
+                        .prev-img-data{"data-index": "#{i}"}
+                          %img{"data-index": "#{i}", height: "110px", src: image.src_url, width: "110px"}/
                           %label.js-edit{:for => "item_images_attributes_#{i}_src"} 編集
                           %label.js-remove 削除
                 -if @item.images.count <= 5       
@@ -41,9 +41,9 @@
                   - @item.images.each_with_index do |image,i|
                     -if i >=5
                       .image-box__content{data: { index: i }}
-                        .prev-img-data{"data-index" => "#{i}"}
-                          %img{"data-index" => "#{i}", :height => "110px", :src => image.src_url, :width => "110px"}/
-                          %label.js-edit{:for => "item_images_attributes_#{i}_src"} 編集
+                        .prev-img-data{"data-index": "#{i}"}
+                          %img{"data-index": "#{i}", height: "110px", src: image.src_url, width: "110px"}/
+                          %label.js-edit{for: "item_images_attributes_#{i}_src"} 編集
                           .js-remove 削除
                 -if @item.images.count <= 5 
                   #div{class:"label-lower-content-4"} 
