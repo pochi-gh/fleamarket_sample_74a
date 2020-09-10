@@ -60,7 +60,13 @@ class ItemsController < ApplicationController
       customer: Payjp::Customer.retrieve(@card.customer_id),
       currency: 'jpy'
     )
+    redirect_to action: 'bought'
     end
+  end
+
+  def bought
+    @item_buyer = Item.find(params[:id])
+    @item_buyer.update(buyer_id: current_user.id)
   end
 
   def get_category_children

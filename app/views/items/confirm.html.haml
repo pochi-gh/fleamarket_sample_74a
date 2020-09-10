@@ -60,7 +60,7 @@
       -if @card.nil?
         = link_to "支払い登録" , new_credit_card_path, method: :get, class:"comfirm_main__buy--btn"
       -else
-        = link_to "購入する" ,"#", class:"comfirm_main__buy--btn"
+        = link_to "購入する" , bought_item_path, method: :get, class:"comfirm_main__buy--btn"
       = link_to "戻る" , "/items/#{@item.id}", class:"comfirm_main__buy--back_btn"
       
 = render 'sell_footer'

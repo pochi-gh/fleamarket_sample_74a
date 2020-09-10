@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     end
     member do
       get 'confirm'
+      get 'bought'
     end
     resources :comments, only: [:create,:destroy, :edit, :update]
   end
