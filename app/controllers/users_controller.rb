@@ -2,14 +2,14 @@ class UsersController < ApplicationController
   before_action :set_categorys
 
   def show
-    @nickname = current_user.nickname 
+    @nickname = User.find(params[:id]).nickname
   end
 
   def personal_infomation
     @user = User.find(params[:id])
     @address = Address.find(params[:id])
   end
-  
+
   def purchase_item
     @items = Item.where(buyer_id: current_user.id).page(params[:page]).per(10)
   end
