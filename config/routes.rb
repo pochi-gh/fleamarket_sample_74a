@@ -24,6 +24,12 @@ Rails.application.routes.draw do
       get 'sell_item'
       get 'comment_item'
     end
+    member do
+      get 'personal_infomation', to: 'users#personal_infomation',
+      controllers: {
+        personal_infomation: 'users/personal_infomation'
+      }
+    end
   end
   resources :credit_cards, only: [:index, :new, :show] do
     collection do
