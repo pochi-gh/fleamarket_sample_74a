@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_categorys
 
   def show
-    @nickname = User.find(params[:id]).nickname
+    @nickname = current_user.nickname
   end
 
   def personal_infomation
