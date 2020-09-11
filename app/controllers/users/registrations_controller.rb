@@ -43,6 +43,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
   end
 
+
   def destroy
     super
   end
@@ -61,6 +62,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def set_categorys
     @categories = Category.all  
   end
+
+  # def user_params
+  #   params.require(:user).permit(:nickname, :first_name, :last_name, :first_name_kana, :last_name_kana, :birthday)
+  # end
 
   protected
   

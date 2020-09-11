@@ -5,6 +5,10 @@ class UsersController < ApplicationController
     @nickname = current_user.nickname
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
   def personal_infomation
     @user = User.find(params[:id])
     @address = Address.find(params[:id])
@@ -28,4 +32,5 @@ class UsersController < ApplicationController
     @categories = Category.all  
   end
 
+  
 end
