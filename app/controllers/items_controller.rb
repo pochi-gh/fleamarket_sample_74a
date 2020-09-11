@@ -5,6 +5,8 @@ class ItemsController < ApplicationController
   before_action :set_category, only: [:parent, :child, :grandchild]
   #header用
   before_action :set_categorys, only: [:index, :show, :confirm]
+  before_action :set_card, only: [:confirm, :bought]
+
 
   def index
     @items = Item.includes(:seller).order("created_at DESC").limit(4)
@@ -50,7 +52,6 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @image = Image.find(params[:id])
     @user = User.find(current_user.id)
-    @card = CreditCard.find_by(user_id: current_user.id)
     if @card
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
     customer = Payjp::Customer.retrieve(@card.customer_id)
@@ -59,7 +60,6 @@ class ItemsController < ApplicationController
   end
 
   def bought
-    @card = CreditCard.find_by(user_id: current_user.id)
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
     customer = Payjp::Customer.retrieve(@card.customer_id)
     charge = Payjp::Charge.create(
@@ -92,6 +92,9 @@ class ItemsController < ApplicationController
   def set_categorys
     @categories = Category.all  
   end
-
+  
+  def set_card
+    @card = CreditCard.find_by(user_id: current_user.id)
+  end
 
 end
