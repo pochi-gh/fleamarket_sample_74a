@@ -40,7 +40,7 @@
       = f.password_field :current_password, autocomplete: "current-password"
     .actions
       = f.submit "変更する", class: 'change-btn'
-  = link_to :back do
+  = link_to user_path(resource) do
     .back-to-user-mypage
       マイページに戻る
 
