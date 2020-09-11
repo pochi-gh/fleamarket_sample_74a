@@ -8,21 +8,25 @@
     %h1.title
       登録されている個人情報
     %p.suggestion
-      変更したい場合は、下の「変更する」ボタンより変更をお願いします
+      送付先の住所を変更したい場合は、
+      %br/
+      下の「変更する」ボタンより変更をお願いします
     .name
       %span
         お名前
-      .last_name
-        = @user.last_name
-      .first_name
-        = @user.first_name
+      .name__ja
+        .last_name
+          = @user.last_name
+        .first_name
+          = @user.first_name
     .name__kana
       %span
         お名前カナ
-      .last_name__kana
-        = @user.last_name_kana
-      .first_name__kana
-        = @user.first_name_kana
+      .name__ja
+        .last_name__kana
+          = @user.last_name_kana
+        .first_name__kana
+          = @user.first_name_kana
     .birthday
       %span
         生年月日
@@ -53,7 +57,7 @@
         建物名
       .building__form
         = @address.building
-    = link_to '#', class: "link-btn" do
+    = link_to edit_address_path(current_user.id), class: "link-btn" do
       .link-btn
         変更する
 
