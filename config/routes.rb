@@ -19,7 +19,6 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show] do
     collection do
-      get 'logout', to: 'users#logout'
       get 'purchase_item'
       get 'sell_item'
       get 'comment_item'
@@ -29,6 +28,7 @@ Rails.application.routes.draw do
       controllers: {
         personal_infomation: 'users/personal_infomation'
       }
+      get 'logout', to: 'users#logout'
     end
   end
   resources :credit_cards, only: [:index, :new, :show] do
