@@ -11,52 +11,75 @@
       送付先の住所を変更したい場合は、
       %br/
       下の「変更する」ボタンより変更をお願いします
-    .name
+    .content
       %span
         お名前
-      .name__ja
-        .last_name
+      .name
+        .name__last
           = @user.last_name
-        .first_name
+        .name__first
           = @user.first_name
-    .name__kana
+    .content
       %span
         お名前カナ
-      .name__ja
-        .last_name__kana
+      .name
+        .name__last
           = @user.last_name_kana
-        .first_name__kana
+        .name__first
           = @user.first_name_kana
-    .birthday
+    .content
       %span
         生年月日
       .birthday
         = @user.birthday
-    .postal_code
+    .destination
+      送付先の住所
+    .content
+      %span
+        送付先の住所の名前
+      .name
+        .name__last
+          = @address.destination_last_name
+        .name__first
+          = @address.destination_first_name
+    .content
+      %span
+        送付先の住所の名前(カナ)
+      .name
+        .name__last
+          = @address.destination_last_name_kana
+        .name__first
+          = @address.destination_first_name_kana
+    .content
       %span
         郵便番号
-      .postal_code
+      .postal_code_number
         = @address.postal_code
-    .prefecture
+    .content
       %span
         都道府県
       .prefcture__name
         = @address.prefecture.name
-    .city 
+    .content
       %span
         市区町村
-      .city__form
+      .city_name
         = @address.city
-    .block
+    .content
       %span
         番地
-      .block__form
+      .block__name
         = @address.block
-    .building
+    .content
       %span
         建物名
-      .building__form
+      .building__name
         = @address.building
+    .content
+      %span
+        電話番号
+      .phone_number
+        = @address.phone_numeber
     = link_to edit_address_path(current_user.id), class: "link-btn" do
       .link-btn
         変更する
