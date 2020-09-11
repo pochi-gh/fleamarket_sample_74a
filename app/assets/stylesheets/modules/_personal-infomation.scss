@@ -1,0 +1,60 @@
+.mypage__personal_infomation {
+  background-color: $background;
+  padding: 50px 120px;
+  display: flex;
+}
+
+.personal_infomation {
+  width: 100%;
+  margin-left: 50px;
+  padding: 50px;
+  background-color: $white;
+
+  .suggestion {
+    text-align: center;
+    margin: 50px;
+  }
+
+  h1 {
+    color: $main_color;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  span {
+    color: $sub_blue;
+    margin: 10px 0;
+  }
+
+  .content {
+    margin: 15px 0;
+  }
+
+  .destination {
+    margin-top: 25px;
+    font-weight: bold;
+    color: $main_color;
+  }
+
+  .name {
+    display: flex;
+    
+    &__last {
+      margin-right: 10px;
+    }
+
+  }
+
+  .link-btn {
+    margin: auto;
+    height: 50px;
+    width: 320px;
+    padding-top: 12px;
+    text-align: center;
+    background-color: $main_color;
+    color: $white;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+}

@@ -19,10 +19,16 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show] do
     collection do
-      get 'logout', to: 'users#logout'
       get 'purchase_item'
       get 'sell_item'
       get 'comment_item'
+    end
+    member do
+      get 'personal_infomation', to: 'users#personal_infomation',
+      controllers: {
+        personal_infomation: 'users/personal_infomation'
+      }
+      get 'logout', to: 'users#logout'
     end
   end
   resources :credit_cards, only: [:index, :new, :show] do

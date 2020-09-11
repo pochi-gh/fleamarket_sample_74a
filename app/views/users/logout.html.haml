@@ -6,7 +6,7 @@
     = render "side_bar"
     
     .main-information
-      -if current_page?(logout_users_path)
+      -if current_page?(logout_user_path)
         .main-information__logout-btn
           = link_to "ログアウト", destroy_user_session_path, method: :delete
 
