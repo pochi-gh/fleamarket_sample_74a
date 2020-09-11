@@ -11,7 +11,7 @@ $(window).on('load', ()=> {
 
 // プレビュー用のimgタグの生成
 const buildImg = (index, url)=> {
-  const html = `<div class="prev-img-data" data-index="${index}"><img data-index="${index}" src="${url}" width="110px" height="110px">
+  const html = `<div class="prev-img-data" data-index="${index}"><img data-index="${index}" src="${url}" width="100px" height="100px">
     <label class="js-edit" for="item_images_attributes_${index}_src">編集</label>
     <div class="js-remove">削除</div>
     </div>
@@ -54,8 +54,8 @@ $('.hidden-content').on('change', '.js-file', function(e) {
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
       // ファイル選択エリアのクラス名を変更
-
       $('.label-box').attr({for: `item_images_attributes_${targetIndex +1}_src`});
+
       $(`.label-upper-content-${targetIndex}`).attr('class', `label-upper-content-${targetIndex + 1}`)
       $(`.label-lower-content-${targetIndex}`).attr('class', `label-lower-content-${targetIndex + 1}`)
     }else{
@@ -74,17 +74,35 @@ $('.hidden-content').on('change', '.js-file', function(e) {
 
 $('.preview-box').on('click', '.js-remove', function() {
   const targetIndex = $(this).parent().data('index');
-
+  console.log(this.parent);
   // 該当indexを振られているチェックボックスを取得する
   const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
   // もしチェックボックスが存在すればチェックを入れる
   if (hiddenCheck) hiddenCheck.prop('checked', true);
 
+  var count = $('.prev-img-data').length;
+
   $(this).parent().remove();
 
   $(`img[data-index="${targetIndex}"]`).remove();
-  $(`.js-file_group[data-index="${targetIndex}"]`).remove();
-  $(`#item_images_attributes_${targetIndex}_id`).remove();
+
+
+  if (count<5){
+    $(`.label-upper-content-${targetIndex +1 }`).attr('class', `label-upper-content-${count - 1}`)
+    $("#label-box--0").attr('for', `item_images_attributes_${count - 1}_src`)
+  }else if(count ==5){
+    $(`.label-upper-content-${targetIndex +1 }`).attr('class', `label-upper-content-${count - 1}`)
+    $("#label-box--0").attr('for', `item_images_attributes_${count - 1}_src`)
+    $(`.label-lower-content-${targetIndex +1 }`).attr('class', `label-lower-content-${count - 1}`)
+  }else{
+    $(`.label-lower-content-${targetIndex +1 }`).attr('class', `label-lower-content-${count - 1}`)
+    $("#label-box--1").attr('for', `item_images_attributes_${count - 1}_src`)
+  }
+
+
+
+
+
   // 画像入力欄が0個にならないようにしておく
   if ($('.js-file').length == 0) $('.preview-box').append(buildFileField(fileIndex[0]));
 });
