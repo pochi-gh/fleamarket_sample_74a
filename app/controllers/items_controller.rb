@@ -1,10 +1,12 @@
 class ItemsController < ApplicationController
-
+  require "payjp"
   before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
 
   before_action :set_category, only: [:parent, :child, :grandchild]
   #header用
   before_action :set_categorys, only: [:index, :show, :confirm]
+  before_action :set_card, only: [:confirm, :bought]
+
 
   def index
     @items = Item.includes(:seller).order("created_at DESC").limit(4)
@@ -79,9 +81,25 @@ class ItemsController < ApplicationController
 
   def confirm
     @item = Item.find(params[:id])
-    @image = Image.find(params[:id])
+    @image = Image.find_by(item_id: params[:id])
     @user = User.find(current_user.id)
-    @card = CreditCard.find_by(user_id: current_user.id)
+    if @card
+      Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
+    end
+  end
+
+  def bought
+    Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
+    customer = Payjp::Customer.retrieve(@card.customer_id)
+    charge = Payjp::Charge.create(
+      amount: @item.price,
+      customer: Payjp::Customer.retrieve(@card.customer_id),
+      currency: 'jpy'
+    )
+    @item_buyer = Item.find(params[:id])
+    @item_buyer.update(buyer_id: current_user.id)
   end
 
   def get_category_children
@@ -116,6 +134,10 @@ class ItemsController < ApplicationController
 
   def set_categorys
     @categories = Category.all  
+  end
+  
+  def set_card
+    @card = CreditCard.find_by(user_id: current_user.id)
   end
 
 end
