@@ -50,7 +50,7 @@ class ItemsController < ApplicationController
 
   def confirm
     @item = Item.find(params[:id])
-    @image = Image.find(params[:id])
+    @image = Image.find_by(item_id: params[:id])
     @user = User.find(current_user.id)
     if @card
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
