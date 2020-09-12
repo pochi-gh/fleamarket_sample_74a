@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
   before_action :move_to_index_for_confirm, only: [:confirm]
   before_action :move_to_index_for_soldout, only: [:edit]
-  before_action :move_to_index_for_seller, only: [:edit]
+  before_action :move_to_index_for_notseller, only: [:edit]
   before_action :set_category, only: [:parent, :child, :grandchild]
   #header用
   before_action :set_categorys, only: [:index, :show, :confirm]
