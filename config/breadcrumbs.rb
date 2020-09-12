@@ -49,4 +49,9 @@ crumb :item_confirm do
   parent :item_show
 end
 
+crumb :register_card do
+  link "クレジットカード登録ページ", new_credit_card_path, method: :get
+  parent :mypage
+end
+
 
