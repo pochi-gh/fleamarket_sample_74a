@@ -1,5 +1,9 @@
 crumb :root do
-  link "Home", root_path
+  link "トップページ", root_path
+end
+
+crumb :mypage do
+  link "#{current_user.nickname}のマイページ", user_path(current_user.id), method: :get
 end
 
 # crumb :projects do
