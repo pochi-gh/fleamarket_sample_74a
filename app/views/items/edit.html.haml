@@ -1,4 +1,7 @@
 = render "sell_header" 
+- breadcrumb :item_edit
+= render 'template/breadcrumbs'
+
 .sell_main
   .box
     =form_with model:@item ,class:"item_new__box",local: true do |form|

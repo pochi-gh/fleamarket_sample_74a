@@ -31,3 +31,22 @@ crumb :mypage_logout do
   parent :mypage
 end
 
+crumb :items_new do
+  link "商品出品ページ", new_item_path
+end
+
+crumb :item_show do
+  link "商品の詳細ページ", item_path, method: :get
+end
+
+crumb :item_edit do
+  link "商品の編集ページ", edit_item_path, method: :get
+  parent :item_show
+end
+
+crumb :item_confirm do
+  link "購入確認ページ", confirm_item_path, method: :get
+  parent :item_show
+end
+
+
