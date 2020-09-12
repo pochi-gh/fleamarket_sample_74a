@@ -30,9 +30,9 @@
           %th 
             カテゴリー
           %td
-            = link_to @item.category.parent.parent.name, '#'
-            = link_to @item.category.parent.name,'#'
-            = link_to @item.category.name,'#'
+            = @item.category.parent.parent.name
+            = @item.category.parent.name
+            = @item.category.name
         %tr  
           %th 
             ブランド
@@ -58,13 +58,13 @@
             発送日の目安
           %td
             = @item.shipping_day.name
-    .item_show-wrapper__main__optionalArea
-      .item_show-wrapper__main__optionalArea_like
-        = icon('fas', 'star')
-        お気に入り 1
-      .item_show-wrapper__main__optionalArea_report
-        = icon('fa', 'flag')
-        = link_to "不適切な商品の通報","#"
+    -# .item_show-wrapper__main__optionalArea
+    -#   .item_show-wrapper__main__optionalArea_like
+    -#     = icon('fas', 'star')
+    -#     お気に入り 1
+    -#   .item_show-wrapper__main__optionalArea_report
+    -#     = icon('fa', 'flag')
+    -#     = link_to "不適切な商品の通報","#"
     
     - if @item.buyer_id.present?
       %p.item_buy_out 売り切れ
@@ -140,7 +140,7 @@
           .item_show-wrapper__relatedItems__list__box
             =link_to "" ,"/items/#{item.id}"
             .item_show-wrapper__relatedItems__list__box_img
-              = image_tag src="IMG_link.png", alt: 'image', height: '150px', width: '220px'
+              = image_tag item.images[0].src_url, alt: 'image', height: '150px', width: '220px'
             .item_show-wrapper__relatedItems__list__box_main
               %h6.item_show-wrapper__relatedItems__list__box_main--title
                 = item.name
