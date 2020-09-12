@@ -67,6 +67,7 @@
 }
 
 .main-information {
+  padding-bottom: 50px;
 // プロフィール画像・ニックネーム・評価・出品数
   &__showMypage-contents1 {
     display: flex;
@@ -114,4 +115,18 @@
       }
     }
   }
+}
+
+.nickname_change {
+  margin: auto;
+  align-items: center;
+  text-align: center;
+  padding-top: 12px;
+  width: 328px;
+  height: 50px;
+  background-color: $main_color;
+  border: 1px solid $main_color;
+  border-radius: 4px;
+  color: $white;
+  cursor: pointer;
 }

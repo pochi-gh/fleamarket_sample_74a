@@ -83,7 +83,8 @@ $('.preview-box').on('click', '.js-remove', function() {
   $(this).parent().remove();
 
   $(`img[data-index="${targetIndex}"]`).remove();
-
+  $(`.js-file_group[data-index="${targetIndex}"]`).remove();
+  $(`#item_images_attributes_${targetIndex}_id`).remove();
   // 画像入力欄が0個にならないようにしておく
   if ($('.js-file').length == 0) $('.preview-box').append(buildFileField(fileIndex[0]));
 });

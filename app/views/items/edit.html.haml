@@ -1,0 +1,187 @@
+= render "sell_header" 
+.sell_main
+  .box
+    =form_with model:@item ,class:"item_new__box",local: true do |form|
+      - if @item.errors.any?
+        %ul.error_message_items_new
+          - @item.errors.full_messages.each do |message|
+            %li.error_message_items_new__li
+              = message
+      .phots 
+        .phots__names
+          .phots__names--label
+            出品画像
+          .phots__names--important
+            必須
+        .phots__explan
+          最大10枚までアップロードできます
+
+        .phots_posts_container
+          .prev-content
+            .preview-box
+              .upper-box
+                .prev-img-data-upper
+                  - @item.images.each_with_index do |image,i|
+                    - if i< 5
+                      .image-box__content{data: { index: i }}
+                        .prev-img-data{"data-index": "#{i}"}
+                          %img{"data-index": "#{i}", height: "110px", src: image.src_url, width: "110px"}/
+                          %label.js-edit{:for => "item_images_attributes_#{i}_src"} 編集
+                          %label.js-remove 削除
+                -if @item.images.count <= 5       
+                  #div{class:"label-upper-content-#{@item.images.count}"}
+                    %label{for: "item_images_attributes_#{@item.images.count}_src", class: "label-box", id: "label-box--#{@item.images.count}"}
+                      %pre.label-box__text-visible クリックしてファイルをアップロード
+                -else
+                  #div{class:"label-upper-content-5"}
+                    %label{for: "item_images_attributes_#{@item.images.count}_src", class: "label-box", id: "label-box--#{@item.images.count}"}
+                      %pre.label-box__text-visible クリックしてファイルをアップロード
+              .lower-box
+                .prev-img-data-lower
+                  - @item.images.each_with_index do |image,i|
+                    -if i >=5
+                      .image-box__content{data: { index: i }}
+                        .prev-img-data{"data-index": "#{i}"}
+                          %img{"data-index": "#{i}", height: "110px", src: image.src_url, width: "110px"}/
+                          %label.js-edit{for: "item_images_attributes_#{i}_src"} 編集
+                          .js-remove 削除
+                -if @item.images.count <= 5 
+                  #div{class:"label-lower-content-4"} 
+                    %label{for: "item_images_attributes_#{4}_src", class: "label-box", id: "label-box--#{4}"}
+                      %pre.label-box__text-visible クリックしてファイルをアップロード
+                - else
+                  #div{class:"label-lower-content-#{@item.images.count}"} 
+                    %label{for: "item_images_attributes_#{@item.images.count}_src", class: "label-box", id: "label-box--#{@item.images.count}"}
+                      %pre.label-box__text-visible クリックしてファイルをアップロード 
+
+              .hidden-content
+                = form.fields_for :images do |image|
+                  .js-file_group{"data-index": "#{image.index}"}
+                    = image.file_field :src, accept: "image/*", class: "js-file", data: {index: image.index}, id: "item_images_attributes_#{image.index}_src"
+                - if @item.persisted?
+                  .js-file_group{"data-index": "#{@item.images.count}"}
+                    = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file',id: "item_images_attributes_#{@item.images.count}_src"
+
+      .items
+        .items__names
+          .items__names--label
+            商品名
+          .items__names--important
+            必須
+        = form.text_field :name,autocomplete: "off", placeholder:"40文字まで", class:"input_form"
+        .items__explans
+          .items__explans__explan
+            .items__explans__explan--label
+              商品の説明
+            .items__explans__explan--importamt
+              必須
+          = form.text_area :explain, rows: "7", class:"items_explan_text-box", :autocomplete => "off", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）&#13;&#10;&#13;&#10;例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。".html_safe 
+        .form_count
+          %span.items--count
+          %span.items--count--max  /1000
+      .category
+        %p 商品の詳細
+        .category__names
+          .category__names--label 
+            カテゴリー
+          .category__names--important
+            必須
+        .listing-form-box
+          .listing-select-wrapper
+            .listing-select-wrapper__box
+              = form.select :parent_name, @category_parent_array, {selected:@item.category.parent.parent.name}, { class: 'category-wrapper__category form-control', id: 'parent_category'}
+            .category-wrapper-select#children_wrapper
+              .listing-select-wrapper__added#children_wrapper
+                .listing-select-wrapper__box
+                  = form.select :category_id, options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.id}),{}, {class: 'category-wrapper__category form-control', id: 'child_category'}
+              .listing-select-wrapper__added#grandchildren_wrapper
+                .listing-select-wrapper__box
+                  = form.select :category_id, options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.id}),{}, {class: 'category-wrapper__category form-control', id: 'grandchild_category'}
+
+        .brand__names
+          .brand__names--label
+            ブランド
+          .brand__names--optional
+            任意
+        .brand__textfields
+          .brand__textfield
+            = form.text_field :brand,autocomplete: "off", placeholder:"例）シャネル", class:"input_form"     
+        .brand__status__names
+          .brand__status__names--label 
+            商品の状態
+          .brand__status__names--important
+            必須
+        .status__select
+          .status__selectarea
+            = form.collection_select :state_id, State.all, :id, :name, prompt: "---", class: 'select_state'
+      .shipping
+        .shipping__words
+          .shipping__words--word
+            配送について
+          .shipping__words--question__mark{"aria-hidden" => "true", :class => "question__mark", :fill => "#222222", "fill-rule" => "evenodd", :viewbox => "0 0 24 24"}
+            ?
+        .shipping__payer 
+          .shipping__payer--label
+            配送料の負担
+          .shipping__payer--important
+            必須
+        .payer__select
+          .payer__selectarea
+            = form.collection_select :shipping_burden_id, ShippingBurden.all, :id, :name, prompt: "---", class: 'select_shipping_burden'
+        .shipping__from__area
+          .shipping__from__area--label
+            発送元の地域
+          .shipping__from__area--important
+            必須
+        .from__area__select
+          .from__area__select--area
+            = form.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "---", class: 'select_prefecture'
+        .shipping__day
+          .shipping__day--label 
+            発送までの日数
+          .shipping__day--important 
+            必須
+        .days  
+          .days_selectarea
+            = form.collection_select :shipping_day_id, ShippingDay.all, :id, :name, prompt: "---", class: 'select_shipping_day'
+      .price
+        .price__scorps   
+          .price__scorps--scorp
+            価格（¥300〜9,999,999）
+          .price__scorps--question_mark
+            ?      
+        .price__prices
+          .price__prices__names
+            .price__prices__names--label
+              販売価格
+            .price__prices__names--important
+              必須
+          .price__prices__form__price
+            .price__prices__form__price__input_area
+              .price__prices__form__price__input_area--yen_mark 
+                ¥
+              = form.number_field :price,prautocomplete: "off", class: "form_price", min:"300", max:"9999999",placeholder:"300"
+        .price__sales_commission
+          .price__sales_commission__fees
+            .price__sales_commission__fees__fee
+              .price__sales_commission__fees__fee--label
+                販売手数料（10%）
+            .price__sales_commission--fees_mark
+              —
+        .price__sales_profit
+          .price__sales_profit__gains
+            .price__sales_profit__gains__gain
+              .price__sales_profit__gains__gain--label
+                販売利益
+            .price__sales_profit__gains__gain--mark
+              —
+        .price__sales_bottons
+          = form.submit "編    集", class:"sales_btn"
+          -# %button.save_btn{:tabindex => "0", :type => "button"} 
+          -#   下書きに保存
+          = link_to "戻る" , "/items/#{@item.id}", class:"back"
+        .price__matter
+          禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+
+= render partial: "template/banner"
+= render partial: "template/footer"

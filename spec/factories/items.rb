@@ -9,8 +9,9 @@ FactoryBot.define do
     prefecture_id       {"1"}
     shipping_day_id     {"1"}
     price              {"999"}
-    after(:build) do |item|                           #追記
-      item.images << build(:image, item: item)  #追記
+    
+    after(:build) do |item|                    
+      item.images << build(:image, item: item)
     end  
   end
 end

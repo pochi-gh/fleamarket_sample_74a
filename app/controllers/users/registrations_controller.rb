@@ -4,6 +4,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
+  before_action :set_categorys
+
   def new
     @user = User.new
   end
@@ -33,20 +35,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
     sign_in(:user, @user)
   end
 
-  # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    super
+  end
 
-  # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super
+  end
 
-  # DELETE /resource
-  # def destroy
-  #   super
-  # end
+
+  def destroy
+    super
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
@@ -57,10 +57,24 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  private
+  
+  def set_categorys
+    @categories = Category.all  
+  end
+
+  # def user_params
+  #   params.require(:user).permit(:nickname, :first_name, :last_name, :first_name_kana, :last_name_kana, :birthday)
+  # end
+
   protected
   
   def address_params
     params.require(:address).permit(:destination_first_name, :destination_last_name, :destination_first_name_kana, :destination_last_name_kana, :postal_code, :prefecture_id, :city, :block, :building, :phone_numeber)
+  end
+
+  def after_update_path_for(resource)
+    user_path(resource)
   end
 
   # If you have extra params to permit, append them to the sanitizer.

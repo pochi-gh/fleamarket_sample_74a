@@ -30,10 +30,10 @@
       %li
         = link_to "住所変更",edit_address_path(current_user.id)
       %li
-        = link_to "メール/パスワード変更"
+        = link_to "メール/パスワード変更", edit_user_registration_path
       %li
         = link_to "支払い方法", controller: 'credit_cards'
       %li
-        = link_to "本人確認"
+        = link_to "登録されている個人情報", personal_infomation_user_path
       %li
-        = link_to "ログアウト", controller: 'users', action: 'logout'
+        = link_to "ログアウト", logout_user_path

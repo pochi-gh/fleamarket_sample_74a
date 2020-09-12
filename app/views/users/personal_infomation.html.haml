@@ -1,68 +1,88 @@
 = render partial: "template/header"
 = render partial: "template/sellbtn"
 
--# まだuserコントローラーに変数を記述していないためエラーが出てしまうのでコメントアウト
--# 今後、マイページをさらに実装するにあたり、本人確認情報が必要と判断し、参考コードを記述
--# .mypage
--#   .mypage__side_bar
--#     = render "side_bar"
--#   .mypage__personal-info
--#     %h1.title
--#       本人情報の入力
--#     %p.suggestion
--#       お客さまの本人情報をご登録ください。
--#     .name
--#       %span
--#         お名前
--#       %p.first_name
--#         = @user.first_name
--#       %p.last_name
--#         = @user.last_name
--#     .name__kana
--#       %span
--#         お名前カナ
--#       %p.first_name__kana
--#         = @user.first_name_kana
--#       %p.last_name__kana
--#         = @user.last_name_kana
--#     .birthday
--#       %span
--#         生年月日
--#       %p.birthday
--#         = @user.birthday
--#     .postal_code
--#       %span
--#         郵便番号
--#       .postal_code__form
--#         = form_with model: @address do |form|
--#           = form.text_field :postal_code
--#     .prefecture
--#       %span
--#         都道府県
--#       .prefecture__form
--#         = f.select
--#     .city 
--#       %span
--#         市区町村
--#       .city__form
--#         = form_with model: @address do |form|
--#           = form.text_field :city
--#     .block
--#       %span
--#         番地
--#       .block__form
--#         = form_with model: @address do |form|
--#           = form.text_field :block
--#     .building
--#       %span
--#         建物名
--#       .building__form
--#         = form_with model: @address do |form|
--#           = form.text_field :building
-
--#     %button{type: "submit", class:'btn'} 
--#       .submitbtn
--#         登録する
+.mypage__personal_infomation
+  .mypage__side_bar
+    = render "side_bar"
+  .personal_infomation
+    %h1.title
+      登録されている個人情報
+    %p.suggestion
+      送付先の住所を変更したい場合は、
+      %br/
+      下の「変更する」ボタンより変更をお願いします
+    .content
+      %span
+        お名前
+      .name
+        .name__last
+          = @user.last_name
+        .name__first
+          = @user.first_name
+    .content
+      %span
+        お名前カナ
+      .name
+        .name__last
+          = @user.last_name_kana
+        .name__first
+          = @user.first_name_kana
+    .content
+      %span
+        生年月日
+      .birthday
+        = @user.birthday
+    .destination
+      送付先の住所
+    .content
+      %span
+        送付先の住所の名前
+      .name
+        .name__last
+          = @address.destination_last_name
+        .name__first
+          = @address.destination_first_name
+    .content
+      %span
+        送付先の住所の名前(カナ)
+      .name
+        .name__last
+          = @address.destination_last_name_kana
+        .name__first
+          = @address.destination_first_name_kana
+    .content
+      %span
+        郵便番号
+      .postal_code_number
+        = @address.postal_code
+    .content
+      %span
+        都道府県
+      .prefcture__name
+        = @address.prefecture.name
+    .content
+      %span
+        市区町村
+      .city_name
+        = @address.city
+    .content
+      %span
+        番地
+      .block__name
+        = @address.block
+    .content
+      %span
+        建物名
+      .building__name
+        = @address.building
+    .content
+      %span
+        電話番号
+      .phone_number
+        = @address.phone_numeber
+    = link_to edit_address_path(current_user.id), class: "link-btn" do
+      .link-btn
+        変更する
 
 = render partial: "template/banner"
 = render partial: "template/footer"
