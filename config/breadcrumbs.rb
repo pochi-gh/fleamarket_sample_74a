@@ -6,6 +6,21 @@ crumb :mypage do
   link "#{current_user.nickname}のマイページ", user_path(current_user.id), method: :get
 end
 
+crumb :comment do
+  link "コメントした商品", comment_item_users_path
+  parent :mypage
+end
+
+crumb :sell_item_lists do
+  link "出品した商品", sell_item_users_path
+  parent :mypage
+end
+
+crumb :purchase_items do
+  link "購入した商品", purchase_item_users_path
+  parent :mypage
+end
+
 crumb :adress_change do
   link "住所変更", edit_address_path(current_user.id)
   parent :mypage
