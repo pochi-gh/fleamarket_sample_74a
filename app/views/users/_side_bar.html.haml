@@ -36,4 +36,4 @@
       %li
         = link_to "登録されている個人情報", personal_infomation_user_path(current_user.id)
       %li
-        = link_to "ログアウト", logout_user_path
+        = link_to "ログアウト", logout_user_path(current_user.id)
