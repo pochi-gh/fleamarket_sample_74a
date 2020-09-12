@@ -11,9 +11,9 @@ $(window).on('load', ()=> {
 
 // プレビュー用のimgタグの生成
 const buildImg = (index, url)=> {
-  const html = `<div class="prev-img-data" data-index="${index}"><img data-index="${index}" src="${url}" width="100px" height="100px" class="label-image_${index}">
+  const html = `<div class="prev-img-data" data-index="${index}"><img data-index="${index}" src="${url}" width="110px" height="110px" class="label-image_${index}">
     <label class="js-edit" id="js-edit_${index}" for="item_images_attributes_${index}_src">編集</label>
-    <div class="js-remove">削除</div>
+    <label class="js-remove">削除</label>
     </div>
   `;
   return html;
