@@ -4,15 +4,15 @@
       %li
         = link_to "マイページ", "/users/#{current_user.id}"
       %li
-        = link_to "いいね！した商品"
+        = link_to "いいね！した商品", root_path
       %li
-        = link_to "ブックマークした商品"
+        = link_to "ブックマークした商品", root_path
       %li
-        = link_to "最近チェックした商品"
+        = link_to "最近チェックした商品", root_path
       %li
         = link_to "コメントした商品",comment_item_users_path
       %li
-        = link_to "下書きした商品"
+        = link_to "下書きした商品", root_path
       %li
         = link_to "商品を出品する",new_item_path
       %li
@@ -20,13 +20,13 @@
       %li
         = link_to "購入した商品",purchase_item_users_path
       %li
-        = link_to "お知らせ"
+        = link_to "お知らせ", root_path
 
   .sideBar-Low
     %h2 設定
     %ul.sideBar-contents
       %li
-        = link_to "プロフィール"
+        = link_to "プロフィール", root_path
       %li
         = link_to "住所変更",edit_address_path(current_user.id)
       %li
