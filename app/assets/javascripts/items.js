@@ -50,20 +50,20 @@ $('.hidden-content').on('change', '.js-file', function(e) {
       $(`.label-upper-content-${img}`).attr('class', `label-upper-content-${img+ 1}`)
     }else if(prev ==4){
       var img = $('.prev-img-data').length;
-      $('.prev-img-data-upper').append(buildImg(targetIndex, blobUrl));
+      $('.prev-img-data-upper').append(buildImg(img, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
       $('.hidden-content').append(buildFileField(img + 1 ));
       fileIndex.shift();
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
       // ファイル選択エリアのクラス名を変更
-      $('.label-box').attr({for: `item_images_attributes_${targetIndex +1}_src`});
+      $('.label-box').attr({for: `item_images_attributes_${img +1}_src`});
 
-      $(`.label-upper-content-${targetIndex}`).attr('class', `label-upper-content-${targetIndex + 1}`)
-      $(`.label-lower-content-${targetIndex}`).attr('class', `label-lower-content-${targetIndex + 1}`)
+      $(`.label-upper-content-${img}`).attr('class', `label-upper-content-${img+ 1}`)
+      $(`.label-lower-content-${img}`).attr('class', `label-lower-content-${img + 1}`)
     }else{
       var img = $('.prev-img-data').length;
-      $('.prev-img-data-lower').append(buildImg(targetIndex, blobUrl));
+      $('.prev-img-data-lower').append(buildImg(img, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
       $('.hidden-content').append(buildFileField(img + 1 ));
       fileIndex.shift();
@@ -71,7 +71,7 @@ $('.hidden-content').on('change', '.js-file', function(e) {
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
     // ファイル選択エリアのクラス名を変更
     $('.label-box').attr({for: `item_images_attributes_${img +1}_src`});
-    $(`.label-lower-content-${targetIndex}`).attr('class', `label-lower-content-${targetIndex + 1}`)
+    $(`.label-lower-content-${img}`).attr('class', `label-lower-content-${img + 1}`)
     }
   }
 });
@@ -107,9 +107,11 @@ $('.preview-box').on('click', '.js-remove', function() {
     const src = $(".label-image_5").attr("src");
     $(`.prev-img-data[data-index=5]`).remove();
     $('.prev-img-data-upper').append(buildImg(5, src));
+
     $("#label-box--1").attr('for', `item_images_attributes_${count - 1}_src`)
     $(`.label-lower-content-${count}`).attr('class', `label-lower-content-${count- 1 }`)
     $(`.js-file_group[data-index="${targetIndex}"]`).remove();
+    $(`#item_images_attributes_${targetIndex}_id`).remove();
   }else{
     $(`.label-lower-content-${count}`).attr('class', `label-lower-content-${count - 1}`)
     $("#label-box--1").attr('for', `item_images_attributes_${count - 1}_src`)
@@ -152,7 +154,7 @@ $('.preview-box').on('click', '.js-remove', function() {
     $(`#item_images_attributes_${targetIndex+4}_src`).attr({id:`item_images_attributes_${targetIndex+3}_src`, name:`item[images_attributes][${targetIndex+3}][src]`})
     $(`#item_images_attributes_${targetIndex+4}_id`).attr({id:`item_images_attributes_${targetIndex+3}_id`, name:`item[images_attributes][${targetIndex+3}][id]`})
  
-    $(`img[data-index="${targetIndex+5}"]`).attr('data-index', `${targetInde+4}`)
+    $(`img[data-index="${targetIndex+5}"]`).attr('data-index', `${targetIndex+4}`)
     $(`.prev-img-data[data-index="${targetIndex+5}"]`).attr('data-index', `${targetIndex+4}`)
     $(`.label-image_${targetIndex+5}`).attr('data-index', `${targetIndex+4}`)
     $(`.label-image_${targetIndex+5}`).attr('class', `label-image_${targetIndex+4}`)
