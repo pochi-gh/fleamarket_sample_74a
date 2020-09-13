@@ -1,6 +1,9 @@
 = render partial: "template/header"
 = render partial: "template/sellbtn"
 
+- breadcrumb :mypage_card
+= render 'template/breadcrumbs'
+
 .user-showPage
   .user-showPage__main
     = render "users/side_bar"
