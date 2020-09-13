@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   before_action :move_to_index_for_confirm, only: [:confirm]
   before_action :move_to_index_for_soldout, only: [:edit]
   before_action :move_to_index_for_notseller, only: [:edit]
+  before_action :move_to_index_for_seller, only: [:confirm]
   before_action :set_category, only: [:parent, :child, :grandchild]
   #header用
   before_action :set_categorys, only: [:index, :show, :confirm]
@@ -155,5 +156,9 @@ class ItemsController < ApplicationController
   def move_to_index_for_notseller
     item = Item.find(params[:id])
     redirect_to action: :index unless item.seller_id == current_user.id
+  end
+  def move_to_index_for_seller
+    item = Item.find(params[:id])
+    redirect_to action: :index if item.seller_id== current_user.id
   end
 end
