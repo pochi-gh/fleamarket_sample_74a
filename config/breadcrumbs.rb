@@ -7,27 +7,27 @@ crumb :mypage do
 end
 
 crumb :comment do
-  link "コメントした商品", comment_item_users_path
+  link "#{current_user.nickname}がコメントした商品", comment_item_users_path
   parent :mypage
 end
 
 crumb :sell_item_lists do
-  link "出品した商品", sell_item_users_path
+  link "#{current_user.nickname}が出品した商品", sell_item_users_path
   parent :mypage
 end
 
 crumb :purchase_items do
-  link "購入した商品", purchase_item_users_path
+  link "#{current_user.nickname}が購入した商品", purchase_item_users_path
   parent :mypage
 end
 
 crumb :adress_change do
-  link "住所変更", edit_address_path(current_user.id)
+  link "#{current_user.nickname}の住所変更", edit_address_path(current_user.id)
   parent :mypage
 end
 
 crumb :mail_password_change do
-  link "メール/パスワード変更", edit_user_registration_path
+  link "#{current_user.nickname}のメール/パスワード変更", edit_user_registration_path
   parent :mypage
 end
 
@@ -37,7 +37,7 @@ crumb :mypage_card do
 end
 
 crumb :mypage_personal_information do
-  link "登録されている個人情報", personal_infomation_user_path(current_user.id)
+  link "#{current_user.nickname}の登録されている個人情報", personal_infomation_user_path(current_user.id)
   parent :mypage
 end
 
@@ -51,17 +51,23 @@ crumb :items_new do
 end
 
 crumb :item_show do
-  @item = Item.find(params[:id])
-  link "商品の詳細ページ", item_path(@item)
+  if params[:id] 
+    @item = Item.find(params[:id])
+  else params[:item_id]
+    @item = Item.find(params[:item_id])
+  end
+  link "#{@item.name}", item_path(@item)
 end
 
 crumb :item_edit do
-  link "商品の編集ページ", edit_item_path, method: :get
+  @item = Item.find(params[:id])
+  link "#{@item.name}の編集", edit_item_path, method: :get
   parent :item_show
 end
 
 crumb :item_confirm do
-  link "購入確認ページ", confirm_item_path, method: :get
+  @item = Item.find(params[:id])
+  link "#{@item.name}の購入確認", confirm_item_path, method: :get
   parent :item_show
 end
 
