@@ -25,7 +25,7 @@
                     - if i< 5
                       .prev-img-data{"data-index": "#{i}"}
                         %img{"data-index": "#{i}", height: "110px", src: image.src_url, width: "110px",}/
-                        %label.js-edit{:for => "item_images_attributes_#{i}_src"} 編集
+                        %label.js-edit{:for => "item_images_attributes_#{i}_src",id:"js-edit_#{i}"} 編集
                         -if i > 0
                           %label.js-remove 削除
                 -if @item.images.count <= 5       
