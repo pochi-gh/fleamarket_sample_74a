@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   require "payjp"
   before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
+  before_action :move_to_index, only:[:new,:create,:edit,:update,:confirm ]
   before_action :move_to_index_for_confirm, only: [:confirm]
   before_action :move_to_index_for_soldout, only: [:edit]
   before_action :move_to_index_for_notseller, only: [:edit]
@@ -160,5 +161,9 @@ class ItemsController < ApplicationController
   def move_to_index_for_seller
     item = Item.find(params[:id])
     redirect_to action: :index if item.seller_id== current_user.id
+  end
+
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
   end
 end
