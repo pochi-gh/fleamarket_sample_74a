@@ -25,7 +25,7 @@ lastIndex = $('.js-file_group:last').data('index');
 $('.hidden-content').on('change', '.js-file', function(e) {
   
   const targetIndex = $(this).parent().data('index');
-  
+  const prev = $('.prev-img-data').length;
   // ファイルのブラウザ上でのURLを取得する
   const file = e.target.files[0];
   const blobUrl = window.URL.createObjectURL(file);
@@ -34,7 +34,7 @@ $('.hidden-content').on('change', '.js-file', function(e) {
   if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
     img.setAttribute('src', blobUrl);
   } else {  // 新規画像追加の処理
-    if (targetIndex <4){
+    if (prev <4){
       var img = $('.prev-img-data').length;
       fileIndex.splice(0, lastIndex);
       $('.prev-img-data-upper').append(buildImg(img, blobUrl));
@@ -48,7 +48,7 @@ $('.hidden-content').on('change', '.js-file', function(e) {
 
       $('.label-box').attr({for: `item_images_attributes_${img +1}_src`});
       $(`.label-upper-content-${img}`).attr('class', `label-upper-content-${img+ 1}`)
-    }else if(targetIndex ==4){
+    }else if(prev ==4){
       var img = $('.prev-img-data').length;
       $('.prev-img-data-upper').append(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
@@ -70,7 +70,7 @@ $('.hidden-content').on('change', '.js-file', function(e) {
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
     // ファイル選択エリアのクラス名を変更
-    $('.label-box').attr({for: `item_images_attributes_${targetIndex +1}_src`});
+    $('.label-box').attr({for: `item_images_attributes_${img +1}_src`});
     $(`.label-lower-content-${targetIndex}`).attr('class', `label-lower-content-${targetIndex + 1}`)
     }
   }
@@ -87,14 +87,14 @@ $('.preview-box').on('click', '.js-remove', function() {
   $(this).parent().remove();
 
   $(`img[data-index="${targetIndex}"]`).remove();
-
-
+  $(`#item_images_attributes_${targetIndex}_id`).remove();
+    console.log(targetIndex)
   if (count<5){
 
     $(`.label-upper-content-${count}`).attr('class', `label-upper-content-${count - 1}`)
     $("#label-box--0").attr('for', `item_images_attributes_${count - 1}_src`)
     $(`.js-file_group[data-index="${targetIndex}"]`).remove();
-    $(`#item_images_attributes_${targetIndex}_id`).remove();
+    
   }else if(count ==5){
     $(`.label-upper-content-${count}`).attr('class', `label-upper-content-${count - 1}`)
     $("#label-box--0").attr('for', `item_images_attributes_${count - 1}_src`)
@@ -123,6 +123,7 @@ $('.preview-box').on('click', '.js-remove', function() {
     $(`#js-edit_${targetIndex+1}`).attr({id:`#js-edit_${targetIndex}`, for:`item_images_attributes_${targetIndex}_src`})
     $(`.js-file_group[data-index=${targetIndex+1}]`).attr('data-index', `${targetIndex}`)
     $(`#item_images_attributes_${targetIndex+1}_src`).attr({id:`item_images_attributes_${targetIndex}_src`, name:`item[images_attributes][${targetIndex}][src]`})
+    $(`#item_images_attributes_${targetIndex+1}_id`).attr({id:`item_images_attributes_${targetIndex}_id`, name:`item[images_attributes][${targetIndex}][id]`})
  
     $(`.prev-img-data[data-index="${targetIndex+2}"]`).attr('data-index', `${targetIndex+1}`)
     $(`.label-image_${targetIndex+2}`).attr('data-index', `${targetIndex+1}`)
@@ -130,6 +131,7 @@ $('.preview-box').on('click', '.js-remove', function() {
     $(`#js-edit_${targetIndex+2}`).attr({id:`#js-edit_${targetIndex+1}`, for:`item_images_attributes_${targetIndex+1}_src`})
     $(`.js-file_group[data-index="${targetIndex+2}"]`).attr('data-index', `${targetIndex+1}`)
     $(`#item_images_attributes_${targetIndex+2}_src`).attr({id:`item_images_attributes_${targetIndex+1}_src`, name:`item[images_attributes][${targetIndex+1}][src]`})
+    $(`#item_images_attributes_${targetIndex+2}_id`).attr({id:`item_images_attributes_${targetIndex+1}_id`, name:`item[images_attributes][${targetIndex+1}][id]`})
 
     $(`.prev-img-data[data-index="${targetIndex+3}"]`).attr('data-index', `${targetIndex+2}`)
     $(`.label-image_${targetIndex+3}`).attr('data-index', `${targetIndex+2}`)
@@ -137,6 +139,7 @@ $('.preview-box').on('click', '.js-remove', function() {
     $(`#js-edit_${targetIndex+3}`).attr({id:`#js-edit_${targetIndex+2}`, for:`item_images_attributes_${targetIndex+2}_src`})
     $(`.js-file_group[data-index="${targetIndex+3}"]`).attr('data-index', `${targetIndex+2}`)
     $(`#item_images_attributes_${targetIndex+3}_src`).attr({id:`item_images_attributes_${targetIndex+2}_src`, name:`item[images_attributes][${targetIndex+2}][src]`})
+    $(`#item_images_attributes_${targetIndex+3}_id`).attr({id:`item_images_attributes_${targetIndex+2}_id`, name:`item[images_attributes][${targetIndex+2}][id]`})
  
 
     $(`.prev-img-data[data-index="${targetIndex+4}"]`).attr('data-index', `${targetIndex+3}`)
@@ -145,13 +148,16 @@ $('.preview-box').on('click', '.js-remove', function() {
     $(`#js-edit_${targetIndex+4}`).attr({id:`#js-edit_${targetIndex+3}`, for:`item_images_attributes_${targetIndex+3}_src`})
     $(`.js-file_group[data-index="${targetIndex+4}"]`).attr('data-index', `${targetIndex+3}`)
     $(`#item_images_attributes_${targetIndex+4}_src`).attr({id:`item_images_attributes_${targetIndex+3}_src`, name:`item[images_attributes][${targetIndex+3}][src]`})
+    $(`#item_images_attributes_${targetIndex+4}_id`).attr({id:`item_images_attributes_${targetIndex+3}_id`, name:`item[images_attributes][${targetIndex+3}][id]`})
  
+    
     $(`.prev-img-data[data-index="${targetIndex+5}"]`).attr('data-index', `${targetIndex+4}`)
     $(`.label-image_${targetIndex+5}`).attr('data-index', `${targetIndex+4}`)
     $(`.label-image_${targetIndex+5}`).attr('class', `label-image_${targetIndex+4}`)
     $(`#js-edit_${targetIndex+5}`).attr({id:`#js-edit_${targetIndex+4}`, for:`item_images_attributes_${targetIndex+4}_src`})
     $(`.js-file_group[data-index="${targetIndex+5}"]`).attr('data-index', `${targetIndex+4}`)
     $(`#item_images_attributes_${targetIndex+5}_src`).attr({id:`item_images_attributes_${targetIndex+4}_src`, name:`item[images_attributes][${targetIndex+4}][src]`})
+    $(`#item_images_attributes_${targetIndex+5}_id`).attr({id:`item_images_attributes_${targetIndex+4}_id`, name:`item[images_attributes][${targetIndex+4}][id]`})
 
     $(`.prev-img-data[data-index="${targetIndex+6}"]`).attr('data-index', `${targetIndex+5}`)
     $(`.label-image_${targetIndex+6}`).attr('data-index', `${targetIndex+5}`)
@@ -159,6 +165,7 @@ $('.preview-box').on('click', '.js-remove', function() {
     $(`#js-edit_${targetIndex+6}`).attr({id:`#js-edit_${targetIndex+5}`, for:`item_images_attributes_${targetIndex+5}_src`})
     $(`.js-file_group[data-index="${targetIndex+6}"]`).attr('data-index', `${targetIndex+5}`)
     $(`#item_images_attributes_${targetIndex+6}_src`).attr({id:`item_images_attributes_${targetIndex+5}_src`, name:`item[images_attributes][${targetIndex+5}][src]`})
+    $(`#item_images_attributes_${targetIndex+6}_id`).attr({id:`item_images_attributes_${targetIndex+5}_id`, name:`item[images_attributes][${targetIndex+5}][id]`})
 
     $(`.prev-img-data[data-index="${targetIndex+7}"]`).attr('data-index', `${targetIndex+6}`)
     $(`.label-image_${targetIndex+7}`).attr('data-index', `${targetIndex+6}`)
@@ -166,7 +173,7 @@ $('.preview-box').on('click', '.js-remove', function() {
     $(`#js-edit_${targetIndex+7}`).attr({id:`#js-edit_${targetIndex+6}`, for:`item_images_attributes_${targetIndex+6}_src`})
     $(`.js-file_group[data-index="${targetIndex+7}"]`).attr('data-index', `${targetIndex+6}`)
     $(`#item_images_attributes_${targetIndex+7}_src`).attr({id:`item_images_attributes_${targetIndex+6}_src`, name:`item[images_attributes][${targetIndex+6}][src]`})
-
+    $(`#item_images_attributes_${targetIndex+7}_id`).attr({id:`item_images_attributes_${targetIndex+6}_id`, name:`item[images_attributes][${targetIndex+6}][id]`})
 
     $(`.prev-img-data[data-index="${targetIndex+8}"]`).attr('data-index', `${targetIndex+7}`)
     $(`.label-image_${targetIndex+8}`).attr('data-index', `${targetIndex+7}`)
@@ -174,6 +181,7 @@ $('.preview-box').on('click', '.js-remove', function() {
     $(`#js-edit_${targetIndex+8}`).attr({id:`#js-edit_${targetIndex+7}`, for:`item_images_attributes_${targetIndex+7}_src`})
     $(`.js-file_group[data-index="${targetIndex+8}"]`).attr('data-index', `${targetIndex+7}`)
     $(`#item_images_attributes_${targetIndex+8}_src`).attr({id:`item_images_attributes_${targetIndex+7}_src`, name:`item[images_attributes][${targetIndex+7}][src]`})
+    $(`#item_images_attributes_${targetIndex+8}_id`).attr({id:`item_images_attributes_${targetIndex+7}_id`, name:`item[images_attributes][${targetIndex+7}][id]`})
 
   // 画像入力欄が0個にならないようにしておく
   if ($('.js-file').length == 0) $('.preview-box').append(buildFileField(fileIndex[0]));
