@@ -44,9 +44,29 @@ a{
         font-weight: bold;
         margin-bottom: 20px;
       }
-      &-main{
+      &--area{
         @include img_width;
+        position: relative;
+        &--solad{
+          position: absolute;
+          top: 0;
+          left: 0;
+          border: 100px solid;
+          border-color: red transparent transparent red;
+          z-index: 100;
+          .solad-title{
+            transform: rotate(-45deg);
+            margin: -90px -90px;
+            color: #fff;
+            font-weight: bold;
+            font-size:30px;
+          }
+        }
+        &--main{
+          @include img_width;
+        }
       }
+      
       ul{
         @include img_width;
         padding-left:10px;

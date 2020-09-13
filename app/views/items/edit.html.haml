@@ -23,41 +23,41 @@
                 .prev-img-data-upper
                   - @item.images.each_with_index do |image,i|
                     - if i< 5
-                      .image-box__content{data: { index: i }}
-                        .prev-img-data{"data-index": "#{i}"}
-                          %img{"data-index": "#{i}", height: "110px", src: image.src_url, width: "110px"}/
-                          %label.js-edit{:for => "item_images_attributes_#{i}_src"} 編集
+                      .prev-img-data{"data-index": "#{i}"}
+                        %img{"data-index": "#{i}", height: "110px", src: image.src_url, width: "110px",}/
+                        %label.js-edit{:for => "item_images_attributes_#{i}_src",id:"js-edit_#{i}"} 編集
+                        -if i > 0
                           %label.js-remove 削除
                 -if @item.images.count <= 5       
                   #div{class:"label-upper-content-#{@item.images.count}"}
-                    %label{for: "item_images_attributes_#{@item.images.count}_src", class: "label-box", id: "label-box--#{@item.images.count}"}
+                    %label{for: "item_images_attributes_#{@item.images.count}_src", class: "label-box", id: "label-box--0"}
                       %pre.label-box__text-visible クリックしてファイルをアップロード
                 -else
                   #div{class:"label-upper-content-5"}
-                    %label{for: "item_images_attributes_#{@item.images.count}_src", class: "label-box", id: "label-box--#{@item.images.count}"}
+                    %label{for: "item_images_attributes_#{@item.images.count}_src", class: "label-box", id: "label-box--0"}
                       %pre.label-box__text-visible クリックしてファイルをアップロード
               .lower-box
                 .prev-img-data-lower
                   - @item.images.each_with_index do |image,i|
                     -if i >=5
-                      .image-box__content{data: { index: i }}
-                        .prev-img-data{"data-index": "#{i}"}
-                          %img{"data-index": "#{i}", height: "110px", src: image.src_url, width: "110px"}/
-                          %label.js-edit{for: "item_images_attributes_#{i}_src"} 編集
-                          .js-remove 削除
+                      .prev-img-data{"data-index": "#{i}"}
+                        %img{"data-index": "#{i}", height: "110px", src: image.src_url, width: "110px",class:"label-image_#{i}"}/
+                        %label.js-edit{for: "item_images_attributes_#{i}_src",id:"js-edit_#{i}"} 編集
+                        %label.js-remove 削除
                 -if @item.images.count <= 5 
                   #div{class:"label-lower-content-4"} 
-                    %label{for: "item_images_attributes_#{4}_src", class: "label-box", id: "label-box--#{4}"}
+                    %label{for: "item_images_attributes_#{4}_src", class: "label-box", id: "label-box--1"}
                       %pre.label-box__text-visible クリックしてファイルをアップロード
                 - else
                   #div{class:"label-lower-content-#{@item.images.count}"} 
-                    %label{for: "item_images_attributes_#{@item.images.count}_src", class: "label-box", id: "label-box--#{@item.images.count}"}
+                    %label{for: "item_images_attributes_#{@item.images.count}_src", class: "label-box", id: "label-box--1"}
                       %pre.label-box__text-visible クリックしてファイルをアップロード 
 
               .hidden-content
                 = form.fields_for :images do |image|
                   .js-file_group{"data-index": "#{image.index}"}
                     = image.file_field :src, accept: "image/*", class: "js-file", data: {index: image.index}, id: "item_images_attributes_#{image.index}_src"
+                    
                 - if @item.persisted?
                   .js-file_group{"data-index": "#{@item.images.count}"}
                     = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file',id: "item_images_attributes_#{@item.images.count}_src"
