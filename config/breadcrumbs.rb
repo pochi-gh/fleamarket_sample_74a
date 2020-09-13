@@ -51,7 +51,8 @@ crumb :items_new do
 end
 
 crumb :item_show do
-  link "商品の詳細ページ", item_path, method: :get
+  @item = Item.find(params[:id])
+  link "商品の詳細ページ", item_path(@item)
 end
 
 crumb :item_edit do
@@ -68,5 +69,7 @@ crumb :register_card do
   link "クレジットカード登録ページ", new_credit_card_path, method: :get
   parent :mypage
 end
+
+
 
 
