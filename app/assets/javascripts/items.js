@@ -92,13 +92,9 @@ $('.preview-box').on('click', '.js-remove', function() {
   if (count<5){
 
     $(`.label-upper-content-${count}`).attr('class', `label-upper-content-${count - 1}`)
-
     $("#label-box--0").attr('for', `item_images_attributes_${count - 1}_src`)
     $(`.js-file_group[data-index="${targetIndex}"]`).remove();
     $(`#item_images_attributes_${targetIndex}_id`).remove();
-
-
-   
   }else if(count ==5){
     $(`.label-upper-content-${count}`).attr('class', `label-upper-content-${count - 1}`)
     $("#label-box--0").attr('for', `item_images_attributes_${count - 1}_src`)
@@ -112,11 +108,8 @@ $('.preview-box').on('click', '.js-remove', function() {
     $(`.prev-img-data[data-index=5]`).remove();
     $('.prev-img-data-upper').append(buildImg(5, src));
     $("#label-box--1").attr('for', `item_images_attributes_${count - 1}_src`)
-    
-    
     $(`.label-lower-content-${count}`).attr('class', `label-lower-content-${count- 1 }`)
-
-
+    $(`.js-file_group[data-index="${targetIndex}"]`).remove();
   }else{
     $(`.label-lower-content-${count}`).attr('class', `label-lower-content-${count - 1}`)
     $("#label-box--1").attr('for', `item_images_attributes_${count - 1}_src`)
