@@ -10,7 +10,7 @@
           %p.item__info__area--title
             コメントした商品
             - @comments.each do |comment|
-              - last_comment = Comment.order(created_at: :desc).find_by(item_id: 1)
+              - last_comment = Comment.order(created_at: :desc).find_by(item_id: comment.item.id)
               .item__info__area__box
                 = link_to "",item_path(comment.item.id),class:"purchase_link"
                 - image = Image.find_by(item_id: comment.item.id)
