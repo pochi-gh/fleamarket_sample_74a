@@ -22,12 +22,10 @@ const buildImg = (index, url)=> {
 let fileIndex = [1,2,3,4,5,6,7,8,9,10];
 
 lastIndex = $('.js-file_group:last').data('index');
-fileIndex.splice(0, lastIndex);
-
 $('.hidden-content').on('change', '.js-file', function(e) {
   
-
   const targetIndex = $(this).parent().data('index');
+  
   // ファイルのブラウザ上でのURLを取得する
   const file = e.target.files[0];
   const blobUrl = window.URL.createObjectURL(file);
@@ -38,7 +36,8 @@ $('.hidden-content').on('change', '.js-file', function(e) {
   } else {  // 新規画像追加の処理
     if (targetIndex <4){
       var img = $('.prev-img-data').length;
-      $('.prev-img-data-upper').append(buildImg(targetIndex, blobUrl));
+      fileIndex.splice(0, lastIndex);
+      $('.prev-img-data-upper').append(buildImg(img, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
 
       $('.hidden-content').append(buildFileField(img + 1 ));
@@ -47,8 +46,8 @@ $('.hidden-content').on('change', '.js-file', function(e) {
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
       // ファイル選択エリアのクラス名を変更
 
-      $('.label-box').attr({for: `item_images_attributes_${targetIndex +1}_src`});
-      $(`.label-upper-content-${targetIndex}`).attr('class', `label-upper-content-${targetIndex + 1}`)
+      $('.label-box').attr({for: `item_images_attributes_${img +1}_src`});
+      $(`.label-upper-content-${img}`).attr('class', `label-upper-content-${img+ 1}`)
     }else if(targetIndex ==4){
       var img = $('.prev-img-data').length;
       $('.prev-img-data-upper').append(buildImg(targetIndex, blobUrl));
@@ -85,15 +84,15 @@ $('.preview-box').on('click', '.js-remove', function() {
   if (hiddenCheck) hiddenCheck.prop('checked', true);
 
   var count = $('.prev-img-data').length;
-
   $(this).parent().remove();
-  
+
   $(`img[data-index="${targetIndex}"]`).remove();
 
 
   if (count<5){
 
     $(`.label-upper-content-${count}`).attr('class', `label-upper-content-${count - 1}`)
+
     $("#label-box--0").attr('for', `item_images_attributes_${count - 1}_src`)
     $(`.js-file_group[data-index="${targetIndex}"]`).remove();
     $(`#item_images_attributes_${targetIndex}_id`).remove();
