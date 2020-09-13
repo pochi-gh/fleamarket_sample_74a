@@ -183,6 +183,13 @@ $('.preview-box').on('click', '.js-remove', function() {
     $(`#item_images_attributes_${targetIndex+8}_src`).attr({id:`item_images_attributes_${targetIndex+7}_src`, name:`item[images_attributes][${targetIndex+7}][src]`})
     $(`#item_images_attributes_${targetIndex+8}_id`).attr({id:`item_images_attributes_${targetIndex+7}_id`, name:`item[images_attributes][${targetIndex+7}][id]`})
 
+    $(`.prev-img-data[data-index="${targetIndex+9}"]`).attr('data-index', `${targetIndex+8}`)
+    $(`.label-image_${targetIndex+9}`).attr('data-index', `${targetIndex+8}`)
+    $(`.label-image_${targetIndex+9}`).attr('class', `label-image_${targetIndex+8}`)
+    $(`#js-edit_${targetIndex+9}`).attr({id:`#js-edit_${targetIndex+8}`, for:`item_images_attributes_${targetIndex+8}_src`})
+    $(`.js-file_group[data-index="${targetIndex+9}"]`).attr('data-index', `${targetIndex+8}`)
+    $(`#item_images_attributes_${targetIndex+9}_src`).attr({id:`item_images_attributes_${targetIndex+8}_src`, name:`item[images_attributes][${targetIndex+8}][src]`})
+    $(`#item_images_attributes_${targetIndex+9}_id`).attr({id:`item_images_attributes_${targetIndex+8}_id`, name:`item[images_attributes][${targetIndex+8}][id]`})
   // 画像入力欄が0個にならないようにしておく
   if ($('.js-file').length == 0) $('.preview-box').append(buildFileField(fileIndex[0]));
 });
