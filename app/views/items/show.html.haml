@@ -38,9 +38,12 @@
           %th 
             カテゴリー
           %td
-            = @item.category.parent.parent.name
-            = @item.category.parent.name
-            = @item.category.name
+            .category
+              = @item.category.parent.parent.name
+            .category
+              = @item.category.parent.name
+            .category
+              = @item.category.name
         %tr  
           %th 
             ブランド

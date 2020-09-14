@@ -10,14 +10,15 @@
           %h2
             = @nickname
         .main-information__showMypage-contents1__right__lower
-          .main-information__showMypage-contents1__right__lower__review
-            %ul.showMypage-review-itemsBox
-              %li 評価
-              %li 4.0
+          -# .main-information__showMypage-contents1__right__lower__review
+            -# %ul.showMypage-review-itemsBox
+            -#   %li 評価
+            -#   %li 4.0
           .main-information__showMypage-contents1__right__lower__items
             %ul.showMypage-review-itemsBox
               %li 出品数
-              %li 0
+              %li 
+                = @items.length
   = link_to edit_user_registration_path do
     .nickname_change
       ニックネームを変更する
