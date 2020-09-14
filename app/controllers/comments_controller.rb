@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_categorys
-
+  before_action :move_to_index_for_coment,only:[:edit, :update]
   def create
     comment = Comment.new(comment_params)
     if comment.valid?
@@ -49,5 +49,10 @@ class CommentsController < ApplicationController
   def set_categorys
     @categories = Category.all  
   end
-  
+
+  def move_to_index_for_coment
+    comment = Comment.find(params[:id])
+    redirect_to items_path unless comment.user.id == current_user.id
+  end
+
 end
