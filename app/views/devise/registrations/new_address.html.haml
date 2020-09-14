@@ -8,22 +8,22 @@
     = form_with(model: @address, local: true) do |f|
       = render "devise/shared/error_messages", resource: @address
       .field
-        = f.label :destination_last_name, "送付先の住所の苗字(全角)"
+        = f.label :destination_last_name, "送付先の苗字(全角)"
         %span.require 必須
         %br/
         = f.text_field :destination_last_name
       .field
-        = f.label :destination_first_name, "送付先の住所の名前(全角)"
+        = f.label :destination_first_name, "送付先の名前(全角)"
         %span.require 必須
         %br/
         = f.text_field :destination_first_name
       .field
-        = f.label :destination_last_name_kana, "送付先の住所の苗字(全角カナ)"
+        = f.label :destination_last_name_kana, "送付先の苗字(全角カナ)"
         %span.require 必須
         %br/
         = f.text_field :destination_last_name_kana
       .field
-        = f.label :destination_first_name_kana, "送付先の住所の名前(全角カナ)"
+        = f.label :destination_first_name_kana, "送付先の名前(全角カナ)"
         %span.require 必須
         %br/
         = f.text_field :destination_first_name_kana
