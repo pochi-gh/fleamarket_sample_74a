@@ -5,11 +5,15 @@
         = image_tag 'furima.svg'
   %h2.sign-up__title 新規会員登録
   .sns_sign-up
-    Facebookやgoogleのアカウントを用いて新規登録ができます
+    %p Facebookやgoogleのアカウントを用いて新規登録ができます
     %br/
-    = link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post
+    = link_to user_facebook_omniauth_authorize_path, method: :post do
+      .sign-in__facebook
+        Facebookで登録
     %br/
-    = link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post
+    = link_to  user_google_oauth2_omniauth_authorize_path, method: :post do
+      .sign-in__google
+        Googleで登録
   .form__sign-up
     = form_with(model: @user, url: user_registration_path, local: true) do |f|
       = render "devise/shared/error_messages", resource: resource
