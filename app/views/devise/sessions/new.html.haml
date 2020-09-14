@@ -25,6 +25,8 @@
             .actions
               = f.submit "ログイン", class: 'login-btn'
       .sns_login
+        .sns_info
+          %span.require ローカルのみ対応です
         = link_to user_facebook_omniauth_authorize_path, method: :post do
           .sns_login__facebook
             Facebookでログイン
