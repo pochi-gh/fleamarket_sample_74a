@@ -4,6 +4,9 @@
       = link_to root_path do
         = image_tag 'furima.svg'
   %h2.sign-up__title 新規会員登録
+  .sns_sign-up
+    Facebookのアカウントを用いて新規登録ができます
+    = link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post
   .form__sign-up
     = form_with(model: @user, url: user_registration_path, local: true) do |f|
       = render "devise/shared/error_messages", resource: resource
