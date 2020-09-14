@@ -7,56 +7,56 @@ describe Address do
     it "destination_first_nameがない場合は登録できないこと" do
       address = build(:address, destination_first_name: nil)
       address.valid?
-      expect(address.errors[:destination_first_name]).to include("can't be blank")
+      expect(address.errors[:destination_first_name]).to include("を入力してください")
     end
 
     # 2
     it "destination_last_nameがない場合は登録できないこと" do
       address = build(:address, destination_last_name: nil)
       address.valid?
-      expect(address.errors[:destination_last_name]).to include("can't be blank")
+      expect(address.errors[:destination_last_name]).to include("を入力してください")
     end
 
     # 3
     it "destination_first_name_kanaがない場合は登録できないこと" do
       address = build(:address, destination_first_name_kana: nil)
       address.valid?
-      expect(address.errors[:destination_first_name_kana]).to include("can't be blank")
+      expect(address.errors[:destination_first_name_kana]).to include("を入力してください")
     end
 
     # 4
     it "destination_last_name_kanaがない場合は登録できないこと" do
       address = build(:address, destination_last_name_kana: nil)
       address.valid?
-      expect(address.errors[:destination_last_name_kana]).to include("can't be blank")
+      expect(address.errors[:destination_last_name_kana]).to include("を入力してください")
     end
 
     # 5
     it "postal_codeがない場合は登録できないこと" do
       address = build(:address, postal_code: nil)
       address.valid?
-      expect(address.errors[:postal_code]).to include("can't be blank")
+      expect(address.errors[:postal_code]).to include("を入力してください")
     end
 
     # 6
     it "prefecture_idがない場合は登録できないこと" do
       address = build(:address, prefecture_id: nil)
       address.valid?
-      expect(address.errors[:prefecture_id]).to include("can't be blank")
+      expect(address.errors[:prefecture_id]).to include("を入力してください")
     end
 
     # 7
     it "cityがない場合は登録できないこと" do
       address = build(:address, city: nil)
       address.valid?
-      expect(address.errors[:city]).to include("can't be blank")
+      expect(address.errors[:city]).to include("を入力してください")
     end
 
     # 8
     it "blockがない場合は登録できないこと" do
       address = build(:address, block: nil)
       address.valid?
-      expect(address.errors[:block]).to include("can't be blank")
+      expect(address.errors[:block]).to include("を入力してください")
     end
 
     # 9

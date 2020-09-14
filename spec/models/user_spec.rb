@@ -7,56 +7,56 @@ describe User do
     it "nikcnameがない場合は登録できないこと" do
       user = build(:user, nickname: nil)
       user.valid?
-      expect(user.errors[:nickname]).to include("can't be blank")
+      expect(user.errors[:nickname]).to include("を入力してください")
     end
 
     # 2
     it "emailがない場合は登録できないこと" do
       user = build(:user, email: nil)
       user.valid?
-      expect(user.errors[:email]).to include("can't be blank")
+      expect(user.errors[:email]).to include("を入力してください", "は不正な値です")
     end
 
     # 3
     it "first_nameがない場合は登録できないこと" do
       user = build(:user, first_name: nil)
       user.valid?
-      expect(user.errors[:first_name]).to include("can't be blank")
+      expect(user.errors[:first_name]).to include("は不正な値です", "を入力してください")
     end
 
     # 4
     it "last_nameがない場合は登録できないこと" do
       user = build(:user, last_name: nil)
       user.valid?
-      expect(user.errors[:last_name]).to include("can't be blank")
+      expect(user.errors[:last_name]).to include("は不正な値です", "を入力してください")
     end
 
     # 5
     it "first_name_kanaがない場合は登録できないこと" do
       user = build(:user, first_name_kana: nil)
       user.valid?
-      expect(user.errors[:first_name_kana]).to include("can't be blank")
+      expect(user.errors[:first_name_kana]).to include("は不正な値です", "を入力してください")
     end
 
     # 6
     it "last_name_kanaがない場合は登録できないこと" do
       user = build(:user, last_name_kana: nil)
       user.valid?
-      expect(user.errors[:last_name_kana]).to include("can't be blank")
+      expect(user.errors[:last_name_kana]).to include("は不正な値です", "を入力してください")
     end
 
     # 7
     it "birthdayがない場合は登録できないこと" do
       user = build(:user, birthday: nil)
       user.valid?
-      expect(user.errors[:birthday]).to include("can't be blank")
+      expect(user.errors[:birthday]).to include("を入力してください")
     end
 
     # 8
     it "passwordが存在してもpassword_confirmationがない場合は登録できないこと" do
       user = build(:user, password_confirmation: "")
       user.valid?
-      expect(user.errors[:password_confirmation]).to include("doesn't match Password")
+      expect(user.errors[:password_confirmation]).to include("とパスワードの入力が一致しません")
     end
 
     # 9
@@ -64,7 +64,7 @@ describe User do
       user = create(:user)
       another_user = build(:user, email: user.email)
       another_user.valid?
-      expect(another_user.errors[:email]).to include("has already been taken")
+      expect(another_user.errors[:email]).to include("はすでに存在します")
     end
 
     # 10
@@ -77,7 +77,7 @@ describe User do
     it " passwordが6文字以下であれば登録できないこと " do
       user = build(:user, password: "123456", password_confirmation: "123456")
       user.valid?
-      expect(user.errors[:password]).to include("is too short (minimum is 7 characters)")
+      expect(user.errors[:password]).to include("は7文字以上で入力してください")
     end
 
     # 12
