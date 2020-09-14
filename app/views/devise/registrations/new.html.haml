@@ -45,20 +45,37 @@
         %span.require 必須
         %br/
         = f.email_field :email, autofocus: true, autocomplete: "email"
-      .field
-        = f.label :password, "パスワード"
-        - if @minimum_password_length
-          %em
-            (#{@minimum_password_length} 文字以上入力してください)
-        %span.require 必須
-        %br/
-        = f.password_field :password, autocomplete: "new-password"
-      .field
-        = f.label :password_confirmation, "パスワード(確認用)"
-        %span.require 必須
-        %span (確認のためもう一度入力してください)
-        %br/
-        = f.password_field :password_confirmation, autocomplete: "new-password"
+      -# .field
+      -#   = f.label :password, "パスワード"
+      -#   - if @minimum_password_length
+      -#     %em
+      -#       (#{@minimum_password_length} 文字以上入力してください)
+      -#   %span.require 必須
+      -#   %br/
+      -#   = f.password_field :password, autocomplete: "new-password"
+      -# .field
+      -#   = f.label :password_confirmation, "パスワード(確認用)"
+      -#   %span.require 必須
+      -#   %span (確認のためもう一度入力してください)
+      -#   %br/
+      -#   = f.password_field :password_confirmation, autocomplete: "new-password"
+      - if @sns_id.present?
+        = hidden_field_tag :sns_auth, true
+      - else
+        .field
+          = f.label :password, "パスワード"
+          - if @minimum_password_length
+            %em
+              (#{@minimum_password_length} 文字以上入力してください)
+          %span.require 必須
+          %br/
+          = f.password_field :password, autocomplete: "new-password"
+        .field
+          = f.label :password_confirmation, "パスワード(確認用)"
+          %span.require 必須
+          %span (確認のためもう一度入力してください)
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password"
       .actions
         = f.submit "次へ", class: "actions__btn"
 = render partial: "template/banner"
