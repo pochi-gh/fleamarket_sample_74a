@@ -5,6 +5,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     authorization
   end
 
+  def google_oauth2
+    authorization
+  end
+
   def failure
     redirect_to root_path
   end
