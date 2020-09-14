@@ -26,6 +26,8 @@
               = f.submit "ログイン", class: 'login-btn'
       .sns_login
         = link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post
+        %br/
+        = link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post
 
   %footer.login-page-footer
     %ul.footer-links
