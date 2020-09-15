@@ -24,6 +24,16 @@
               = f.password_field :password, autocomplete: "off", placeholder: 'パスワード'
             .actions
               = f.submit "ログイン", class: 'login-btn'
+      .sns_login
+        .sns_info
+          %span.require ローカルのみ対応です
+        = link_to user_facebook_omniauth_authorize_path, method: :post do
+          .sns_login__facebook
+            Facebookでログイン
+        %br/
+        = link_to user_google_oauth2_omniauth_authorize_path, method: :post do
+          .sns_login__google
+            Googleでログイン
 
   %footer.login-page-footer
     %ul.footer-links

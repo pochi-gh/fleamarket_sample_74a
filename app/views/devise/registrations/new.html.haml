@@ -4,6 +4,17 @@
       = link_to root_path do
         = image_tag 'furima.svg'
   %h2.sign-up__title 新規会員登録
+  .sns_sign-up
+    %p Facebookやgoogleのアカウントを用いて新規登録ができます
+    %span.require ローカルのみ対応です
+    %br/
+    = link_to user_facebook_omniauth_authorize_path, method: :post do
+      .sign-in__facebook
+        Facebookで登録
+    %br/
+    = link_to  user_google_oauth2_omniauth_authorize_path, method: :post do
+      .sign-in__google
+        Googleで登録
   .form__sign-up
     = form_with(model: @user, url: user_registration_path, local: true) do |f|
       = render "devise/shared/error_messages", resource: resource
@@ -42,20 +53,23 @@
         %span.require 必須
         %br/
         = f.email_field :email, autofocus: true, autocomplete: "email"
-      .field
-        = f.label :password, "パスワード"
-        - if @minimum_password_length
-          %em
-            (#{@minimum_password_length} 文字以上入力してください)
-        %span.require 必須
-        %br/
-        = f.password_field :password, autocomplete: "new-password"
-      .field
-        = f.label :password_confirmation, "パスワード(確認用)"
-        %span.require 必須
-        %span (確認のためもう一度入力してください)
-        %br/
-        = f.password_field :password_confirmation, autocomplete: "new-password"
+      - if @sns_id.present?
+        = hidden_field_tag :sns_auth, true
+      - else
+        .field
+          = f.label :password, "パスワード"
+          - if @minimum_password_length
+            %em
+              (#{@minimum_password_length} 文字以上入力してください)
+          %span.require 必須
+          %br/
+          = f.password_field :password, autocomplete: "new-password"
+        .field
+          = f.label :password_confirmation, "パスワード(確認用)"
+          %span.require 必須
+          %span (確認のためもう一度入力してください)
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password"
       .actions
         = f.submit "次へ", class: "actions__btn"
 = render partial: "template/banner"

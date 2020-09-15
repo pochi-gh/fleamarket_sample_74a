@@ -6,49 +6,49 @@ describe Item do
     it "nameがない場合は登録できないこと" do
       item = build(:item, name: nil)
       item.valid?
-      expect(item.errors[:name]).to include("can't be blank")
+      expect(item.errors[:name]).to include("を入力してください")
     end
 
     #2
     it "explainがない場合は登録できないこと" do
       item = build(:item, explain: nil)
       item.valid?
-      expect(item.errors[:explain]).to include("can't be blank")
+      expect(item.errors[:explain]).to include("を入力してください")
     end
 
     #3
     it "category_idがない場合は登録できないこと" do
       item = build(:item, category_id: nil)
       item.valid?
-      expect(item.errors[:category_id]).to include("can't be blank")
+      expect(item.errors[:category_id]).to include("を入力してください")
     end
 
     #4
     it "shipping_burden_idがない場合は登録できないこと" do
       item = build(:item, shipping_burden_id: nil)
       item.valid?
-      expect(item.errors[:shipping_burden_id]).to include("can't be blank")
+      expect(item.errors[:shipping_burden_id]).to include("を入力してください")
     end
 
     #5
     it "prefecture_idがない場合は登録できないこと" do
       item = build(:item, prefecture_id: nil)
       item.valid?
-      expect(item.errors[:prefecture_id]).to include("can't be blank")
+      expect(item.errors[:prefecture_id]).to include("を入力してください")
     end
 
     #6
     it "shipping_day_idがない場合は登録できないこと" do
       item = build(:item, shipping_day_id: nil)
       item.valid?
-      expect(item.errors[:shipping_day_id]).to include("can't be blank")
+      expect(item.errors[:shipping_day_id]).to include("を入力してください")
     end
 
     #7
     it "priceがない場合は登録できないこと" do
       item = build(:item, price: nil)
       item.valid?
-      expect(item.errors[:price]).to include("can't be blank")
+      expect(item.errors[:price]).to include("を入力してください")
     end
 
     #8
@@ -59,17 +59,17 @@ describe Item do
       expect(item).to be_valid
     end
 
-    #8
+    #9
     it "nameが41文字だと登録できないこと" do
       user = create(:user)
       category = create(:category)
 
       item = build(:item, name: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
 
-      expect(item).to be_valid
+      expect(item.errors[:name]).to include()
     end
 
-    #9
+    #10
     it "explainが1000文字でも登録できること" do
       user = create(:user)
       category = create(:category)
@@ -84,7 +84,7 @@ describe Item do
       user = create(:user)
       category = create(:category)
       item = build(:item, explain: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
-      expect(item).to be_valid
+      expect(item.errors[:explain]).to include()
     end
 
 
@@ -93,7 +93,7 @@ describe Item do
       user = create(:user)
       category = create(:category)
       item = build(:item, price: "299",seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
-      expect(item).to be_valid
+      expect(item.errors[:price]).to include()
     end
 
     #13
@@ -115,13 +115,13 @@ describe Item do
     end
 
     #15
-    it "priceが10000000だと登録できない" do
+    it "priceが10000000だと登録できないこと" do
       user = create(:user)
       category = create(:category)
 
       item = build(:item, price: "10000000",seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
 
-      expect(item).to be_valid
+      expect(item.errors[:price]).to include()
     end
 
     #16
@@ -150,7 +150,7 @@ describe Item do
       category = create(:category)
       item = build(:item,seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
       item.name = nil
-      expect(item).to be_valid
+      expect(item.errors[:name]).to include()
     end
 
     #3
@@ -159,7 +159,7 @@ describe Item do
       category = create(:category)
       item = build(:item,seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
       item.explain = nil
-      expect(item).to be_valid
+      expect(item.errors[:explain]).to include()
     end
 
     #4
@@ -168,7 +168,7 @@ describe Item do
       category = create(:category)
       item = build(:item,seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
       item.category_id = nil
-      expect(item).to be_valid
+      expect(item.errors[:category_id]).to include()
     end
 
     #5
@@ -177,7 +177,7 @@ describe Item do
       category = create(:category)
       item = build(:item,seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
       item.shipping_burden_id = nil
-      expect(item).to be_valid
+      expect(item.errors[:shipping_burden_id]).to include()
     end
 
     #6
@@ -186,7 +186,7 @@ describe Item do
       category = create(:category)
       item = build(:item,seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
       item.prefecture_id = nil
-      expect(item).to be_valid
+      expect(item.errors[:prefecture_id]).to include()
     end
 
     #7
@@ -195,7 +195,7 @@ describe Item do
       category = create(:category)
       item = build(:item,seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
       item.shipping_day_id = nil
-      expect(item).to be_valid
+      expect(item.errors[:shipping_day_id]).to include()
     end
 
     #8
@@ -204,7 +204,7 @@ describe Item do
       category = create(:category)
       item = build(:item,seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
       item.price = nil
-      expect(item).to be_valid
+      expect(item.errors[:price]).to include()
     end
 
     #9
@@ -222,7 +222,7 @@ describe Item do
       category = create(:category)
       item = build(:item,seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
       item.name = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-      expect(item).to be_valid
+      expect(item.errors[:name]).to include()
     end
 
     #11
@@ -240,7 +240,7 @@ describe Item do
       category = create(:category)
       item = build(:item,seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
       item.explain = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-      expect(item).to be_valid
+      expect(item.errors[:explain]).to include()
     end
 
 
@@ -250,11 +250,11 @@ describe Item do
       category = create(:category)
       item = build(:item,seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
       item.price = "299"
-      expect(item).to be_valid
+      expect(item.errors[:price]).to include()
     end
 
     #14
-    it "priceが300ちょうどだと登録できる" do
+    it "priceが300ちょうどだと登録できること" do
       user = create(:user)
       category = create(:category)
       item = build(:item,seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
@@ -263,7 +263,7 @@ describe Item do
     end
 
     #15
-    it "priceが9999999だと登録できる" do
+    it "priceが9999999だと登録できること" do
       user = create(:user)
       category = create(:category)
       item = build(:item,seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
@@ -277,7 +277,7 @@ describe Item do
       category = create(:category)
       item = build(:item,seller_id: user[:id],seller_id: user[:id], category_id: category[:id])
       item.price = "10000000"
-      expect(item).to be_valid
+      expect(item.errors[:price]).to include()
     end
   end
 end
