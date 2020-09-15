@@ -82,6 +82,15 @@ class ItemsController < ApplicationController
     @items = Item.where(category: @item.category_id).where.not(id: @item.id).order(created_at: :desc).limit(3)
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    if @item.destroy
+      redirect_to root_path
+    else
+      render :show
+    end 
+  end
+
   def confirm
     @item = Item.find(params[:id])
     @image = Image.find_by(item_id: params[:id])
