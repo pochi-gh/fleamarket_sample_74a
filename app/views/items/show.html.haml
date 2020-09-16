@@ -86,7 +86,7 @@
             .item_show-wrapper__main__seller__edit
               = link_to "編集する",edit_item_path(@item.id),class:"item_show-wrapper__main__seller__edit--btn"
             .item_show-wrapper__main__seller__delete
-              = link_to "出品を取り消す","#",class:"item_show-wrapper__main__seller__delete--btn"
+              = link_to "出品を取り消す", item_path(@item.id), method: :delete ,class:"item_show-wrapper__main__seller__delete--btn"
       - elsif user_signed_in?
         = link_to "購入画面に進む",confirm_item_path(@item.id),class:"item_show-wrapper__main__buy--btn"
       - else
