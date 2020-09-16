@@ -91,7 +91,6 @@ class ItemsController < ApplicationController
   end
 
   def confirm
-    @item = Item.find(params[:id])
     @image = Image.find_by(item_id: params[:id])
     @user = User.find(current_user.id)
     if @card
