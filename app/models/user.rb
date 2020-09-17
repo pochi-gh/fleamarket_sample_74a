@@ -15,10 +15,10 @@ class User < ApplicationRecord
     format: { with: /\A([ぁ-んァ-ン一-龥]|ー)+\z/},
     presence: true
   validates :first_name_kana,
-    format: { with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/},
+    format: { with: /\A[\p{katakana} ー－&&[^ -~｡-ﾟ]]+\z/},
     presence: true
   validates :last_name_kana,
-    format: { with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/},
+    format: { with: /\A[\p{katakana} ー－&&[^ -~｡-ﾟ]]+\z/},
     presence: true
   validates :birthday,
     presence: true
