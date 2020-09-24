@@ -92,7 +92,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |photo|text|null: false|
-|items|references|null: false, foreing_key: true|
+|src|references|null: false, foreing_key: true|
 
 ### Association
 - belongs_to: item
@@ -143,30 +143,6 @@
 - belongs_to: user
 
 
-
-
-## likesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false, foreing_key: true|
-|item_id|references|null: false, foreing_key: true|
-
-### Association
-- belongs_to: item
-- belongs_to: user
-
-
-
-
-## favoritesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false, foreing_key: true|
-|item_id|references|null: false, foreing_key: true|
-
-### Association
-- belongs_to: item
-- belongs_to: user
 
 
 ## sns_authentcationsテーブル
